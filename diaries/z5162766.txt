@@ -1,0 +1,12 @@
+Week 1 
+We formed the group. The scrum master (Yush) created the Jira account and organised our meeting on teams.
+We split the user stories up and we each have aims to finish them before our meeting on Monday.
+
+
+Week 2
+We had a meeting on Monday on Teams, where we discussed User stories and planned what language/tools we will use for the assignment (PHP,Bootstrap,MySQL).
+During our meeting we started to discuss the proposal and we split it up so i have been assigned Technical depth- Storyboards/Prototyping. 
+We are confused on what is meant by Storyboard - we will ask Rachid our tutor.
+On Wednesday i finished uploading my user stories (Movie page & Film search) and their corresponding acceptance criteria to Jira.
+We joined the github classroom on Wednesday.
+
