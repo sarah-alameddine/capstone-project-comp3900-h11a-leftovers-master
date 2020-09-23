@@ -1,0 +1,14 @@
+Week 1:
+    - Formed project group, chose Film Finder project and assigned Scrum master role (myself). 
+    - Scheduled a product backlog refinement meeting for Monday 21st September @2pm. 
+    - Assessed each other's strengths/weaknesses, familiarity with programming languages, and strategised plan for overall project as well as discussion of additional features to potentially add.
+    - Decided MS Teams as key communications tool, created shared document highlighting project components and assigned components to each person. Each person to brainstorm user stories for their component which will be collated and refined on Monday meeting.
+
+Week 2:
+Monday 21st September 
+    - had meeting from 2-4:30pm. Examined and refined each other's user stories, added epics + acceptance criterias. 
+    - Decided on 1 week sprints and created sprints on Jira, and performed sprint planning for Sprint 1. 
+    - Drafted structure for project proposal and sections were assigned to each member.
+    - Decided sprint planning meetings will be held on Sunday mornings, and due to the low possibility of holding daily stand-ups due to clashing uni timetables, decided that each member will post a short message in the Teams chat about their focus for the day. 
+
+
