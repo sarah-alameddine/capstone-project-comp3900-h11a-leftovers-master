@@ -1,0 +1,7 @@
+Week 1
+
+Group was formed. We had a discussion about what project we will choose. We ended up chooseing FilmFinder. We also scheduled a meeting to do the assignment on Week 2 Monday at 2PM. We also did a quick brainstorm of the rough functionalities we wanted our project to have.
+
+Week 2
+
+We met at 2PM on Monday. We discussed and wrote down as a group all the user stories we wanted and sorted these user stories into sprints. We also allocated the tasks were required to do in the report.
