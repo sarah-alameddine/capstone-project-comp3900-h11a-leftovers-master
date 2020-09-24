@@ -1,0 +1,24 @@
+WEEK 1
+
+Group formed during tutorial. Yush is the scrum master of the group. The group only has 4 members at the moment, hopeful my group will get extra 1 more member next week.
+
+FilmFinder is selected after a majority vote. Group name has not finalised yet.
+
+Ani created Jira and invited all members to join in. The plan for this week is to work on analysing the project and come up with user stories. MY part is to analyse and write user story for wishlist and banned list.
+
+On Monday week 2, we will meet again and go through all our work on the user story to make some changes if necessary and also to finalise user story.
+
+
+WEEK 2
+
+During meeting we went through our user stories and make some changes. We also add epic story to group our user story. 
+
+Finalise group name which is FilmFinity. We decided to do backend using PHP, mySQL; front-end will be developed through bootstrap as Ani recommend that way we don’t have to do lot of work in designing a website and also the platform is also portable in terms of desktop and mobile version.
+
+Ani created GitHub project for our group.
+
+Sprint is created. The project has 6 sprints in total with each sprint lasts for 7 days as we though 14 days is a bit long for flexibility for any changes/feedback. 
+
+I also finished working on acceptance criteria for user story (my part). The plan for this week is to finish up acceptance criteria for all user stories before Friday so we can discuss with tutor. 
+
+We also start structuring our proposal and assign tasks. I will do User stories & Sprints part in the proposal. 
