@@ -22,3 +22,11 @@ Sprint is created. The project has 6 sprints in total with each sprint lasts for
 I also finished working on acceptance criteria for user story (my part). The plan for this week is to finish up acceptance criteria for all user stories before Friday so we can discuss with tutor. 
 
 We also start structuring our proposal and assign tasks. I will do User stories & Sprints part in the proposal. 
+
+WEEK 3
+
+During the meeting, we went through what we have done so far. Aayus has almost finished background research and writing, however, she concerned about executive summary and competitor analysis; not to sure what to put for these parts, particularly competitor analysis. I went through user stories and novel functionality. I told the group that I have made some changes to the previous user stories and add some more in Jira to satisfy objectives. We also discussion on user story 20, 21,23 and 36 because those are quite vague. We also discussed over novel functionality and confirmed with advanced movie recommendation, informative homepage and playlist feature. We also came up with the achievements system as a novel functionality but this may need to be more discussion during tutorial because we don't want to overload. Ani went through his part about the platform architecture which has 3 layers namely front end, business layer and database layer. The programming languages and frameworks we are going to use for this project. We also identified that our platform will mainly has 3 type of actors which are visitor, user and admin. Sarah talked though her work on storyboards and the flow chart.
+
+For further work of this week, I will finish up the new user stories (acceptance criteria) and new novel functionality. Aayus will re-create the sprints because we changed from 7 days sprints to 14 days sprint so that the sprint can end of our demo day. Sarah will update her storyboards because we have added some novel functionality feature to the platform. Ani will start working on the front end to buy us some time. 
+
+We will also do a peer review after this week tutorial and finish up our proposal by Sunday.
