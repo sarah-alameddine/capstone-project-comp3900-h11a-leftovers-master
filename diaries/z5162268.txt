@@ -13,7 +13,14 @@ Monday 21st September
 
 Week 3:
     - Decided on 14-day sprints instead to allow higher capacity for user-stories before working product iteration is developed. 
-    - Updated sprint dates to include Sprint Review (lab demo)
-    - Updated/edited/finalised and submitted Project Proposal with team 
+    - Held meeting @4:30pm Tuesday 29th September  
+        - Reviewed each other's sections of work on the proposal 
+        - Assigned each other sections of the proposal for peer Review
+        - Aniket reviewed my section, I reviewed Sarah's storyboard
+    = Updated sprint dates to include Sprint Review (lab demo)
+    - Spent Thursday lab discussing feedback from peer reviewed sections. 
+    - Refined each other's parts and rest of the week was spent working on the proposal's formatting and overall consistency/flow 
+
+
 
 
