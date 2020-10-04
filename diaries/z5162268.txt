@@ -11,4 +11,9 @@ Monday 21st September
     - Drafted structure for project proposal and sections were assigned to each member.
     - Decided sprint planning meetings will be held on Sunday mornings, and due to the low possibility of holding daily stand-ups due to clashing uni timetables, decided that each member will post a short message in the Teams chat about their focus for the day. 
 
+Week 3:
+    - Decided on 14-day sprints instead to allow higher capacity for user-stories before working product iteration is developed. 
+    - Updated sprint dates to include Sprint Review (lab demo)
+    - Updated/edited/finalised and submitted Project Proposal with team 
+
 
