@@ -10,7 +10,7 @@ On Wednesday i finished uploading my user stories (Movie page & Film search) and
 We also organised the user stories into different sprints. 
 We joined the github classroom on Wednesday.
 
-Week 2
+Week 3
 We had a meeting on Tuesday, where we each person went over what they have done so far for the proposal, and we also split up the reviewing of the proposal.
 We aim to finish majority of the proposal by Friday, so the weekend can be used for formatting and adding the finishing touches.
 I still need to add the novel ideas to both my section of the proposal (storyboard and flowchart) and I need to review over the user stories 
