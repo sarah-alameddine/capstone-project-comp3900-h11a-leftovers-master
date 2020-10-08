@@ -9,3 +9,7 @@ We met at 2PM on Monday. We discussed and wrote down as a group all the user sto
 Week 3
 
 We met at 4:30PM on Tuesday to discuss our proposal work. We had all mostly completed most of our tasks. Thus, we reviewed the entire document as a whole and ironed out any big problematic issues. We then assigned each other a section of the proposal to peer review so we could peer review our own project document. I was assigeed Aayushma's Background section. I peer reviewed her section on Thursday. Xuan peer reviewed the Technical section which I wrote on Thursday too. Xuan peer reviewed my section and left comments where I could improve. I then applied those changes to the document on Thursday as well.
+
+Week 4
+
+We met on Thursday in the tutorial and discussed our first sprint more in-depth. We set some deadlines for when we wanted what card on jira to be finished as we needed to link some functionalities together. We also set a time to meet next week on Monday at 4:30pm. I also created a fairly finished database schema and started the code for the backend authenication functionality.
