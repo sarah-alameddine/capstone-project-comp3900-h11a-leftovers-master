@@ -1,0 +1,110 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <!-- Header and style sheet go here-->
+    <link rel="stylesheet" href="navStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>HomePage</title>
+</head>
+
+
+<body>
+
+    <!-- Header of the homepage -->
+    <div class="topnav">
+        <a href="homePage.html" title="Back to homepage">
+            <img src="images/logo.png" alt="logo" />
+        </a>
+        <!-- Search bar -->
+        <div class="search-container">
+            <form action="YOUR PHP FILE TO HANDLE SEARCH HERE">
+                <input type="text" class="search-bar" placeholder="Movies, Genre, Directors..." name="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+        <!-- Button to open the modal login form -->
+        <button class="login-button" onclick="document.getElementById('id01').style.display='block'">Login</button>
+        <div class="register-container">
+            <!-- The Modal -->
+            <div id="id01" class="modal">
+
+                <div class="modal-content">
+                    <div class="close-login">+</div>
+                    <img src="images/logo.png" class="modal-logo" alt="logo">
+                    <!-- Modal Content -->
+                    <form class="login-form" action="YOUR PHP FILE TO HANDLE LOGIN HERE">
+                        <input type="text" class="user-input" placeholder="Enter Username" name="uname" required>
+                        <input type="password" class="user-input" placeholder="Enter Password" name="psw" required>
+                        <button type="submit">Login</button>
+
+                        <input type="checkbox" checked="checked" name="remember"> Remember me
+                    </form>
+                    <a href="#">Forgot password? </a>
+                </div>
+            </div>
+        </div>
+        <!-- Register session -->
+        <button class="register-button" onclick="document.getElementById('id02').style.display='block'">Register</button>
+        <div class="login-container">
+            <!-- The Modal -->
+            <div id="id02" class="modal">
+
+                <div class="modal-content">
+                    <div class="close-register">+</div>
+                    <img src="images/logo.png" class="modal-logo" alt="logo">
+                    <!-- Modal Content -->
+                    <form class="login-form" action="YOUR PHP FILE TO HANDLE REGISTER HERE">
+                        <input type="text" class="user-input" placeholder="Enter Username" name="uname" required>
+                        <input type="text" class="user-input" placeholder="Enter Email" name="email" required>
+                        <input type="password" class="user-input" placeholder="Enter Password" name="psw" required>
+                        <input type="password" class="user-input" placeholder="Repeat Password" name="repeat-psw" required>
+                        <button type="submit">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+    <!-- Optional JavaScript -->
+    <script>// Get the modal to close
+        var modalLogin = document.getElementById('id01');
+        var modalRegister = document.getElementById('id02');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modalLogin) {
+                modalLogin.style.display = "none";
+            }
+            if (event.target == modalRegister) {
+                modalRegister.style.display = "none";
+            }
+        }
+        document.querySelector('.close-login').addEventListener('click', function () {
+            modalLogin.style.display = "none";
+            modalRegister.style.display = "none";
+        });
+
+        document.querySelector('.close-register').addEventListener('click', function () {
+            modalRegister.style.display = "none";
+        });
+
+    </script>
+
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+
+
+</html>
