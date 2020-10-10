@@ -1,5 +1,6 @@
 <?php
 
+date_default_timezone_set("Australia/Sydney");
 require_once(__DIR__ . '/Database.php');
 
 // Both username & email are registered
@@ -54,6 +55,29 @@ class Authentication {
 
     }
 
+    /*
+     * Log in the user
+     * @return user id, EMAIL_ILLEGAL, FALSE on incorrect password
+     */
+    public function login($email, $password) {
+
+        if (!$this->is_email_legal($email)) {
+            return EMAIL_ILLEGAL;
+        }
+
+        $info = $this->retrieve_user_login_info($email);
+        if ($info === FALSE) {
+            return FALSE;
+        }
+
+        if (password_verify($password, $info['password'])) {
+            return $info['id'];
+        }
+
+        return FALSE;
+
+
+    }
 
     /* ------------------- [ HELPER FUNCTIONS ] ------------------- */
 
@@ -113,13 +137,10 @@ class Authentication {
      */
     private function account_availability($username, $email) {
 
-        $username = strtolower($username);
-        $email = strtolower($email);
-
         $sql = "SELECT LOWER(username) as username, LOWER(email) as email
                 FROM users
-                WHERE LOWER(username) = ?
-                OR LOWER(email) = ?
+                WHERE LOWER(username) = LOWER(?)
+                OR LOWER(email) = LOWER(?)
                 LIMIT 2";
 
         $vals = array($username, $email);
@@ -172,7 +193,6 @@ class Authentication {
     private function insert_user($username, $email, $password,
                                  $registration_date, $is_admin) {
 
-        $email = strtolower($email);
         $registration_date = date("Y-m-d H:i:s", $registration_date);
         $password = $this->hash_password($password);
 
@@ -185,7 +205,7 @@ class Authentication {
 
         $sql = "INSERT IGNORE INTO users (username, email, password,
                                           registration_date, is_admin)
-                VALUES (?, ?, ?, ?, ?)";
+                VALUES (?, LOWER(?), ?, ?, ?)";
 
         $vals = array($username, $email, $password, $registration_date,
                       $is_admin);
@@ -195,6 +215,28 @@ class Authentication {
         $rows_inserted = $db->query($sql, $vals)->affectedRows();
         if ($rows_inserted == 1) return $db->lastInsertID();
         return ACCOUNT_ALREADY_REGISTERED;
+    }
+
+    /*
+     * @return associative array of id and password
+     */
+    private function retrieve_user_login_info($email) {
+        $sql = "SELECT id, password
+                FROM users
+                where LOWER(email) = LOWER(?)
+                LIMIT 1";
+
+        $vals = array($email);
+
+        $db = new Database();
+        if ($db->has_error()) return DATABASE_ERROR;
+        $result = $db->query($sql, $vals)->fetchArray();
+
+        if (isset($result['id'])) {
+            return $result;
+        }
+
+        return FALSE;
     }
 
 }
