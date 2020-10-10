@@ -38,7 +38,6 @@ button:hover {
     font-size: 17px;
 }
 
-/* the search bar */
 .topnav .search-container {
     float: right;
     /* postioning left/right and up/down */
@@ -46,6 +45,7 @@ button:hover {
     
 }
 
+/* the search bar */
 .topnav .search-bar {
     padding: 6px;
     margin-top: 8px;

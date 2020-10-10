@@ -28,6 +28,16 @@
             <form action="YOUR PHP FILE TO HANDLE SEARCH HERE">
                 <input type="text" class="search-bar" placeholder="Movies, Genre, Directors..." name="search">
                 <button type="submit"><i class="fa fa-search"></i></button>
+                <div class="option">
+                    <input type="radio" id="all" name="search-option" value="0" checked>
+                    <label for="all">All</label>
+                    <input type="radio" id="movie" name="search-option" value="1">
+                    <label for="all">Movie</label>
+                    <input type="radio" id="genre" name="search-option" value="2">
+                    <label for="all">Genre</label>
+                    <input type="radio" id="director" name="search-option" value="3">
+                    <label for="all">Director</label>
+                </div>
             </form>
         </div>
         <!-- Logout button -->
