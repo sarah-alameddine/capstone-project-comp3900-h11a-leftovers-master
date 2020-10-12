@@ -1,3 +1,12 @@
+DROP TABLE IF EXISTS admin_movie_picks;
+DROP TABLE IF EXISTS reviews;
+DROP TABLE IF EXISTS playlist_items;
+DROP TABLE IF EXISTS playlists;
+DROP TABLE IF EXISTS wishlist_items;
+DROP TABLE IF EXISTS movies;
+DROP TABLE IF EXISTS users;
+
+
 CREATE TABLE users(
     id                  int
                         AUTO_INCREMENT
