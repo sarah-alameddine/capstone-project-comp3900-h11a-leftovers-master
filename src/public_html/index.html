@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <script src="https://kit.fontawesome.com/a13c7bceb2.js" crossorigin="anonymous"></script>
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <!--  Nav bar -->
+  <nav class="navbar navbar-expand-md navbar-light" style="background-color: #d9b44a;">
+    <!-- logo and our group name session -->
+    <a class="navbar-brand" href="#">
+      <img src="LOGO IMAGE" width="30" height="30" alt="logo" loading="lazy"> FilmFinity
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      
+      <!-- Search session -->
+      <form action="YOUR PHP FILE TO HANDLE SEARCH HERE" class="form-inline my-2 my-lg-0" style="width: 60%;">
+        <!-- Search bar -->
+        <input type="text" class="form-control mr-sm-2" placeholder="Movies, Genre, Directors..." name="SEARCH-INPUT" style="border-color: black; width: 80%;">
+        <button class="btn btn-outline-dark my-2 my-sm-0" type="submit" style="border-color: black; background-color: #acd0c0;">Search</button>
+        <!-- radio button for search by category -->
+        <div class="container">
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customRadio1" name="SEARCH-OPTION" class="custom-control-input" value="1" checked>
+            <label class="custom-control-label" for="customRadio1">All</label>
+            <i class="fas fa-align-justify" style="padding: 5px;"></i>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customRadio2" name="SEARCH-OPTION" class="custom-control-input" value="2">
+            <label class="custom-control-label" for="customRadio2">Movie</label>
+            <i class="fas fa-film" style="padding: 5px;"></i>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customRadio3" name="SEARCH-OPTION" class="custom-control-input" value="3">
+            <label class="custom-control-label" for="customRadio3">Genre</label>
+            <i class="fas fa-theater-masks" style="padding: 5px;"></i>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customRadio4" name="SEARCH-OPTION" class="custom-control-input" value="4">
+            <label class="custom-control-label" for="customRadio4">Director</label>
+            <i class="fas fa-user-friends" style="padding: 5px;"></i>
+          </div>
+        </div>
+      </form>
+      
+      <!-- register and login session -->
+      <ul class="navbar-nav mr-auto">
+        <!-- Sign Up function-modal for signup code is at the end of the file-->
+        <li class="nav-item" style="padding: 3px 10px;">
+          <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#signupModal" style="border-color: black; background-color: #75b1a9;">SIGN UP
+          </button>
+        </li>
+        <!-- Log in function-modal for log in code is at the end of the file -->
+        <li class="nav-item" style="padding: 3px 10px;">
+          <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#loginModal" style="border-color: black; background-color: #75b1a9;">LOG IN
+          </button>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Other features
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Quizz</a>
+            <a class="dropdown-item" href="#">Top Movies</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Bla bla bla</a>
+          </div>
+        </li>
+        
+      </ul>
+    
+    </div>
+  </nav>
+
+    <h1>HIGHLIGHT</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6" style="background-color: green;">Maybe a carousel here</div>
+        <div class="col-md-3" style="background-color: #db4c4c;">Maybe an admin pick list on best romance here</div>
+        <div class="col-md-3" style="background-color: #db6f4c;">Maybe an other admin pick list on best Action here</div>
+      </div>
+    </div>
+
+    <h2>NEW & UPCOMING MOVIES</h2>
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4" style="padding: 5px 0;">
+        <div class="col" style="background-color: green;">Movie1</div>
+        <div class="col" style="background-color: #db4c4c;">Movie2</div>
+        <div class="col" style="background-color: #db934c;">Movie3</div>
+        <div class="col" style="background-color: #4c4cdb;">Movie4</div>
+      </div>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4" style="padding: 5px 0;">
+        <div class="col" style="background-color: green;">Movie5</div>
+        <div class="col" style="background-color: #db4c4c;">Movie6</div>
+        <div class="col" style="background-color: #db934c;">Movie7</div>
+        <div class="col" style="background-color: #4c4cdb;">Movie8</div>
+      </div>
+    </div>
+
+    <!-- Modal for sign up function -->
+    <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <!-- content of the sign up popup -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="signupModalLabel">SIGN UP FOR FILMFINITY</h5>
+            <!-- close button -->
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <!-- Body of the modal -->
+          <form action="YOUR PHP FILE TO HANDLE REGISTER HERE">
+            <div class="modal-body">
+              <!-- First name & last name -->
+              <div class="form-row">
+                <div class="col">
+                  <label for="inputFirstName">First Name</label>
+                  <input type="text" class="form-control" id="inputFirstName" placeholder="" name="USER FIRST NAME">
+                </div>
+                <div class="col">
+                  <label for="inputLastName">Last Name</label>
+                  <input type="text" class="form-control" id="inputLastName" placeholder="" name="USER LAST NAME">
+                </div>
+              </div>
+              <!-- Email -->
+              <div class="form-row">
+                <div class="col">
+                  <label for="inputEmail">Email</label>
+                  <input type="email" class="form-control" id="inputEmail" placeholder="" name="EMAIL">  
+                </div>
+              </div> 
+              <!-- Password --> 
+              <div class="form-row">
+                <div class="col">
+                  <label for="inputPassword">Password</label>
+                  <input type="password" class="form-control" id="inputPassword" placeholder="" name="PASSWORD">  
+                </div>
+              </div>  
+            </div>
+            <!-- footer of the modal -->
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">CREATE YOU ACCOUNT</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for log in function -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <!-- content of the sign up popup -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="loginModalLabel">SIGN IN</h5>
+            <!-- close button -->
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <!-- Body of the modal -->
+          <form action="YOUR PHP FILE TO HANDLE LOG IN HERE">
+            <div class="modal-body">
+              <!-- Email -->
+              <div class="form-row">
+                <div class="col">
+                  <label for="inputEmail">Email</label>
+                  <input type="email" class="form-control" id="inputEmail" placeholder="" name="EMAIL">  
+                </div>
+              </div> 
+              <!-- Password --> 
+              <div class="form-row">
+                <div class="col">
+                  <label for="inputPassword">Password</label>
+                  <input type="password" class="form-control" id="inputPassword" placeholder="" name="PASSWORD">  
+                </div>
+              </div> 
+              <div class="col-auto">
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="checkbox" id="autoSizingCheck">
+                  <label class="form-check-label" for="autoSizingCheck">
+                    Remember me
+                  </label>
+
+                </div>
+              </div>  
+            </div>
+            <!-- footer of the modal -->
+            <div class="modal-footer">
+              <div class="col">
+                <button type="submit" class="btn btn-primary">LOG IN</button>
+              </div>
+              <div class="col">
+                <a href="#" class="badge badge-secondary">FORGOT YOUR PASSWORD?</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </body>
+</html>
