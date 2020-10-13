@@ -13,3 +13,4 @@ We met at 4:30PM on Tuesday to discuss our proposal work. We had all mostly comp
 Week 4
 
 We met on Thursday in the tutorial and discussed our first sprint more in-depth. We set some deadlines for when we wanted what card on jira to be finished as we needed to link some functionalities together. We also set a time to meet next week on Monday at 4:30pm. I also created a fairly finished database schema and started the code for the backend authenication functionality.
+On sunday I completely finished my part of Sprint 1, which was to create the backend for authenication which included logging in and registering new accounts.

@@ -1,15 +1,24 @@
+DROP TABLE IF EXISTS admin_movie_picks;
+DROP TABLE IF EXISTS reviews;
+DROP TABLE IF EXISTS playlist_items;
+DROP TABLE IF EXISTS playlists;
+DROP TABLE IF EXISTS wishlist_items;
+DROP TABLE IF EXISTS movies;
+DROP TABLE IF EXISTS users;
+
+
 CREATE TABLE users(
     id                  int
                         AUTO_INCREMENT
                         PRIMARY KEY,
 
-    username            varchar(32)
+    username            varchar(30)
                         NOT NULL,
 
     email               varchar(256)
                         NOT NULL,
 
-    password            varchar(256)
+    password            varchar(255)
                         NOT NULL,
 
     registration_date   datetime
@@ -19,7 +28,10 @@ CREATE TABLE users(
 
     profile_pic         varchar(512),
 
-    is_admin            varchar(1)
+    is_admin            varchar(1),
+
+    CONSTRAINT users_username_uq UNIQUE (username),
+    CONSTRAINT users_email_uq UNIQUE (email)
 );
 
 CREATE TABLE movies (
