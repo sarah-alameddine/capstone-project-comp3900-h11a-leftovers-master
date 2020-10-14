@@ -2,6 +2,7 @@
 
 date_default_timezone_set("Australia/Sydney");
 require_once(__DIR__ . '/Database.php');
+require_once(__DIR__ . '/Emailer.php');
 
 // Both username & email are registered
 define('USERNAME_EMAIL_ALREADY_REGISTERED', -23353);
@@ -14,6 +15,7 @@ define('ACCOUNT_ALREADY_REGISTERED', -45356);
 define('USERNAME_ILLEGAL', -45944);
 define('EMAIL_ILLEGAL', -34625);
 define('PASSWORD_ILLEGAL', -33636);
+define('ACCOUNT_NOT_REGISTERED', -346732);
 
 class Authentication {
 
@@ -65,7 +67,7 @@ class Authentication {
             return EMAIL_ILLEGAL;
         }
 
-        $info = $this->retrieve_user_login_info($email);
+        $info = $this->retrieve_user_info($email);
         if ($info === FALSE) {
             return FALSE;
         }
@@ -75,6 +77,56 @@ class Authentication {
         }
 
         return FALSE;
+
+
+    }
+
+    /*
+     * Requests a forgot password
+     * @return TRUE on success, DATABASE_ERROR, EMAIL_ILLEGAL, ACCOUNT_NOT_REGISTERED
+     */
+    public function request_forgot_password($email) {
+
+        // Check if email is registered
+        if (!$this->is_email_legal($email)) {
+            return EMAIL_ILLEGAL;
+        }
+
+        $info = $this->retrieve_user_info($email);
+        if (!isset($info['id'])) {
+            return ACCOUNT_NOT_REGISTERED;
+        }
+
+        // Check if a forgot password request already exists, if it does exist resend it
+
+
+        // Create pin & insert into database
+        $user_id = $info['id'];
+        $pin = mt_rand(10000, 99999);
+        $attempts = 0;
+        $date_created = date("Y-m-d H:i:s", time());
+
+        $id = $this->insert_forgot_password_request($user_id, $pin, $attempts, $date_created);
+        if ($id === DATABASE_ERROR) {
+            return DATABASE_ERROR;
+        }
+
+        // Send Pin
+        $to = $info['email'];
+        $subject = 'Forgot Password Request';
+        $message = "We all forget sometimes. " . '<a href="https://filmfinity.me/change-password.php?email=' . $to . '&pin=' . $pin . '">Click here</a>' . " to change your password.";
+        $from = NO_REPLY_EMAIL;
+        $emailer = new Emailer($to, $subject, $message, $from);
+        $emailer->send();
+
+
+    }
+
+    /*
+     * Verifies a forgot password pin
+     */
+    public function verify_forgot_password($email, $pin) {
+
 
 
     }
@@ -220,8 +272,8 @@ class Authentication {
     /*
      * @return associative array of id and password
      */
-    private function retrieve_user_login_info($email) {
-        $sql = "SELECT id, password
+    private function retrieve_user_info($email) {
+        $sql = "SELECT *
                 FROM users
                 where LOWER(email) = LOWER(?)
                 LIMIT 1";
@@ -237,6 +289,39 @@ class Authentication {
         }
 
         return FALSE;
+    }
+
+    /*
+     * Insert a forgot password request into database
+     * @return database row id, DATABASE_ERROR
+     */
+    private function insert_forgot_password_request($user_id, $pin, $attempts, $date_created) {
+        $sql = "INSERT INTO forgot_passwords (user_id, pin, attempts, date_created)
+                VALUES (?, ?, ?, ?)";
+
+        $vals = array($user_id, $pin, $attempts, $date_created);
+
+        $db = new Database();
+        if ($db->has_error()) return DATABASE_ERROR;
+        $id = $db->query($sql, $vals)->lastInsertID();
+        $db->close();
+        return $id;
+    }
+
+    private function get_forgot_password_request($email) {
+        
+    }
+
+    /*
+     *
+     */
+    private function validate_forgot_password_request($email, $pin) {
+        $sql = "SELECT user_id
+                FROM forgot_passwords
+                WHERE LOWER(email) = LOWER(?) AND
+                pin = ? AND
+                date_created >= ?";
+
     }
 
 }
