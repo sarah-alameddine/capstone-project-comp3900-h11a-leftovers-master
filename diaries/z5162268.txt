@@ -17,9 +17,16 @@ Week 3:
         - Reviewed each other's sections of work on the proposal 
         - Assigned each other sections of the proposal for peer Review
         - Aniket reviewed my section, I reviewed Sarah's storyboard
-    = Updated sprint dates to include Sprint Review (lab demo)
+    - Updated sprint dates to include Sprint Review (lab demo)
     - Spent Thursday lab discussing feedback from peer reviewed sections. 
     - Refined each other's parts and rest of the week was spent working on the proposal's formatting and overall consistency/flow 
+    - 8/10/20
+        - Created filmfinity.me domain and browsed for webhosting sites
+    
+Week 4:
+    - Decided on using a2hosting for web hosting
+    - Worked on assigned JIRA tickets
+
 
 
 

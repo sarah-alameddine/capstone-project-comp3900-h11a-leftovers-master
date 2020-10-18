@@ -18,9 +18,9 @@ class Database {
 
     public function __construct($charset = 'utf8',
                                 $dbhost = 'localhost',
-                                $dbuser = 'root',
-                                $dbpass = '',
-                                $dbname = 'filmfinity') {
+                                $dbuser = 'filmfini_user',
+                                $dbpass = 'bhdKyf&%^*t79gyiD%f8607pg394tbvdf',
+                                $dbname = 'filmfini_main') {
         $this->show_errors = FALSE;
         $this->_has_error = FALSE;
         $this->connection = new mysqli($dbhost, $dbuser, $dbpass, $dbname);

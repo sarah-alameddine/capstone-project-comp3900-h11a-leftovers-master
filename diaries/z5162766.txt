@@ -18,11 +18,11 @@ section of the proposal once that has been completed.
 In the tutorial we need to ask the tutor how many novel ideas is recommended, so far we have come up with a few ideas as a team.
 
 week 4
-sprint has begun
+sprint has begun - For this sprint I will be working mainly on the Movie Page and the search result page. We are also thinking about buying a domain and host instead of relying on XAMPP since it does not have real time change for all the team members. 
 
 week 5 
 We met on Monday and we decided to all pitch in and pay for a web host so we all have access to any changes made. We also got the domain 'filmfinity.me' for free
-using the education pack.
+using the education pack. I have finished the movie page and the search result.
 
 
 
