@@ -30,3 +30,14 @@ During the meeting, we went through what we have done so far. Aayus has almost f
 For further work of this week, I will finish up the new user stories (acceptance criteria) and new novel functionality. Aayus will re-create the sprints because we changed from 7 days sprints to 14 days sprint so that the sprint can end of our demo day. Sarah will update her storyboards because we have added some novel functionality feature to the platform. Ani will start working on the front end to buy us some time. 
 
 We will also do a peer review after this week tutorial and finish up our proposal by Sunday.
+
+WEEK 4
+We found out that our sprint plan is not align with the demo on week 5, therefore we only have a week to do the sprint. The goal of this week is to finish the homepage, movie page and the backend functions associated with those pages. I'm responsible for doing the navigation pane, login and register page. The navigation pane also has the search box which I have to do as well. 
+During the meeting, I showed the team my work on the homepage but I didn't use bootstrap4 to do it. Anikeet suggested I should do boostrap4 so that we can avoid the error and mess up later on as we develop more pages. I considered that and started over again using bootstrap4.
+
+Also we got our website hosted online and we use FileZilla to upload our work directly to the server so that we can all the see each other work easily.
+
+Week 5
+After the demo, we decided to redesign our font-end because it's really not good enough and not meet our expectation. Also sprint 2 will start on Friday this week as well. Therefore, we concerned that we may not finish all user stories in sprint 2 if we redesign our font-end. Therefore, we will focus on doing the homepage epic story first because the majority of work in sprint 2 also related to homepage epic story. We try to take the advantage of the quite week 6 to catch up on what we missed out in sprint 1 and redesign our font-end. 
+This time, Aayush and I will be working together on the homepage, I will work on the header and footer; when I finish it I will help Aayush to work on the body of the homepage. Sarah will continue to work on the move's page and Anikeet will keep working on the back-end (forget password function).
+
