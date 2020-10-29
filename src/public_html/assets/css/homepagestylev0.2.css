@@ -1,0 +1,90 @@
+/* CSS for FilmFinity Index v0.2 */
+
+#big-carousel-header {
+    background-color:#57ba98; 
+}
+
+/* ----- */
+label{
+    font-weight:bold; 
+    color: black; 
+    font-family:georgia,garamond,serif;
+    font-size:16px;
+    font-style:italic;
+}
+
+.container-fluid {
+    max-width: 90%;
+}
+
+.carousel-item img{
+    height: 300px;
+    object-fit: cover;
+}
+
+.carousel.slide {
+    position: relative;
+    width: 100%;
+}
+
+.carousel-caption{
+    left: 0; 
+    bottom:0; 
+    width: 100%; 
+    height: 30%;
+    background-color: #02090a; 
+    -moz-box-shadow: 1px -6px 8px #02090a;
+    -webkit-box-shadow: 1px -6px 8px #02090a;
+    box-shadow: 1px -6px 8px  #02090a;
+    opacity: 0.6;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.carousel-head{
+    position: relative;
+    left: 5%;
+    /*top:420;*/
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+}
+
+.carousel-content{
+    position: relative;
+    left: 10%;
+    right: 10%;
+    top:40%;
+    font-weight: bold;
+    color: white;
+    font-size: 12px;
+    text-align: left;
+}
+
+/* css for the cards */
+.card img{
+    height: 200px;
+}
+
+/* Section 2: What's Popular */
+#section2 {
+    position: relative;
+    /*top: 420px;*/
+    /*left: 5%;*/
+}
+
+/* Section 3: Your Recommendations */
+#section3 {
+    position: relative; 
+    /*top: 750px;*/
+    /*left: 5%;*/
+}
+
+/* Section 4: Editor's Picks */
+#section4 {
+    position: relative;
+    /*top: 1090px;*/
+    /*left: 5%;*/
+}
+
+

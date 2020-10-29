@@ -25,10 +25,10 @@ session_start();
 </style>
 
 <!--  Nav bar -->
-<nav class="navbar navbar-expand-md navbar-light" style="background-color: #182628;">
+<nav class="navbar navbar-expand-md navbar-light" style="background-color: #0f181a;">
   <!-- logo and our group name session -->
   <a class="navbar-brand" href="/" >
-    <img src="/assets/images/logo-header.png" width="100px" height="50px" alt="logo" style="padding-right: 10%;">
+    <img src="/assets/images/logo-header.png" width="140px" height="50px" alt="logo" style="padding-right: 10%;">
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
   <span class="navbar-toggler-icon"></span>

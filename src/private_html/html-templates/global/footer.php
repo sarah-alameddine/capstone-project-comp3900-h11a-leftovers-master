@@ -1,149 +1,74 @@
-<style>
-
-  .footer{
-    background-color: #182628;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-  }
-
-  .footer-list {
-    border: none; background-color: #182628;
-  }
-
-  .footer-list a{
-    color: white;
-    font-weight: bold;
-  }
-
-  .footer-list a i{
-    padding-right: 3px;
-  }
-
-</style>
-
-<div class="footer">
- 
-  <div class="row" style="margin: 0;">
-      <div class="col-9" style="width: 60%;">
-
-        <ul class="list-group list-group-horizontal">
-          
-          <li class="footer-list list-group-item ">
-            <a data-toggle="modal" href="#termsAndConditions">FilmFinity© 2020</a>
-          </li>
-
-          <li class="footer-list list-group-item">
-            <a data-toggle="modal" href="#aboutUs">About FilmFinity</a>
-          </li>
-          <li class="footer-list list-group-item">
-            <a data-toggle="modal" href="#contacts">Contacts</a>
-          </li>
-          <li class="footer-list list-group-item">
-            <a data-toggle="modal" href="#faq">FAQ</a>
-          </li>
-        </ul>
-
-      </div>
-
-      <div class="col-sm">
-        <ul class="list-group list-group-horizontal">
-          <li class="footer-list list-group-item">
-            <span style="padding-right: 10px; font-weight:bold; color: white;">FOLLOW US</span>
-            <a href="#"><i class="fab fa-facebook-square"></i></a>
-            <a href="#"><i class="fab fa-youtube-square"></i></a>
-            <a href="#"><i class="fab fa-twitter-square"></i></a>
-            <a href="#"><i class="fab fa-snapchat-square"></i></i></a>
-            <a href="#"><i class="fab fa-instagram-square"></i></a>
-          </li>
-        </ul>
-      </div>
-
-  </div>
-
-</div>
-
-
-<!--   Terms and Condition Modal -->
-<div class="modal fade" id="termsAndConditions" role="dialog">
-    <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-        <div class="modal-header">
-            <h4 class="modal-title">Terms and Conditions</h4>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div class="modal-body">
-            <p>Some terms and conditions bla bla bla.</p>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-    </div>
-    </div>
-</div>
-
-<!-- About FilmFinity modal -->
-<div class="modal fade" id="aboutUs" role="dialog">
-    <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-        <div class="modal-header">
-            <h4 class="modal-title">About FilmFinity</h4>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div class="modal-body">
-            <p>A COMP3900 20T3 project.</p>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-    </div>
-    </div>
-</div>
-
-<!-- contacts modal -->
-<div class="modal fade" id="contacts" role="dialog">
-    <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-        <div class="modal-header">
-            <h4 class="modal-title">Contacts</h4>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div class="modal-body">
-            <p>phone numbers/emails</p>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-    </div>
-    </div>
-</div>
-
-<!-- FaQ modal -->
-<div class="modal fade" id="faq" role="dialog">
-    <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-        <div class="modal-header">
-            <h4 class="modal-title">Frequently asked questions (FAQ)</h4>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div class="modal-body">
-            <h6>Question 1</h6>
-            <p>Answer for question 1.</p>
-            <h>Question 2</h6>
-            <p>Answer for question 12.</p>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-    </div>
-    </div>
-</div>
+<link rel="stylesheet" href="public_html/assets/css/footer.css">
+<footer class="new_footer_area bg_color">
+            <div class="new_footer_top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="f_widget company_widget wow fadeInLeft" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInLeft;">
+                                <h3 class="f-title f_600 t_color f_size_18">Get in Touch</h3>
+                                <p>Don’t miss any updates of our new templates and extensions.!</p>
+                                <form action="#" class="f_subscribe_two mailchimp" method="post" novalidate="true" _lpchecked="1">
+                                    <input type="text" name="EMAIL" class="form-control memail" placeholder="Email">
+                                    <button class="btn btn_get btn_get_two" type="submit">Subscribe</button>
+                                    <p class="mchimp-errmessage" style="display: none;"></p>
+                                    <p class="mchimp-sucmessage" style="display: none;"></p>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInLeft;">
+                                <h3 class="f-title f_600 t_color f_size_18">Download</h3>
+                                <ul class="list-unstyled f_list">
+                                    <li><a href="#">Company</a></li>
+                                    <li><a href="#">Android App</a></li>
+                                    <li><a href="#">ios App</a></li>
+                                    <li><a href="#">Desktop</a></li>
+                                    <li><a href="#">Projects</a></li>
+                                    <li><a href="#">My tasks</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInLeft;">
+                                <h3 class="f-title f_600 t_color f_size_18">Help</h3>
+                                <ul class="list-unstyled f_list">
+                                    <li><a href="#">FAQ</a></li>
+                                    <li><a href="#">Term &amp; conditions</a></li>
+                                    <li><a href="#">Reporting</a></li>
+                                    <li><a href="#">Documentation</a></li>
+                                    <li><a href="#">Support Policy</a></li>
+                                    <li><a href="#">Privacy</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="f_widget social-widget pl_70 wow fadeInLeft" data-wow-delay="0.8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInLeft;">
+                                <h3 class="f-title f_600 t_color f_size_18">Team Solutions</h3>
+                                <div class="f_social_icon">
+                                    <a href="#" class="fab fa-facebook"></a>
+                                    <a href="#" class="fab fa-twitter"></a>
+                                    <a href="#" class="fab fa-linkedin"></a>
+                                    <a href="#" class="fab fa-pinterest"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer_bg">
+                    <div class="footer_bg_one"></div>
+                    <div class="footer_bg_two"></div>
+                </div>
+            </div>
+            <div class="footer_bottom">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 col-sm-7">
+                            <p class="mb-0 f_400">© cakecounter Inc.. 2019 All rights reserved.</p>
+                        </div>
+                        <div class="col-lg-6 col-sm-5 text-right">
+                            <p>Made with <i class="icon_heart"></i> in <a href="#">CakeCounter</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</footer>

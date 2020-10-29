@@ -316,11 +316,12 @@ class Authentication {
      *
      */
     private function validate_forgot_password_request($email, $pin) {
-        $sql = "SELECT user_id
-                FROM forgot_passwords
-                WHERE LOWER(email) = LOWER(?) AND
-                pin = ? AND
-                date_created >= ?";
+        $sql "SELECT user_id
+              FROM forgot_passwords
+              WHERE LOWER(email) = LOWER(?) AND
+              pin = ? AND
+              date_created >= ?";
+
 
     }
 
