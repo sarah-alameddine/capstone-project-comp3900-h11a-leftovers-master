@@ -1,5 +1,6 @@
 #searchbar {
-    background-color: #e74c3c;
+    background-image: url(/assets/images/searchbarbkgnd2.jpg);
+    background-size: cover;
     height: 350px;
 }
 
@@ -28,12 +29,12 @@
  .search .search_input {
      padding: 0 10px;
      width: 550px;
-     caret-color: red;
+     caret-color: #3b945e;
      transition: width 0.4s linear
  }
 
  .search:hover>.search_icon {
-     background: red;
+     background: #65ccb8;
      color: #fff
  }
 

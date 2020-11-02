@@ -1,3 +1,6 @@
+body{
+    background-color: black;
+}
 
 label{
     font-weight:bold; color: black; font-family:georgia,garamond,serif;font-size:16px;font-style:italic;
@@ -6,7 +9,7 @@ label{
     max-width: 90%;
 }
 .carousel-item img{
-    height: 300px;
+    height: 16rem;
 }
 
 .carousel-caption{
@@ -35,12 +38,46 @@ label{
     font-weight: bold;
     color: white;
     font-size: 12px;
-    text-align: left;
+    text-align: center;
+}
+
+/* Credit: https://www.youtube.com/watch?v=exb2ab72Xhs&ab_channel=dcode */
+.card-overlay{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 10.4rem;
+    height: 16rem;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.25s;
+}
+
+/* Note: this feature may not be supported in old browsers */
+.card-overlay--blur{
+    backdrop-filter: blur(5px);
+}
+.card-overlay > * {
+    transform: translateY(20px);
+    transition: transform 0.25s;
+}
+.card-overlay:hover {
+    opacity: 1;
+}
+
+.card-overlay:hover > * {
+    transform: translateY(0);
 }
 
 
 /* css for the cards */
 .card img{
-    height: 200px;
+    width: 10.4rem;
+	height: 16rem;
 }
 

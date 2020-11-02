@@ -1,8 +1,10 @@
-$("#inpt_search").on('focus', function () {
-	$(this).parent('label').addClass('active');
-});
+// updated 2019
+const input = document.getElementById("search-input");
+const searchBtn = document.getElementById("search-btn");
 
-$("#inpt_search").on('blur', function () {
-	if($(this).val().length == 0)
-		$(this).parent('label').removeClass('active');
-});
+const expand = () => {
+  searchBtn.classList.toggle("close");
+  input.classList.toggle("square");
+};
+
+searchBtn.addEventListener("click", expand);
