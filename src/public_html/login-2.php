@@ -50,12 +50,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Login</title>
   </head>
   <body>
+    
     <!-- website header -->
-    <?php require_once(__DIR__ . '/../private_html/html-templates/global/nav-2.php'); ?>
+    <div class="row" style="margin-bottom: 1%">
+        <!-- website header -->
+        <?php require_once(__DIR__ . '/../private_html/html-templates/global/nav-2.php'); ?>
+    </div>
 
     <!-- content of the login page -->
     <!-- login body -->
-    <div class="container" style="margin-top: 5%">
+    <div class="container">
        
             <div class="col-sm">
                 
@@ -111,12 +115,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               </form>
               
 
-            </div>  
-         
+            </div>
+
+            <div class="row" style="margin-top: 5%">
+                <!-- footer -->
+                <?php require_once(__DIR__ . '/../private_html/html-templates/global/footer.php'); ?>
+            </div>
+        
     </div>
     
-    <!-- footer -->
-    <?php require_once(__DIR__ . '/../private_html/html-templates/global/footer.php'); ?>
+    
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

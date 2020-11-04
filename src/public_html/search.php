@@ -33,35 +33,38 @@ if (isset($_GET['term']) && isset($_GET['category']) &&
     <title>FilmFinity</title>
   </head>
   <body>
-
-    <!-- Nav bar-->
-    <?php require_once(__DIR__ . '/../private_html/html-templates/global/nav.php'); ?>
-
-
-    <!-- search results -->
-    <div class="container-fluid">
-        <h1> Search result for : <?php echo(htmlentities($_GET['term'])); ?> </h1>
-
-        <?php if (count($results) == 0) { ?>
-
-          <h1>No results found</h1>
-
-        <?php } else { ?>
-
-            <?php foreach ($results as $movie) { ?>
-
-                <div> <a href="/movies/title.php?id=<?php echo($movie->get_id()); ?>"><?php echo($movie->get_title()); ?> (<?php echo($movie->get_release_date()); ?>)</a></div>
-                <img src="<?php echo($movie->get_image_path()); ?>" alt="movieposter" style="width:150px;height:200px;">
-
-            <?php } ?>
-
-        <?php } ?>
-
-    </div>
     
-    <!-- Footer -->
-    <div>
-        <?php require_once(__DIR__ . '/../private_html/html-templates/global/footer.php'); ?>
+    <div style="position: relative; min-height: 100vh;">
+        <!-- Nav bar-->
+        <?php require_once(__DIR__ . '/../private_html/html-templates/global/nav-2.php'); ?>
+
+        <div style="padding-bottom: 2.5rem;">
+            <!-- search results -->
+            <div class="container-fluid" style="margin-bottom: 60px;">
+                <h1> Search result for : <?php echo(htmlentities($_GET['term'])); ?> </h1>
+
+                <?php if (count($results) == 0) { ?>
+
+                  <h1>No results found</h1>
+
+                <?php } else { ?>
+
+                    <?php foreach ($results as $movie) { ?>
+
+                        <div> <a href="/movies/title.php?id=<?php echo($movie->get_id()); ?>"><?php echo($movie->get_title()); ?> (<?php echo($movie->get_release_date()); ?>)</a></div>
+                        <img src="<?php echo($movie->get_image_path()); ?>" alt="movieposter" style="width:150px;height:200px;">
+
+                    <?php } ?>
+
+                <?php } ?>
+
+            </div>
+
+        </div>
+        
+        <!-- Footer -->
+            <?php require_once(__DIR__ . '/../private_html/html-templates/global/footer.php'); ?>
+
     </div>
 
     <!-- Optional JavaScript -->

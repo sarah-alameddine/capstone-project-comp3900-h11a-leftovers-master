@@ -1,8 +1,20 @@
 <style>
   footer {
-    position: relative;
-    min-height:50px; 
-    background-color: black;
+    min-height:3em; 
+    background: linear-gradient(43deg, #4da190, #95f0de);
+  }
+
+  .text{
+      color: #29414a;
+      font-family: 'Lato', sans-serif;
+  }
+
+  .text:hover {
+      color: #f2f2f2
+  }
+
+  .text.website {
+      color: #3b945e
   }
 
 
@@ -11,52 +23,112 @@
 <!-- Footer -->
 
 
-<footer class="page-footer font-small pt-3 ">
-<hr style="height:1px;border-width:0;background-color:#03D8A9">
-  <!-- Footer Elements -->
-    <div class="row">
-        <!-- LEFT SIDE OF FOOTER -->
-        <div class="col-sm-5">
-            <div class="container text-center pb-3">
+<!-- Footer -->
+<footer class="page-footer font-small">
 
-                <!-- Social buttons -->
-                <ul class="list-unstyled list-inline text-center">
-                <li class="list-inline-item">
-                    <a class="btn-floating btn-fb mx-1">
-                    <i class="fab fa-facebook-f"> </i>
-                    </a>
-                </li>
-                <li class="list-inline-item">
-                    <a class="btn-floating btn-tw mx-1">
-                    <i class="fab fa-twitter"> </i>
-                    </a>
-                </li>
-                <li class="list-inline-item">
-                    <a class="btn-floating btn-gplus mx-1">
-                    <i class="fab fa-google-plus-g"> </i>
-                    </a>
-                </li>
-                <li class="list-inline-item">
-                    <a class="btn-floating btn-li mx-1">
-                    <i class="fab fa-linkedin-in"> </i>
-                    </a>
-                </li>
-                <li class="list-inline-item">
-                    <a class="btn-floating btn-dribbble mx-1">
-                    <i class="fab fa-dribbble"> </i>
-                    </a>
-                </li>
-                </ul>
-            </div>
-        </div>
-        <!-- RIGHT SIDE OF FOOTER -->
-        <div class="col-sm-6">
-        <div class="container">
-         <!-- Copyright -->
-            <div class="footer-copyright text-center pb-3"> 
-            <p>© 2020 Copyright:<a href="https://mdbootstrap.com/"> MDBootstrap.com</a></p>
-            </div>
-        </div>
-        </div>
+  <!-- Footer Links -->
+  <div class="container">
+
+    <!-- Grid row-->
+    <div class="row text-center d-flex justify-content-center pt-5 mb-3">
+
+      <!-- Grid column -->
+      <div class="col-md-2 mb-3">
+        <h6 class="text-uppercase font-weight-regular">
+          <a class="text" href="#!">About us</a>
+        </h6>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-2 mb-3">
+        <h6 class="text-uppercase font-weight-regular">
+          <a class="text" href="#!">FAQ</a>
+        </h6>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-2 mb-3">
+        <h6 class="text-uppercase font-weight-regular">
+          <a class="text" href="#!">Help</a>
+        </h6>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-2 mb-3">
+        <h6 class="text-uppercase font-weight-regular">
+          <a class="text" href="#!">Github</a>
+        </h6>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-2 mb-3">
+        <h6 class="text-uppercase font-weight-regular">
+          <a class="text" href="#!">Terms & Conditions</a>
+        </h6>
+      </div>
+      <!-- Grid column -->
+
     </div>
+    <!-- Grid row-->
+    <hr class="rgba-white-light" style="margin: 0 15%;">
+    
+    <!-- Grid row-->
+    <hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
+
+    <!-- Grid row-->
+    <div class="row pb-3">
+
+      <!-- Grid column -->
+      <div class="col-md-12">
+
+        <div  class="mb-3 text-center">
+
+          <!-- Facebook -->
+          <a class="fb-ic">
+            <i class="fab fa-facebook-f fa-lg white-text mr-4"> </i>
+          </a>
+          <!-- Twitter -->
+          <a class="tw-ic">
+            <i class="fab fa-twitter fa-lg white-text mr-4"> </i>
+          </a>
+          <!-- Google +-->
+          <a class="gplus-ic">
+            <i class="fab fa-google-plus-g fa-lg white-text mr-4"> </i>
+          </a>
+          <!--Linkedin -->
+          <a class="li-ic">
+            <i class="fab fa-linkedin-in fa-lg white-text mr-4"> </i>
+          </a>
+          <!--Instagram-->
+          <a class="ins-ic">
+            <i class="fab fa-instagram fa-lg white-text mr-4"> </i>
+          </a>
+          <!--Pinterest-->
+          <a class="pin-ic">
+            <i class="fab fa-pinterest fa-lg white-text"> </i>
+          </a>
+
+        </div>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row-->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a class="text website" href="https://filmfinity.me/"> FilmFinity.me</a>
+  </div>
+  <!-- Copyright -->
+
 </footer>
+<!-- Footer -->
+

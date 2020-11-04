@@ -4,6 +4,9 @@ date_default_timezone_set("Australia/Sydney");
 require_once(__DIR__ . '/Database.php');
 require_once(__DIR__ . '/Emailer.php');
 
+define('MAX_PIN_LIFE', 600); // seconds for pin to live
+define('MAX_FORGOT_PASS_REQ', 120); // seconds until you can request another password request
+
 // Both username & email are registered
 define('USERNAME_EMAIL_ALREADY_REGISTERED', -23353);
 
@@ -16,6 +19,7 @@ define('USERNAME_ILLEGAL', -45944);
 define('EMAIL_ILLEGAL', -34625);
 define('PASSWORD_ILLEGAL', -33636);
 define('ACCOUNT_NOT_REGISTERED', -346732);
+define('TOO_MANY_REQ', -37432);
 
 class Authentication {
 
@@ -83,7 +87,7 @@ class Authentication {
 
     /*
      * Requests a forgot password
-     * @return TRUE on success, DATABASE_ERROR, EMAIL_ILLEGAL, ACCOUNT_NOT_REGISTERED
+     * @return TRUE on success, DATABASE_ERROR, EMAIL_ILLEGAL, ACCOUNT_NOT_REGISTERED, TOO_MANY_REQ
      */
     public function request_forgot_password($email) {
 
@@ -98,7 +102,12 @@ class Authentication {
         }
 
         // Check if a forgot password request already exists, if it does exist resend it
-
+        $allow_req = $this->allow_forget_password_request($email);
+        if ($allow_req === DATABASE_ERROR) {
+            return DATABASE_ERROR;
+        } else if ($allow_req === FALSE) {
+            return TOO_MANY_REQ;
+        }
 
         // Create pin & insert into database
         $user_id = $info['id'];
@@ -114,20 +123,22 @@ class Authentication {
         // Send Pin
         $to = $info['email'];
         $subject = 'Forgot Password Request';
-        $message = "We all forget sometimes. " . '<a href="https://filmfinity.me/change-password.php?email=' . $to . '&pin=' . $pin . '">Click here</a>' . " to change your password.";
+        $message = "We all forget sometimes. Use this link to change your password: " . 'https://filmfinity.me/verify.php?email=' . $to . '&pin=' . $pin . " to change your password.";
         $from = NO_REPLY_EMAIL;
         $emailer = new Emailer($to, $subject, $message, $from);
         $emailer->send();
 
+        return TRUE;
 
     }
 
     /*
      * Verifies a forgot password pin
+     *
      */
     public function verify_forgot_password($email, $pin) {
 
-
+        return $this->validate_forgot_password_request($email, $pin);
 
     }
 
@@ -296,7 +307,7 @@ class Authentication {
      * @return database row id, DATABASE_ERROR
      */
     private function insert_forgot_password_request($user_id, $pin, $attempts, $date_created) {
-        $sql = "INSERT INTO forgot_passwords (user_id, pin, attempts, date_created)
+        $sql = "INSERT INTO forgotten_passwords (user_id, pin, attempts, date_created)
                 VALUES (?, ?, ?, ?)";
 
         $vals = array($user_id, $pin, $attempts, $date_created);
@@ -308,20 +319,59 @@ class Authentication {
         return $id;
     }
 
-    private function get_forgot_password_request($email) {
-        
+    /*
+     * If someone is requesting too many passwords, this checks prevents them
+     * @return BOOL
+     */
+    private function allow_forget_password_request($email) {
+    
+        $sql = "SELECT fp.user_id
+                FROM forgotten_passwords fp
+                JOIN users u
+                on fp.user_id = u.id
+                WHERE LOWER(u.email) = LOWER(?) AND
+                date_created >= ?";
+
+        $min_date_created = time() - MAX_FORGOT_PASS_REQ;
+
+        $vals = array($email, $min_date_created);
+
+        $db = new Database();
+        $db->show_errors();
+        if ($db->has_error()) return DATABASE_ERROR;
+        $result = $db->query($sql, $vals)->fetchArray();
+        $db->close();
+
+        if (isset($result['user_id'])) return FALSE;
+        return TRUE;
+
     }
 
     /*
-     *
+     * Check if a pin is valid
+     * @return true if valid, false if not, DATABASE_ERROR
      */
     private function validate_forgot_password_request($email, $pin) {
-        $sql "SELECT user_id
-              FROM forgot_passwords
-              WHERE LOWER(email) = LOWER(?) AND
-              pin = ? AND
-              date_created >= ?";
+        $sql = "SELECT fp.user_id
+                FROM forgotten_passwords fp
+                JOIN users u
+                on fp.user_id = u.id
+                WHERE LOWER(u.email) = LOWER(?) AND
+                pin = ? AND
+                date_created >= ?
+                LIMIT 1";
 
+        $min_date_created = time() - MAX_PIN_LIFE;
+
+        $vals = array($email, $pin, $min_date_created);
+
+        $db = new Database();
+        if ($db->has_error()) return DATABASE_ERROR;
+        $result = $db->query($sql, $vals)->fetchArray();
+        $db->close();
+
+        if (isset($result['user_id'])) return TRUE;
+        return FALSE;
 
     }
 

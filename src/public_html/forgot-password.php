@@ -1,24 +1,24 @@
 <?php
-
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
 require_once(__DIR__ . '/../private_html/classes/Authentication.php');
 $error = FALSE;
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['email']) &&
-        isset($_POST['password'])
-       ) {
+    if (isset($_POST['email'])) {
 
         $auth = new Authentication();
-        $user_id = $auth->login($_POST['email'], $_POST['password']);
+        $req = $auth->request_forgot_password($_POST['email']);
 
-        if ($user_id === EMAIL_ILLEGAL) {
+        if ($req === EMAIL_ILLEGAL) {
             $error = 'Please provide a valid email address';
-        } else if ($user_id === FALSE) {
-            $error = 'Incorrect Password';
+        } else if ($req === DATABASE_ERROR) {
+            $error = 'Internal error occurred';
+        } else if ($req === ACCOUNT_NOT_REGISTERED) {
+            $error = 'This email is not registered';
+        } else if ($req === TOO_MANY_REQ) {
+            $error = 'You are requesting too many forget password requests. Please wait 2 minutes';
         } else {
-            session_start();
-            $_SESSION['user_id'] = $user_id;
-            header('Location: /');
-            exit();
+            $error = 'Please check your email for the verification pin';
         }
 
     } else {
@@ -66,11 +66,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Login</title>
   </head>
   <body>
-  	<!-- website header -->
-  	<?php require_once(__DIR__ . '/../private_html/html-templates/global/nav.php'); ?>
+    <!-- website header -->
+    <?php require_once(__DIR__ . '/../private_html/html-templates/global/nav.php'); ?>
 
-  	<!-- content of the login page -->
-  	<img class="bground" src="assets/images/background-login.svg">
+    <!-- content of the login page -->
+    <img class="bground" src="assets/images/background-login.svg">
   
     <div class="container">
       <div class="row">
@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               <img src="assets/images/welcome-login.svg" style="width: 40%; margin-top: 10px;">
             </div>
           </div>
-          
+          <h1>Forgot your password?</h1>
           <form action="" method="POST">
             <div class="form-row">
               <div class="col">
@@ -99,25 +99,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type="email" class="form-control" id="inputEmail" placeholder="" name="email">  
               </div>
             </div>  
-            <div class="form-row">
-              <div class="col"> 
-                <label for="inputPassword"><i class="fas fa-key" style="padding: 0 2px;"></i>Password</label>
-                <input type="password" class="form-control" id="inputPassword" placeholder="" name="password">  
-              </div>
-            </div>
-            <div class="col-auto">
-              <div class="form-check mb-2">
-                <input class="form-check-input" type="checkbox" id="autoSizingCheck">
-                <label class="form-check-label" for="autoSizingCheck">
-                    Remember me
-                </label>
-              </div>
-            </div>
             <div class="col">
-              <button type="submit" class="btn btn-primary">LOG IN</button>
-            </div>
-            <div class="col">
-              <a href="forgot-password.php" class="badge badge-secondary">FORGOT YOUR PASSWORD?</a>
+              <button type="submit" class="btn btn-primary">Request password reset</button>
             </div>
           
           </form>
@@ -128,7 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <!-- footer -->
     <?php require_once(__DIR__ . '/../private_html/html-templates/global/footer.php'); ?>
 
-  	<!-- Optional JavaScript -->
+    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

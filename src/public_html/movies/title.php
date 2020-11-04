@@ -36,118 +36,170 @@ if (isset($_GET['id'])) {
 
     <script src="https://kit.fontawesome.com/a13c7bceb2.js" crossorigin="anonymous"></script>
 
-    <!-- Custom CSS -->
-    <!-- <link rel="stylesheet" href="/../public_html/assets/css/moviePage.css"> -->
-    <!-- <link rel="stylesheet" href="moviePage.css"> -->
-    <link rel="stylesheet" href="moviePage.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/images/favicon.ico"/>
 
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/moviePage.css">
+
+    <!-- Fonts -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Staatliches&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@500&display=swap" rel="stylesheet">
     <title>FilmFinity</title>
   </head>
   <body>
 
     <!-- Nav bar-->
-    <?php require_once(__DIR__ . '/../../private_html/html-templates/global/nav.php'); ?>
+    <div class="row" style="margin-bottom: 1%">
+      <?php require_once(__DIR__ . '/../../private_html/html-templates/global/nav-2.php'); ?>
+    </div>
 
-
-    <div class="container-fluid">
+    <!------------------------ TITLE OF MOVIE ---------------------->
+    <div class="pt-5">
+    <h1 class="display-4" style="font-family: 'Vollkorn', serif;text-align: center;"><?php echo($movie->get_title()); ?></h1>
+      <!-- <h1 style="text-align: center;">sssssssssssssssssssss</h1> -->
+    </div>
+    <div class="container" style="margin-bottom: 60px;">
       <h1><!-- ADD SOME SPACE HERE --></h1>
 
       <div class="row">
+      <!------------------------ LEFT SECTION ---------------------------------------------------->
         <!-- Movie poster / rating / wishlist -->
-        <div  class="col-sm-3" align="center">
-          <img src="<?php echo($movie->get_image_path()); ?>" alt="movieposter" style="width:200px;height:300px;">
-            <button type="submit" class="btn btn-primary">ADD TO WISHLIST</button>
+        <!-- class="my-3" - changes the spacing of the elements -->
+        <div  class="col-sm-3 " align="center">
+        <div style="width: 200px;height:300px;">
+          <!-- <img class="mt-3" src="<?php echo($movie->get_image_path()); ?>" alt="movieposter" style="width:300px;height:400px;"> -->
+          <img id="image1" class="mt-3" src="<?php echo($movie->get_image_path()); ?>" alt="movieposter" style="width:100%;height:100%;object-fit:contain;">
+          </div>
+            <div class="my-3">
+            <button type="submit" class="btn btn-secondary">ADD TO WISHLIST</button>
+            </div>
             <!-- WOULD ANIKET BE ABLE TO CONVERT THE MOVIE RATING INTO STARS -->
-            <h2>Rating</h2>
+            <h4>Movie Rating</h4>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star"></span>
+            
         </div>
-
+        <!------------------------ MIDDLE SECTION ---------------------------------------------------->
         <!-- Movie Description -->
-        <div class="col-sm-6" style="background-color:lavenderblush;">
-          <h1 align="center"><?php echo($movie->get_title()); ?></h1>
-          <h2>Synopsis</h2>
-          <p><?php echo($movie->get_description()); ?></p>
-          <h2>Genre:</h2>
+        <!-- <div class="col-sm-6" style="background-color:lavenderblush;"> -->
+        <div class="col-sm-6" >
+          <!-- <div class="mt-3"> -->
+            <!-- <h1 align="center" class="display-4" style="font-family: 'Staatliches', cursive;"><?php echo($movie->get_title()); ?></h1> -->
+          <!-- </div> -->
+          <!-- <h2>Synopsis</h2> -->
+          <div class="pt-5">
+          <p style="font-family: 'Montserrat', sans-serif;"><?php echo($movie->get_description()); ?></p>
+          <h4>Genre:</h4>
           <p><?php echo($movie->get_genre()); ?></p>
-          <h2>Director:</h2>
+
+          <h4>Director:</h4>
           <p><?php echo($movie->get_director()); ?></p>
           <!--<h2>Cast:</h2>
           <p>rock dale</p>-->
+          </div>
+
+          <!-- Trailer -->
+          <a href="#demo" class="btn btn-secondary" data-toggle="collapse">Trailer</a>
+          <div id="demo" class="collapse">
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="mt-3" width="560" height="315" src="https://www.youtube.com/embed/2AUmvWm5ZDQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
 
           <!-- Review section -->
-          <h2>Add your own review and rating:</h2>
-          <!-- connect this to the corresponding php file -->
-          <!-- <form action="moviePage.php" method="post"> -->
-
-          <textarea name="comment" id="comment"></textarea>
-          <input type="submit" value="Submit">
-
-          <!-- GET FROM PHP THE CURRENT LOGGED IN USERS NAME -->
-          
-        </div>
-
-        <!-- Movie recommendation -->
-        <div class="col-sm-3" align="center">
-          <h1 align="center">Your Movie Recommendation </h1>
-          <div> <a href="/movie/">Movie recommendation 1</a></div>
-          <div><a href="/movie/">Movie recommendation 2</a></div>
-          <div><a href="/movie/">Movie recommendation 3</a></div>
-        </div>
-
-      </div>
-    </div>
-    <!-- ========================================== -->
-
-    <!-- Modal for sign up function -->
-    <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <!-- content of the sign up popup -->
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="signupModalLabel">SIGN UP FOR FILMFINITY</h5>
-            <!-- close button -->
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
+          <div class="pt-5"><h4>Reviews:</h4></div>
+          <hr style="height:1px;border-width:0;background-color:#6C757D">
+          <!-- <hr style="color:#03D8A9"> -->
+          <div class="pt-1">
+            <!-- <h4 style="color:#F2F2F2;">Add your own review and rating:</h4> -->
+            <!-- TODO BACKEND NEEDED FOR COMMENT -->
+            <div class="py-2">
+              <span class="fa fa-star "></span>
+              <span class="fa fa-star "></span>
+              <span class="fa fa-star "></span>
+              <span class="fa fa-star "></span>
+              <span class="fa fa-star"></span>
+            </div>
+            <textarea style="margin-top:5px;" class="form-control" rows="3" id="comment" placeholder="Enter your review"></textarea>
+            <button type="button" style="margin-top:10px;margin-left:5px;" class="btn btn-secondary">Submit Review</button>
           </div>
-          <!-- Body of the modal -->
-          <form action="YOUR PHP FILE TO HANDLE REGISTER HERE">
-            <div class="modal-body">
-              <!-- Email -->
-              <div class="form-row">
-                <div class="col">
-                  <label for="username">Username</label>
-                  <input type="username" class="form-control" id="inputEmail" placeholder="" name="username" required>  
+          <hr style="height:1px;border-width:0;background-color:#03D8A9">
+          <div>
+            <div>
+              <p><small><strong>UserReview1</strong> - 20.10.2020 22:22</small></p>
+            </div>    
+            <p>Suspendisse vitae lacus enim. Donec eu mauris sit amet ante fringilla aliquam sit amet sit amet quam. Etiam blandit enim ullamcorper massa tincidunt blandit. Fusce lobortis, neque et dignissim interdum, mi arcu ultrices lectus, a luctus elit orci eget ipsum. Donec ullamcorper ante eu laoreet placerat. Etiam in sem elit. Duis convallis odio ut dolor luctus ullamcorper. Aenean porta aliquam eros, quis bibendum ante consectetur a.</p>
+          </div>
+        <!-- TODO PAGNATION START -->
+        <nav aria-label="Page navigation example">
+  <ul class="pagination pg-blue">
+    <li class="page-item"><a class="page-link">Previous</a></li>
+    <li class="page-item"><a class="page-link">1</a></li>
+    <li class="page-item"><a class="page-link">2</a></li>
+    <li class="page-item"><a class="page-link">3</a></li>
+    <li class="page-item"><a class="page-link">Next</a></li>
+  </ul>
+</nav>
+       <!-- TODO PAGNATION END -->
+        </div>
+        
+        <!------------------------ RIGHT SECTION ---------------------------------------------------->
+        <!-- Movie recommendation -->
+        <!-- style="border-radius: 12px;border: 2px solid red;" -->
+        <div class="col-sm-3 pt-5 pl-5  sticky-left row d-flex justify-content-center text-center" >
+          <!-- <table id="recommendation"><tr><th> -->
+          <div id="rec">
+          <h4 style="color: #F2F2F2";>Movie Recommendation </h4>
+          <hr style="height:1px;border-width:0;background-color:#6C757D">
+          <!-- TODO ADD THE IF STATEMENT HERE!!!!!!!!!!!!!!!! -->
+          <div class="card-img-top d-flex align-items-center" >
+                <div class="pl-5 " >
+                  <!-- TODO ADD THE LINK TO THE MOVIE PAGE IN THE 'HREF' AND IN THE 'PHP' SECTION BELOW  -->
+                  <a href="ADD HERE MOVIEPAGE LINK">
+                    <img #image1 class="mt-3"src="<?php echo($movie->get_image_path()); ?>" alt="movieposter"  style="width: 80px;height:100px;"> 
+                  </a>
                 </div>
-              </div> 
-              <!-- Email -->
-              <div class="form-row">
-                <div class="col">
-                  <label for="inputEmail">Email</label>
-                  <input type="email" class="form-control" id="inputEmail" placeholder="" name="email" required>  
-                </div>
-              </div> 
-              <!-- Password --> 
-              <div class="form-row">
-                <div class="col">
-                  <label for="inputPassword">Password</label>
-                  <input type="password" class="form-control" id="inputPassword" placeholder="" name="password" required>  
-                </div>
-              </div>  
-            </div>
-            <!-- footer of the modal -->
-            <div class="modal-footer">
-              <button type="submit" class="btn btn-primary">SIGN UP</button>
-            </div>
-          </form>
+                  <p class="pl-2" ><a href="ADD HERE MOVIEPAGE LINK">Movie 1</a></p>
+              </div>
+
+              <div class="card-img-top d-flex align-items-center ">
+              <div class="pl-5" >
+                  <!-- TODO ADD THE LINK TO THE MOVIE PAGE IN THE 'HREF' AND IN THE 'PHP' SECTION BELOW  -->
+                  <a href="ADD HERE MOVIEPAGE LINK">
+                    <img #image1 class="mt-3"src="<?php echo($movie->get_image_path()); ?>" alt="movieposter"  style="width: 80px;height:100px;"> 
+                  </a>
+                  </div>
+                  <p class="pl-2"><a href="ADD HERE MOVIEPAGE LINK">Movie 2</a></p>
+              </div>
+
+              <div class="card-img-top d-flex align-items-center">
+              <div class="pl-5">
+                  <!-- TODO ADD THE LINK TO THE MOVIE PAGE IN THE 'HREF' AND IN THE 'PHP' SECTION BELOW  -->
+                  <a href="ADD HERE MOVIEPAGE LINK">
+                    <img #image1 class="mt-3"src="<?php echo($movie->get_image_path()); ?>" alt="movieposter"  style="width: 80px;height:100px;"> 
+                  </a>
+                  </div>
+                  <p class="pl-2"><a href="ADD HERE MOVIEPAGE LINK">Movie 3</a></p>
+              </div>
+              <!-- TODO ADD THE END OF IF STATEMENT HERE!!!!!!!!!!!!!!!! -->
+              <!-- TODO ADD THE ELSE STATEMENT HERE!!!!!!!!!!!!!!!! -->
+                <!-- ANIKET UNCOMMENT THE LINE BELOW FOR THE ELSE STATEMENT-->
+                <!-- <p style="font-family: 'Montserrat', sans-serif;">Login to view recommended movies</p> -->
+              <!-- TODO ADD THE END OF ELSE STATEMENT HERE!!!!!!!!!!!!!!!! -->
+              <!-- </th></tr></table> -->
+              </div>
         </div>
       </div>
     </div>
-
+    
+    <!-- footer -->
+    <?php require_once(__DIR__ . '/../../private_html/html-templates/global/footer-v1.php'); ?>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

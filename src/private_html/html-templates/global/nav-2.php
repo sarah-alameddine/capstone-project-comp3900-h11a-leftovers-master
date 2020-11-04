@@ -16,28 +16,37 @@ session_start();
     display: block;
   }
 
-</style>
+  .dropdown-item{
+      font-family: 'Lato', sans-serif;
+  }
 
-<style>
+  .nav-item{
+    font-family: 'Lato', sans-serif;
+  }
+
   .nav-link{
     font-weight: bold;
+  }
+
+  .nav-link:hover{
+    color: #9effec; 
   }
 </style>
 
 <!--  Nav bar -->
-<nav class="navbar navbar-expand-md navbar-light" style="background-color: #182628;">
+<nav class="navbar navbar-expand-md navbar-light" style="width: 100%; background: black">
   <!-- logo and our group name session -->
   <a class="navbar-brand" href="/" >
-    <img src="/assets/images/logo-header.png" width="100px" height="50px" alt="logo" style="padding-right: 10%;">
+    <img src="/assets/images/logo-v3.png" width="auto" height="80px" alt="logo" style="padding-left:25px;">
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
   <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 2%;">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-left: 1%;">
     
     <ul class="navbar-nav mr-auto">
-      <!-- Moives drop down -->
+      <!-- Moviees drop down -->
       <li class="nav-item dropdown">
         <a class="nav-link toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Movies
@@ -45,7 +54,7 @@ session_start();
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">Top Rated Movies</a>
           <a class="dropdown-item" href="#">In Theaters</a>
-          <a class="dropdown-item" href="#">Comming Soon</a>
+          <a class="dropdown-item" href="#">Coming Soon</a>
           <a class="dropdown-item" href="#">Movie News</a>
         </div>
       </li>
@@ -78,21 +87,18 @@ session_start();
     <!-- Search session -->
     <form action="search.php" method="GET" style="max-height: 35px; width: 50%; margin-right: 8%; margin-left: 5%;">
       <div class="input-group mb-3 position-relative">
-
         <!-- Search filter -->
         <div class="input-group-prepend">
-          <select class="custom-select" id="inputGroupSelect01" style="border-top-right-radius: 0; border-bottom-right-radius: 0; border: none; box-shadow: none;">
-            <option selected>Search Filter<i class="fas fa-align-justify"></i></option>
-            <option value="1">Movie Title</option>
-            <option value="2">Genre</option>
-            <option value="3">Director</option>
-          </select>
+        <select class="custom-select" id="inputGroupSelect01" style="border-top-right-radius: 0; border-bottom-right-radius: 0; border: none; box-shadow: none;">
+        <option selected>Search Filter<i class="fas fa-align-justify"></i></option>
+        <option value="1">Movie Title</option>
+        <option value="2">Genre</option>
+        <option value="3">Director</option>
+        </select>
         </div>
-
-        <!-- Search bar -->
-        <input type="text" class="form-control shadow-none" placeholder="Search movies, genres, directors..." name="term" style="width: 50%; border-color: white; background: white;">
-
-        <!-- Search button -->
+          <!-- Search bar -->
+          <input type="text" class="form-control shadow-none" placeholder="Search movies, genres, directors..." name="term" style="width: 50%; border-color: white; background: white;">
+          <!-- Search button -->
         <div class="input-group-append">
           <button class="btn shadow-none" type="submit" id="button-addon2" style="background-color: white; border: none;"><i class="fas fa-search"></i></button>
         </div>
@@ -106,7 +112,7 @@ session_start();
       ?>
       <!-- log out -->
       <li class="nav-item">
-         <a class="nav-link text-light" href="/logout.php">Logout</a>
+        <a class="nav-link text-light" href="/logout.php">Logout</a>
       </li>
 
       <?php } else { ?>
@@ -129,6 +135,7 @@ session_start();
 
   </div>
 </nav>
+
 
 
 

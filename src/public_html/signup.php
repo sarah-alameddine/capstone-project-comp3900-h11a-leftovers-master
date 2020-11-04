@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else if ($user_id === ACCOUNT_ALREADY_REGISTERED) {
             $error = 'Username/Email you have provided is taken.';
         } else if ($user_id === USERNAME_ILLEGAL) {
-            $error = 'Usernames can only contain letters and numbers.';
+            $error = 'Usernames can only contain letters and numbers. Must be 3-30 characters long';
         } else if ($user_id === EMAIL_ILLEGAL) {
             $error = 'Please provide a valid email address';
         } else if ($user_id === PASSWORD_ILLEGAL) {

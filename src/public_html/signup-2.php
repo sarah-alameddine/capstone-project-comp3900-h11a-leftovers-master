@@ -67,103 +67,113 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <body>
 
     <!-- website header -->
-    <?php require_once(__DIR__ . '/../private_html/html-templates/global/nav-2.php'); ?>
+    <div class="row" style="margin-bottom: 1%">
+        <!-- website header -->
+        <?php require_once(__DIR__ . '/../private_html/html-templates/global/nav-2.php'); ?>
+    </div>
 
     <!-- content of the signup page -->
         <!-- signup body -->
-    <div class="container" style="margin-top: 2%">
-      <div class="row">
-        <div class="col-sm border border-top-0 border-bottom-0 border-left-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm border border-top-0 border-bottom-0 border-left-0">
             
-           <div class="form-row">
-            <div class="col">
-              <span style="color:#182628; font-weight:bold; font-size: 30px; margin-left: 5%">Welcome to FilmFinity</span> 
+                <div class="form-row">
+                    <div class="col">
+                        <span style="color:#182628; font-weight:bold; font-size: 30px; margin-left: 5%">Welcome to FilmFinity</span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col">
+                        <!-- error message -->
+                        <?php if ($error !== FALSE) { ?>
+                        <div class="alert alert-danger" role="alert">
+                            <?php echo($error); ?>
+                        </div>
+                        <?php } ?>
+                
+                    </div>
+                </div>
+
+                <form action="" method="POST">
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="inputUsername"><i class="fas fa-envelope" style="padding: 0 2px;"></i>Username</label>
+                            <input type="username" class="form-control" id="iinputUsername" placeholder="" name="username">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="inputEmail"><i class="fas fa-envelope" style="padding: 0 2px;"></i>Email</label>
+                            <input type="email" class="form-control" id="inputEmail" placeholder="" name="email">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="inputPassword"><i class="fas fa-key" style="padding: 0 2px;"></i>Password</label>
+                            <input type="password" class="form-control" id="inputPassword" placeholder="" name="password">
+                        </div>
+                    </div>
+
+                    <div class="form-row" style="margin-top: 5%;">
+                        <div class="col">
+                            <button type="submit" class="btn btn-primary" style="background-color: #182628;">CREATE YOUR ACCOUNT</button>
+                        </div>
+                    </div>
+                
+                </form>
+
             </div>
-          </div>
 
-          <div class="form-row">
-            <div class="col">
-              <!-- error message -->
-              <?php if ($error !== FALSE) { ?>
-              <div class="alert alert-danger" role="alert">
-                <?php echo($error); ?>
-              </div>
-              <?php } ?>
-            
+            <!-- left column -->
+            <div class="col-sm" >
+                <div class="form-row">
+                    <div class="col">
+                        <span style="font-size: 28px; color:#182628 font-weight: bold;">Benefits of being a member</span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col">
+                        <hr>
+                        <span style="font-size: 18px; font-weight: bold;">Customed Recommendations</span><br>
+                        <span style="font-size: 15px;">Movies recommendations based on your taste.</span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col">
+                        <br>
+                        <span style="font-size: 18px; font-weight: bold;">Personal lists</span><br>
+                        <span style="font-size: 15px;">Create your own watchlist and wishlist.</span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col">
+                        <br>
+                        <span style="font-size: 18px; font-weight: bold;">Contribute to FilmFinity</span><br>
+                        <span style="font-size: 15px;">Review and rate the movies.</span><br>
+                        <span style="font-size: 15px;">Shareing your thoughts on a movie with others.</span>
+                    </div>
+                </div>
+
             </div>
-          </div>  
-          <form action="" method="POST">
-            <div class="form-row">
-              <div class="col">
-                <label for="inputUsername"><i class="fas fa-envelope" style="padding: 0 2px;"></i>Username</label>
-                <input type="username" class="form-control" id="iinputUsername" placeholder="" name="username">  
-              </div>
-            </div>  
-            <div class="form-row">
-              <div class="col">
-                <label for="inputEmail"><i class="fas fa-envelope" style="padding: 0 2px;"></i>Email</label>
-                <input type="email" class="form-control" id="inputEmail" placeholder="" name="email">  
-              </div>
-            </div>  
-            <div class="form-row">
-              <div class="col"> 
-                <label for="inputPassword"><i class="fas fa-key" style="padding: 0 2px;"></i>Password</label>
-                <input type="password" class="form-control" id="inputPassword" placeholder="" name="password">  
-              </div>
-            </div>
 
-            <div class="form-row" style="margin-top: 5%;">
-              <div class="col">
-                <button type="submit" class="btn btn-primary" style="background-color: #182628;">CREATE YOUR ACCOUNT</button>
-              </div>
-            </div>
-            
-          </form>
+        </div>
+    
+        <!-- footer -->
+        <div class="row" style="margin-top: 5%">
+            <!-- footer -->
+            <?php require_once(__DIR__ . '/../private_html/html-templates/global/footer.php'); ?>
+        </div>
 
-        </div> 
-
-        <!-- left column -->
-        <div class="col-sm" >
-          <div class="form-row">
-            <div class="col">  
-              <span style="font-size: 28px; color:#182628 font-weight: bold;">Benefits of being a member</span>
-            </div>
-          </div>
-
-            <div class="form-row">
-              <div class="col">
-                <hr>
-                <span style="font-size: 18px; font-weight: bold;">Customed Recommendations</span><br>
-                <span style="font-size: 15px;">Movies recommendations based on your taste.</span>
-              </div>   
-            </div>  
-
-            <div class="form-row">
-              <div class="col">
-                <br>
-                <span style="font-size: 18px; font-weight: bold;">Personal lists</span><br>
-                <span style="font-size: 15px;">Create your own watchlist and wishlist.</span>
-              </div>   
-            </div>  
-
-            <div class="form-row">
-              <div class="col">
-                <br>
-                <span style="font-size: 18px; font-weight: bold;">Contribute to FilmFinity</span><br>
-                <span style="font-size: 15px;">Review and rate the movies.</span><br>
-                <span style="font-size: 15px;">Shareing your thoughts on a movie with others.</span>
-              </div>   
-            </div>    
-
-          </div> 
-
-        </div>  
-
-      </div>
     </div>
 
-    <!-- footer -->
-    <?php require_once(__DIR__ . '/../private_html/html-templates/global/footer.php'); ?>
+    
     
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
