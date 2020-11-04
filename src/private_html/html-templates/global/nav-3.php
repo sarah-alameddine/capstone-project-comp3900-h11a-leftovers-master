@@ -22,13 +22,20 @@ session_start();
   .nav-link{
     font-weight: bold;
   }
+
+  .btn-primary.custom-btn {
+    color: black;
+    background-color: #03D8A9;
+    border-color: #000;
+  }
 </style>
 
 <!--  Nav bar -->
-<nav class="navbar navbar-expand-md navbar-light" style="background-color: #0f181a;">
+
+<nav class="navbar navbar-expand-md sticky-top  navbar-light py-3" style="background-color: #222222;">
   <!-- logo and our group name session -->
   <a class="navbar-brand" href="/" >
-    <img src="/assets/images/logo-header.png" width="140px" height="50px" alt="logo" style="padding-right: 10%;">
+    <img src="/assets/images/logo-header.png" width="150px" height="70px" alt="logo">
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
   <span class="navbar-toggler-icon"></span>
@@ -76,7 +83,7 @@ session_start();
     </ul>
 
     <!-- Search session -->
-    <form action="search.php" method="GET" style="max-height: 35px; width: 50%; margin-right: 8%; margin-left: 5%;">
+    <form action="/search.php" method="GET" style="max-height: 35px; width: 50%; margin-right: 8%; margin-left: 5%;">
       <div class="input-group mb-3 position-relative">
 
         <!-- Search filter -->
@@ -117,7 +124,7 @@ session_start();
 
       <!-- Sign up-->
       <li class="nav-item">
-        <a class="nav-link text-light" href="/signup-2.php">Join Us</a>
+        <a class="nav-link btn btn-primary custom-btn" href="/signup-2.php">Join Us</a>
       </li>
     </ul>
 

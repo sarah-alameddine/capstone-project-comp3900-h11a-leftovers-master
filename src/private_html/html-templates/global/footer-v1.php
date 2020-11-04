@@ -1,7 +1,9 @@
 <style>
   footer {
     min-height:3em; 
-    background: linear-gradient(43deg, #4da190, #95f0de);
+    background: linear-gradient(43deg, #4c8f81, #95f0de);
+    width: 100%;
+    margin-top: 5%;
   }
 
   .text{
@@ -35,7 +37,7 @@
       <!-- Grid column -->
       <div class="col-md-2 mb-3">
         <h6 class="text-uppercase font-weight-regular">
-          <a class="text" href="#!">About us</a>
+          <a class="text" href="https://www.youtube.com/watch?v=688OPQ9WFpA&ab_channel=JacobSimone">About us</a>
         </h6>
       </div>
       <!-- Grid column -->
@@ -43,7 +45,7 @@
       <!-- Grid column -->
       <div class="col-md-2 mb-3">
         <h6 class="text-uppercase font-weight-regular">
-          <a class="text" href="#!">FAQ</a>
+          <a class="text" href="https://www.youtube.com/watch?v=AnuI2vayHVk&ab_channel=DrChrisTisdell">FAQ</a>
         </h6>
       </div>
       <!-- Grid column -->
@@ -51,7 +53,7 @@
       <!-- Grid column -->
       <div class="col-md-2 mb-3">
         <h6 class="text-uppercase font-weight-regular">
-          <a class="text" href="#!">Help</a>
+          <a class="text" href="https://www.youtube.com/watch?v=2Q_ZzBGPdqE&ab_channel=TheBeatlesVEVO">Help</a>
         </h6>
       </div>
       <!-- Grid column -->
@@ -59,7 +61,7 @@
       <!-- Grid column -->
       <div class="col-md-2 mb-3">
         <h6 class="text-uppercase font-weight-regular">
-          <a class="text" href="#!">Github</a>
+          <a class="text" href="https://github.com/unsw-cse-capstone-project/capstone-project-comp3900-h11a-leftovers/">Github</a>
         </h6>
       </div>
       <!-- Grid column -->
@@ -67,7 +69,7 @@
       <!-- Grid column -->
       <div class="col-md-2 mb-3">
         <h6 class="text-uppercase font-weight-regular">
-          <a class="text" href="#!">Terms & Conditions</a>
+          <a class="text" href="https://www.youtube.com/watch?v=Uv05Ssod838&ab_channel=RichardBuckland">Terms & Conditions</a>
         </h6>
       </div>
       <!-- Grid column -->
@@ -125,7 +127,7 @@
 
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3">© 2020 Copyright:
-    <a class="text website" href="https://filmfinity.me/"> FilmFinity.me</a>
+    <a class="text website" href="/"> FilmFinity.me</a>
   </div>
   <!-- Copyright -->
 

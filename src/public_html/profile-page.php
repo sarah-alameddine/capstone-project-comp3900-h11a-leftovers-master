@@ -23,12 +23,12 @@
         <?php require_once(__DIR__ . '/../private_html/html-templates/global/nav-2.php'); ?>
     </div>
 
-        
+    <div class="container">
     <div class="row" style="background-color: #182628; opacity: 0.8;">
         
         <div class="col-md-2" style="height: 240px; position: relative;">
             <div class="rounded-circle" style="background-color: #B9770E; width: 120px; height: 120px; position: relative; left: 20%; top: 25%;">
-                
+                <!-- this is the first letter of the user name -->
                 <div class="row" style="position: relative; top: 12%; left: 47%; font-size: 60px; color: white;"> A
                 </div>
 
@@ -63,11 +63,12 @@
 
             </div>
         </div>
-        
+    </div>
+    
     <div class="container">
         <div class="row" style="margin-top: 5%">
             <!-- a row to place our footer -->
-            <?php require_once(__DIR__ . '/../private_html/html-templates/global/footer.php'); ?>
+            <?php require_once(__DIR__ . '/../private_html/html-templates/global/footer-v1.php'); ?>
         </div>
     </div>
 

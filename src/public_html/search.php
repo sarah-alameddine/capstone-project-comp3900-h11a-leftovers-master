@@ -27,45 +27,49 @@ if (isset($_GET['term']) && isset($_GET['category']) &&
 
     <script src="https://kit.fontawesome.com/a13c7bceb2.js" crossorigin="anonymous"></script>
 
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/images/favicon.ico"/>
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/moviePage.css">
-
+   
     <title>FilmFinity</title>
   </head>
   <body>
-    
-    <div style="position: relative; min-height: 100vh;">
-        <!-- Nav bar-->
-        <?php require_once(__DIR__ . '/../private_html/html-templates/global/nav-2.php'); ?>
 
-        <div style="padding-bottom: 2.5rem;">
-            <!-- search results -->
-            <div class="container-fluid" style="margin-bottom: 60px;">
-                <h1> Search result for : <?php echo(htmlentities($_GET['term'])); ?> </h1>
+    <!-- website header -->
+    <?php require_once(__DIR__ . '/../private_html/html-templates/global/nav-2.php'); ?>
 
-                <?php if (count($results) == 0) { ?>
 
-                  <h1>No results found</h1>
-
-                <?php } else { ?>
-
-                    <?php foreach ($results as $movie) { ?>
-
-                        <div> <a href="/movies/title.php?id=<?php echo($movie->get_id()); ?>"><?php echo($movie->get_title()); ?> (<?php echo($movie->get_release_date()); ?>)</a></div>
-                        <img src="<?php echo($movie->get_image_path()); ?>" alt="movieposter" style="width:150px;height:200px;">
-
-                    <?php } ?>
-
-                <?php } ?>
-
-            </div>
-
+    <!-- search results -->
+    <div class="container" >
+        <div class="pt-5 " >
+          <h1> Search result for : <?php echo(htmlentities($_GET['term'])); ?> </h1>
         </div>
-        
-        <!-- Footer -->
-            <?php require_once(__DIR__ . '/../private_html/html-templates/global/footer.php'); ?>
+        <?php if (count($results) == 0) { ?>
+            <h2>No results found</h2>
+        <?php } else { ?>
 
+            <?php foreach ($results as $movie) { ?>
+
+        <div  class="d-flex align-items-center" >
+            <div class="pl-5">
+              <a href="<?php echo($movie->get_movie_page_path()); ?>">
+                <img #image1 class="mt-3"src="<?php echo($movie->get_image_path());?>" alt="movieposter"  style="width: 100px;height:150px;"> 
+              </a>
+            </div>
+            <p class="pl-2"><a href="<?php echo($movie->get_movie_page_path()); ?>"><?php echo($movie->get_title()); ?> (<?php echo($movie->get_release_date()); ?>)</a></p>
+        </div>
+
+            <?php } ?>
+
+        <?php } ?>
+
+        <div class="pb-5">
     </div>
+
+    <!-- Footer -->
+    <?php require_once(__DIR__ . '/../private_html/html-templates/global/footer-v1.php'); ?>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

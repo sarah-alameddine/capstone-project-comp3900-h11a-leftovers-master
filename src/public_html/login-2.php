@@ -117,14 +117,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             </div>
 
-            <div class="row" style="margin-top: 5%">
-                <!-- footer -->
-                <?php require_once(__DIR__ . '/../private_html/html-templates/global/footer.php'); ?>
-            </div>
-        
     </div>
     
-    
+ 
+    <!-- footer -->
+    <div class="row">
+        <?php require_once(__DIR__ . '/../private_html/html-templates/global/footer-v1.php'); ?>
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

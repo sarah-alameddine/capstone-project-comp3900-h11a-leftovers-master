@@ -18,6 +18,13 @@ label{
     max-width: 92%;
 }
 
+/* css for search button */
+.button{
+    border: none;
+    background: none;
+    box-shadow: none
+}
+  
 /* Welcome message css */
 .welcome1{
     font-size: 3.5em;
@@ -76,7 +83,10 @@ label{
  */
 
 .card{
-    background: black;
+    background: none;
+    display: flex;
+    justify-content: center;
+    transition: 0.5s
 }
 
 .card img{
@@ -85,26 +95,36 @@ label{
     object-fit: cover;
 }
 
+.card-deck{
+    height: 17.5em
+}
+
+.card:hover{
+    transform: scale(1.18)
+}
+
 
 .card-title{
     font-family: 'Quicksand', sans-serif;
     font-size: 1.5em;
     font-weight: 800;
-    color: #65ccb8
+    display: inline-block;
+    color: #65ccb8;
+    text-align: center
 }
 
 .card-text{
     font-family: 'Quicksand', sans-serif;
     font-size: 1em;
-    color: #f2f2f2 
+    color: #f2f2f2;
 }
 
 .card-overlay{
     position: absolute;
     top:0;
     left: 0;
-    width: 10.4em;
-    height: 16em;
+    width: 100%;
+    height: 100%;
     background: rgba(0,0,0,0.6);
     color: white;
     display: flex;

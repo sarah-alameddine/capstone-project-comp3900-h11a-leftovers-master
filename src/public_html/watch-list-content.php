@@ -23,12 +23,13 @@
         <?php require_once(__DIR__ . '/../private_html/html-templates/global/nav-2.php'); ?>
     </div>
 
-    <div class="container">
+    <div class="container">      
+
         <div class="row" style="background-color: #182628; opacity: 0.8;">
-        
+            
             <div class="col-md-2" style="height: 240px; position: relative;">
                 <div class="rounded-circle" style="background-color: #B9770E; width: 120px; height: 120px; position: relative; left: 20%; top: 25%;">
-                
+                    
                     <div class="row" style="position: relative; top: 12%; left: 47%; font-size: 60px; color: white;"> A
                     </div>
 
@@ -36,35 +37,31 @@
             </div>
 
             <div class="col-md-10">
-                <div class="row" style="position: relative; top: 30%; left: 2%; font-size: 30px; color: white;"> USERNAME
+
+                <div class="container" style="position: relative; top: 20%">
+
+                    <div class="row" style="color: white; font-weight: bold; font-size: 25px;">
+                        A list by
+                    </div> 
+
+                    <div class="row" style="color: white; font-size: 25px;">
+                        USERNAME
+                    </div>
+
+                    <div class="row" style="color: white; font-weight: bold; margin-top: 2%;">
+                        About this list
+                    </div>
+
+                    <div class="row" style="color: white;">
+                        No description; if there's description, put it here
+                    </div>
+
                 </div>
             </div>
 
         </div>
-        
-        <div class="row" style="border-bottom: 1px solid #182628;">
-            <div class="container">
-                
-                <div class="row">
 
-                    <div class="col-2" style="height: 40px; left: 30%;">
-                        <a href="/watch-list.php" class="badge badge-warning" style="position: relative; top: 15%;">WATCH LISTS</a>
-                    </div>
-
-                    <div class="col-2" style="height: 40px; left: 30%;">
-                        <a href="#" class="badge badge-warning" style="position: relative; top: 15%;">WISHLIST</a>
-                    </div>
-                       
-                    <div class="col-2" style="height: 40px; left: 30%;">
-                        <a href="#" class="badge badge-warning" style="position: relative; top: 15%;">BAN LIST</a>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-
-        <!-- wishlish content -->
+        <!-- watchlist content -->
         <!-- logic: every row holds 1 container, each container holds 7 cards(movie) -->
         <!-- image of a movie and movie title are put into the card -->
         <!-- if the number of movie isnt enough to fill a whole row -->
@@ -80,7 +77,7 @@
                 <div class="card" style="width:10rem; height: 16rem;">
                     <!-- REMOVE BUTTON -->
                     <a href="#" class="btn btn-warning rounded-circle" style="position: absolute; right:5%; top: 3%; font-weight: bold; font-size: 15px;">-</a>
-
+                    
                     <img src="/assets/images/joker.jpg" class="card-img-top" alt="...">
                     <div class="card-body" style="padding: 0;">
                         <a href='#'><h6 class="card-title">MOVIE TITLE</h6></a>
@@ -140,6 +137,7 @@
                 <div class="card" style="width:10rem; height: 16rem;">
                     <!-- REMOVE BUTTON -->
                     <a href="#" class="btn btn-warning rounded-circle" style="position: absolute; right:5%; top: 3%; font-weight: bold; font-size: 15px;">-</a>
+
                     <img src="/assets/images/joker.jpg" class="card-img-top" alt="...">
                     <div class="card-body" style="padding: 0;">
                         <a href='#'><h6 class="card-title">MOVIE TITLE</h6></a>
@@ -151,6 +149,7 @@
                 <div class="card" style="width:10rem; height: 16rem;">
                     <!-- REMOVE BUTTON -->
                     <a href="#" class="btn btn-warning rounded-circle" style="position: absolute; right:5%; top: 3%; font-weight: bold; font-size: 15px;">-</a>
+
                     <img src="/assets/images/joker.jpg" class="card-img-top" alt="...">
                     <div class="card-body" style="padding: 0;">
                         <a href='#'><h6 class="card-title">MOVIE TITLE</h6></a>
@@ -186,6 +185,7 @@
                 <div class="card" style="width:10rem; height: 16rem;">
                     <!-- REMOVE BUTTON -->
                     <a href="#" class="btn btn-warning rounded-circle" style="position: absolute; right:5%; top: 3%; font-weight: bold; font-size: 15px;">-</a>
+
                     <img src="/assets/images/joker.jpg" class="card-img-top" alt="...">
                     <div class="card-body" style="padding: 0;">
                         <a href='#'><h6 class="card-title">MOVIE TITLE</h6></a>
@@ -218,12 +218,35 @@
             </div>
 
         </div>
-    
+
+        <!-- THIS PART ONLY APPEARS TO THE USER -->
+        <div class="row" style="margin-top: 2%;">
+            <div class="container">
+                
+                <div class="row">
+
+                    <div class="col-sm" style="position: relative; right: 0; height: 50px;">
+                        <a href="#" class="btn btn-warning" role="button" style=" font-weight: bold;">Add movie</a>
+                    </div>
+
+                    <!-- DELETE THE CURRENT LIST -->
+                    <!-- UPON CLICKING THE DELETE LIST BUTTON, USERS GET BACK TO THE WATCHLISTS PAGE -->
+                    <div class="col-sm" style="height: 50px; position: relative; right: 0;">
+                        <form>
+                            <a href="#" class="btn btn-warning" role="button" style="position: absolute; font-weight: bold;">Delete List</a>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
     </div>
-        
+
     <div class="row">
         <?php require_once(__DIR__ . '/../private_html/html-templates/global/footer-v1.php'); ?>
     </div>
+
 
 
      

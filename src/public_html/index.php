@@ -30,10 +30,7 @@
 
   <body>
     
-    <div class="row" style="margin-bottom: 1%">
-        <!-- website header -->
-        <?php require_once(__DIR__ . '/../private_html/html-templates/global/nav-2.php'); ?>
-    </div>
+  <?php require_once(__DIR__ . '/../private_html/html-templates/global/nav-2.php'); ?>
     
     <div class="container" >
         
@@ -43,8 +40,9 @@
             <div id="searchbar" class="container">
               <h1 class="welcome1">Welcome</h1>
               <h2 class="welcome2">Millions of movie recommendations, all in one place.</h2>
-              <form action="search.php" method="GET" class="d-flex justify-content-center h-100">
-                  <div class="search"> <input class="search_input" type="text" name="" placeholder="Search movies, people, directors here..."> <a href="#" class="search_icon"><i class="fa fa-search"></i></a> </div>
+              <form action="search.php" method="GET" class="d-flex justify-content-center h-100" id="main-search">
+                  <div class="search"> <input class="search_input" type="text" name="term" placeholder="Search movies, people, directors here..."> <button type="submit" form="main-search" class="search_icon"><i class="fa fa-search"></i></button> </div>
+                  <input type="hidden"name="category" value="1">
               </form>
             </div>
         </div>
