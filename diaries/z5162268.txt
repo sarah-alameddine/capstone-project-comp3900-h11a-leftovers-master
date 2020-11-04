@@ -36,6 +36,11 @@ Week 6:
     - Fixed homepage carousels and layout 
     - Cleaned up previous homepage code: divided code into css and php files. 
 
+Week 7:
+    - Updated homepage, need to fix positioning of containers
+Week 8:
+    - Preparing to close sprint 2
+
 
 
 
