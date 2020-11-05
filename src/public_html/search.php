@@ -27,24 +27,26 @@ if (isset($_GET['term']) && isset($_GET['category']) &&
 
     <script src="https://kit.fontawesome.com/a13c7bceb2.js" crossorigin="anonymous"></script>
 
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/images/favicon.ico"/>
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/moviePage.css">
-
+   
     <title>FilmFinity</title>
   </head>
   <body>
 
     <!-- Nav bar-->
-    <?php require_once(__DIR__ . '/../private_html/html-templates/global/nav.php'); ?>
+    <?php require_once(__DIR__ . '/../private_html/html-templates/global/nav-2.php'); ?>
 
 
     <!-- search results -->
-    <div class="container-fluid">
-        <h1> Search result for : <?php echo(htmlentities($_GET['term'])); ?> </h1>
-
+    <div class="container" >
+        <div class="pt-5 " >
+          <h1> Search result for : <?php echo(htmlentities($_GET['term'])); ?> </h1>
+        </div>
         <?php if (count($results) == 0) { ?>
-
-          <h1>No results found</h1>
 
         <?php } else { ?>
 
@@ -57,11 +59,41 @@ if (isset($_GET['term']) && isset($_GET['category']) &&
 
         <?php } ?>
 
+        <div  class="d-flex align-items-center" >
+            <div class="pl-5">
+              <!-- TODO ADD THE LINK TO THE MOVIE PAGE IN THE 'HREF' AND IN THE 'PHP' SECTION BELOW  -->
+              <a href="ADD HERE MOVIEPAGE LINK">
+                <img #image1 class="mt-3"src="/assets/images/joker.jpg" alt="movieposter"  style="width: 100px;height:150px;"> 
+              </a>
+            </div>
+            <p class="pl-2"><a href="ADD HERE MOVIEPAGE LINK">Movie 3</a></p>
+        </div>
+
+        <div  class="d-flex align-items-center" >
+            <div class="pl-5">
+              <!-- TODO ADD THE LINK TO THE MOVIE PAGE IN THE 'HREF' AND IN THE 'PHP' SECTION BELOW  -->
+              <a href="ADD HERE MOVIEPAGE LINK">
+                <img #image1 class="mt-3"src="/assets/images/joker.jpg" alt="movieposter"  style="width: 100px;height:150px;"> 
+              </a>
+            </div>
+            <p class="pl-2"><a href="ADD HERE MOVIEPAGE LINK">Movie 3</a></p>
+        </div>
+
+        <div  class="d-flex align-items-center" >
+            <div class="pl-5">
+              <!-- TODO ADD THE LINK TO THE MOVIE PAGE IN THE 'HREF' AND IN THE 'PHP' SECTION BELOW  -->
+              <a href="ADD HERE MOVIEPAGE LINK">
+                <img #image1 class="mt-3"src="/assets/images/joker.jpg" alt="movieposter"  style="width: 100px;height:150px;"> 
+              </a>
+            </div>
+            <p class="pl-2"><a href="ADD HERE MOVIEPAGE LINK">Movie 3</a></p>
+        </div>
     </div>
     
+
     <!-- Footer -->
     <div>
-        <?php require_once(__DIR__ . '/../private_html/html-templates/global/footer.php'); ?>
+        <?php require_once(__DIR__ . '/../private_html/html-templates/global/footer-v1.php'); ?>
     </div>
 
     <!-- Optional JavaScript -->
