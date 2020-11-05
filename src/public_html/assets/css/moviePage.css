@@ -252,7 +252,11 @@ label.star:before {
 }
 
 /* User review rating styling */
-#reviewRating {
-  width: 300px;
-  border: solid red 2px;
+.reviewRating {
+  border-style:solid;
+  border-color:#03D8A9;
+  background: #03D8A9;
+  border-radius: 5%;
+  color:black;
+  
 }

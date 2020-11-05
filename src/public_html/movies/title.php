@@ -163,8 +163,8 @@ if (isset($_GET['id'])) {
                       <p><small><strong><?php echo($review->get_username()); ?></strong> - <?php echo($review->get_post_date()); ?><p id="reviewRating">>ddddd</p></small></p>
                     </div>     -->
                   <div style="overflow: hidden;">
-                    <p style="float: left;"><small><strong><?php echo($review->get_username()); ?></strong> - <?php echo($review->get_post_date()); ?></small></p>
-                    <p style="float: left;" id="reviewRating">- </p>
+                    <p style="float: left;"><small><strong><?php echo($review->get_username()); ?></strong> - <?php echo($review->get_post_date()); ?> &nbsp;&nbsp;</small></p>
+                    <p style="float: left;" class="reviewRating"> &#9733; 3.5 </p>
                   </div>
                     <p><?php echo($review->get_comment()); ?></p>
                   </div>

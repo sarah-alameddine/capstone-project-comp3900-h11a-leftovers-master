@@ -1,0 +1,157 @@
+body{
+    background-color: black;
+}
+
+.row{
+    padding: 0.6em;
+}
+
+label{
+    font-weight:bold; 
+    color: black; 
+    font-family:georgia,garamond,serif;
+    font-size:1em;
+    font-style:italic;
+}
+
+.container{
+    max-width: 92%;
+}
+
+/* css for search button */
+.button{
+    border: none;
+    background: none;
+    box-shadow: none
+}
+  
+/* Welcome message css */
+.welcome1{
+    font-size: 3.5em;
+    color: #9effec;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-family: 'Quicksand', sans-serif;
+}
+  
+.welcome2 {
+    display: inline-block;
+    font-size: 1.5em;
+    width: 40%;
+    color: white;
+    line-height: 1em;
+    font-family: 'Quicksand', sans-serif;
+}
+
+/* Carousel CSS */
+.carousel-item img{
+    height: 16em;
+    border-radius: 0.6em;
+}
+
+.carousel-caption{
+    left: 0; bottom:10%; width: 100%; 
+    height: 20%;
+    background-color: black;
+    opacity: 0.5;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.nav-link{
+    color: #65ccb8;
+    font-size: 1em;
+}
+
+#home-tab{
+    font-size: 1.4em;
+}
+
+
+.carousel-control-prev{
+    font-size: 2em;
+    margin-left: -2em;
+}
+
+.carousel-control-next{
+    font-size: 2em;
+    margin-right: -2em;
+}
+
+/* Attribute: https://www.youtube.com/watch?v=exb2ab72Xhs&ab_channel=dcode 
+ * Code for carousel cards
+ */
+
+.card{
+    background: none;
+    display: flex;
+    justify-content: center;
+    transition: 0.5s
+}
+
+.card img{
+    width: 10.4em;
+    height: 16em;
+    object-fit: cover;
+}
+
+.card-deck{
+    height: 17.5em
+}
+
+.card:hover{
+    transform: scale(1.18)
+}
+
+
+.card-title{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.5em;
+    font-weight: 800;
+    display: inline-block;
+    color: #65ccb8;
+    text-align: center
+}
+
+.card-text{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1em;
+    color: #f2f2f2;
+}
+
+.card-overlay{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.25s;
+}
+
+/* Note: this feature may not be supported in old browsers */
+.card-overlay--blur{
+    backdrop-filter: blur(0.3em);
+}
+.card-overlay > * {
+    transform: translateY(1.25em);
+    transition: transform 0.25s;
+}
+.card-overlay:hover {
+    opacity: 1;
+}
+
+.card-overlay:hover > * {
+    transform: translateY(0);
+}
+
+
+/* .carousel-inner > .carousel-item > img { 
+    margin: 0 auto; 
+} */
