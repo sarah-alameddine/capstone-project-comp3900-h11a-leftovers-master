@@ -41,3 +41,17 @@ Week 5
 After the demo, we decided to redesign our font-end because it's really not good enough and not meet our expectation. Also sprint 2 will start on Friday this week as well. Therefore, we concerned that we may not finish all user stories in sprint 2 if we redesign our font-end. Therefore, we will focus on doing the homepage epic story first because the majority of work in sprint 2 also related to homepage epic story. We try to take the advantage of the quite week 6 to catch up on what we missed out in sprint 1 and redesign our font-end. 
 This time, Aayush and I will be working together on the homepage, I will work on the header and footer; when I finish it I will help Aayush to work on the body of the homepage. Sarah will continue to work on the move's page and Anikeet will keep working on the back-end (forget password function).
 
+Week 7
+Continue to work on the homepage. I think the navigation and the footer are done for now. Now we (Aayushma and I) should focus on the content of the homepage. 
+I have done the filter parts (Movie, Directors and Actors) for the homepage, but it's was just static. We want to make it dynamic and be able to connect to backend. I think I have to work out a bit on how I think it may connect to backend, and leaving comments there for Anikeet.
+
+Week 8
+I move to work on the profile page, watchlist, banlits and wishlist for our website. Majority parts of those pages are done. What left to do is the create watchlist page.
+
+I replaced the logout button by an icon that represent the user when he/she has logged in. The icon is a dropdown where I put the link to the user's profile page, lists. 
+
+I looked at Jira and what left to do now is the quiz and the movie chart which I'm going to do (quiz first).
+
+Week 9
+
+I've been working on the quiz page and also made some changes on the profile page. I added a ban this user button and unban user button to the user's profile page. Also fix the dimension of the login icon.

@@ -23,24 +23,24 @@
         <?php require_once(__DIR__ . '/../private_html/html-templates/global/nav-2.php'); ?>
     </div>
 
+    <div class="container">
+        <div class="row" style="background-color: #182628; opacity: 0.8;">
         
-    <div class="row" style="background-color: #182628; opacity: 0.8;">
-        
-        <div class="col-md-2" style="height: 240px; position: relative;">
-            <div class="rounded-circle" style="background-color: #B9770E; width: 120px; height: 120px; position: relative; left: 20%; top: 25%;">
+            <div class="col-md-2" style="height: 240px; position: relative;">
+                <div class="rounded-circle" style="background-color: #B9770E; width: 120px; height: 120px; position: relative; left: 20%; top: 25%;">
                 
-                <div class="row" style="position: relative; top: 12%; left: 47%; font-size: 60px; color: white;"> A
+                    <div class="row" style="position: relative; top: 12%; left: 47%; font-size: 60px; color: white;"> A
+                    </div>
+
                 </div>
-
             </div>
-        </div>
 
-        <div class="col-md-10">
-            <div class="row" style="position: relative; top: 30%; left: 2%; font-size: 30px; color: white;"> USERNAME
+            <div class="col-md-10">
+                <div class="row" style="position: relative; top: 30%; left: 2%; font-size: 30px; color: white;"> USERNAME
+                </div>
             </div>
-        </div>
 
-    </div>
+        </div>
         
         <div class="row" style="border-bottom: 1px solid #182628;">
             <div class="container">
@@ -48,7 +48,7 @@
                 <div class="row">
 
                     <div class="col-2" style="height: 40px; left: 30%;">
-                        <a href="#" class="badge badge-warning" style="position: relative; top: 15%;">WATCH LISTS</a>
+                        <a href="/watch-list.php" class="badge badge-warning" style="position: relative; top: 15%;">WATCH LISTS</a>
                     </div>
 
                     <div class="col-2" style="height: 40px; left: 30%;">
@@ -76,8 +76,12 @@
             <div class="container">
 
             <div class="card-deck" style="margin-top: 1%;">
-                <div class="card" style="width:10rem; height: 16rem; border: none">
-                    <img src="images/joker.jpg" class="card-img-top" alt="...">
+
+                <div class="card" style="width:10rem; height: 16rem;">
+                    <!-- REMOVE BUTTON -->
+                    <a href="#" class="btn btn-warning rounded-circle" style="position: absolute; right:5%; top: 3%; font-weight: bold; font-size: 15px;">-</a>
+
+                    <img src="/assets/images/joker.jpg" class="card-img-top" alt="...">
                     <div class="card-body" style="padding: 0;">
                         <a href='#'><h6 class="card-title">MOVIE TITLE</h6></a>
                         <p class="card-text" style="padding: 0; margin: 0;">Released date</p>
@@ -85,8 +89,11 @@
                     </div>
                 </div>
 
-                <div class="card" style="width:10rem; height: 16rem; border: none">
-                    <img src="images/joker.jpg" class="card-img-top" alt="...">
+                <div class="card" style="width:10rem; height: 16rem;">
+                    <!-- REMOVE BUTTON -->
+                    <a href="#" class="btn btn-warning rounded-circle" style="position: absolute; right:5%; top: 3%; font-weight: bold; font-size: 15px;">-</a>
+
+                    <img src="/assets/images/joker.jpg" class="card-img-top" alt="...">
                     <div class="card-body" style="padding: 0;">
                         <a href='#'><h6 class="card-title">MOVIE TITLE</h6></a>
                         <p class="card-text" style="padding: 0; margin: 0;">Released date</p>
@@ -94,8 +101,11 @@
                      </div>
                 </div>
 
-                <div class="card" style="width:10rem; height: 16rem; border: none">
-                    <img src="images/joker.jpg" class="card-img-top" alt="...">
+                <div class="card" style="width:10rem; height: 16rem;">
+                    <!-- REMOVE BUTTON -->
+                    <a href="#" class="btn btn-warning rounded-circle" style="position: absolute; right:5%; top: 3%; font-weight: bold; font-size: 15px;">-</a>
+
+                    <img src="/assets/images/joker.jpg" class="card-img-top" alt="...">
                     <div class="card-body" style="padding: 0;">
                         <a href='#'><h6 class="card-title">MOVIE TITLE</h6></a>
                         <p class="card-text" style="padding: 0; margin: 0;">Released date</p>
@@ -103,8 +113,11 @@
                     </div>
                 </div>
 
-                <div class="card" style="width:10rem; height: 16rem; border: none">
-                    <img src="images/joker.jpg" class="card-img-top" alt="...">
+                <div class="card" style="width:10rem; height: 16rem;">
+                    <!-- REMOVE BUTTON -->
+                    <a href="#" class="btn btn-warning rounded-circle" style="position: absolute; right:5%; top: 3%; font-weight: bold; font-size: 15px;">-</a>
+
+                    <img src="/assets/images/joker.jpg" class="card-img-top" alt="...">
                     <div class="card-body" style="padding: 0;">
                         <a href='#'><h6 class="card-title">MOVIE TITLE</h6></a>
                         <p class="card-text" style="padding: 0; margin: 0;">Released date</p>
@@ -112,8 +125,11 @@
                     </div>
                 </div>
 
-                <div class="card" style="width:10rem; height: 16rem; border: none">
-                    <img src="images/joker.jpg" class="card-img-top" alt="...">
+                <div class="card" style="width:10rem; height: 16rem;">
+                    <!-- REMOVE BUTTON -->
+                    <a href="#" class="btn btn-warning rounded-circle" style="position: absolute; right:5%; top: 3%; font-weight: bold; font-size: 15px;">-</a>
+
+                    <img src="/assets/images/joker.jpg" class="card-img-top" alt="...">
                     <div class="card-body" style="padding: 0;">
                         <a href='#'><h6 class="card-title">MOVIE TITLE</h6></a>
                         <p class="card-text" style="padding: 0; margin: 0;">Released date</p>
@@ -121,8 +137,10 @@
                     </div>
                 </div>
 
-                <div class="card" style="width:10rem; height: 16rem; border: none">
-                    <img src="images/joker.jpg" class="card-img-top" alt="...">
+                <div class="card" style="width:10rem; height: 16rem;">
+                    <!-- REMOVE BUTTON -->
+                    <a href="#" class="btn btn-warning rounded-circle" style="position: absolute; right:5%; top: 3%; font-weight: bold; font-size: 15px;">-</a>
+                    <img src="/assets/images/joker.jpg" class="card-img-top" alt="...">
                     <div class="card-body" style="padding: 0;">
                         <a href='#'><h6 class="card-title">MOVIE TITLE</h6></a>
                         <p class="card-text" style="padding: 0; margin: 0;">Released date</p>
@@ -130,8 +148,10 @@
                     </div>
                 </div>
 
-                <div class="card" style="width:10rem; height: 16rem; border: none">
-                    <img src="images/joker.jpg" class="card-img-top" alt="...">
+                <div class="card" style="width:10rem; height: 16rem;">
+                    <!-- REMOVE BUTTON -->
+                    <a href="#" class="btn btn-warning rounded-circle" style="position: absolute; right:5%; top: 3%; font-weight: bold; font-size: 15px;">-</a>
+                    <img src="/assets/images/joker.jpg" class="card-img-top" alt="...">
                     <div class="card-body" style="padding: 0;">
                         <a href='#'><h6 class="card-title">MOVIE TITLE</h6></a>
                         <p class="card-text" style="padding: 0; margin: 0;">Released date</p>
@@ -150,8 +170,12 @@
             <div class="container">
 
             <div class="card-deck" style="margin-top: 1%;">
-                <div class="card" style="width:10rem; height: 16rem; border: none">
-                    <img src="images/joker.jpg" class="card-img-top" alt="...">
+
+                <div class="card" style="width:10rem; height: 16rem;">
+                    <!-- REMOVE BUTTON -->
+                    <a href="#" class="btn btn-warning rounded-circle" style="position: absolute; right:5%; top: 3%; font-weight: bold; font-size: 15px;">-</a>
+
+                    <img src="/assets/images/joker.jpg" class="card-img-top" alt="...">
                     <div class="card-body" style="padding: 0;">
                         <a href='#'><h6 class="card-title">MOVIE TITLE</h6></a>
                         <p class="card-text" style="padding: 0; margin: 0;">Released date</p>
@@ -159,8 +183,10 @@
                     </div>
                 </div>
 
-                <div class="card" style="width:10rem; height: 16rem; border: none">
-                    <img src="images/joker.jpg" class="card-img-top" alt="...">
+                <div class="card" style="width:10rem; height: 16rem;">
+                    <!-- REMOVE BUTTON -->
+                    <a href="#" class="btn btn-warning rounded-circle" style="position: absolute; right:5%; top: 3%; font-weight: bold; font-size: 15px;">-</a>
+                    <img src="/assets/images/joker.jpg" class="card-img-top" alt="...">
                     <div class="card-body" style="padding: 0;">
                         <a href='#'><h6 class="card-title">MOVIE TITLE</h6></a>
                         <p class="card-text" style="padding: 0; margin: 0;">Released date</p>
@@ -192,14 +218,11 @@
             </div>
 
         </div>
-
-
+    
+    </div>
         
-    <div class="container">
-        <div class="row" style="margin-top: 5%">
-            <!-- a row to place our footer -->
-            <?php require_once(__DIR__ . '/../private_html/html-templates/global/footer.php'); ?>
-        </div>
+    <div class="row">
+        <?php require_once(__DIR__ . '/../private_html/html-templates/global/footer-v1.php'); ?>
     </div>
 
 

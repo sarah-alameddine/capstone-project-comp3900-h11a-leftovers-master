@@ -23,24 +23,24 @@
         <?php require_once(__DIR__ . '/../private_html/html-templates/global/nav-2.php'); ?>
     </div>
 
+    <div class="container">
+        <div class="row" style="background-color: #182628; opacity: 0.8;">
         
-    <div class="row" style="background-color: #182628; opacity: 0.8;">
-        
-        <div class="col-md-2" style="height: 240px; position: relative;">
-            <div class="rounded-circle" style="background-color: #B9770E; width: 120px; height: 120px; position: relative; left: 20%; top: 25%;">
+            <div class="col-md-2" style="height: 240px; position: relative;">
+                <div class="rounded-circle" style="background-color: #B9770E; width: 120px; height: 120px; position: relative; left: 20%; top: 25%;">
                 
-                <div class="row" style="position: relative; top: 12%; left: 47%; font-size: 60px; color: white;"> A
+                    <div class="row" style="position: relative; top: 12%; left: 47%; font-size: 60px; color: white;"> A
+                    </div>
+
                 </div>
-
             </div>
-        </div>
 
-        <div class="col-md-10">
-            <div class="row" style="position: relative; top: 30%; left: 2%; font-size: 30px; color: white;"> USERNAME
+            <div class="col-md-10">
+                <div class="row" style="position: relative; top: 30%; left: 2%; font-size: 30px; color: white;"> USERNAME
+                </div>
             </div>
-        </div>
 
-    </div>
+        </div>
         
         <div class="row" style="border-bottom: 1px solid #182628;">
             <div class="container">
@@ -52,7 +52,7 @@
                     </div>
 
                     <div class="col-2" style="height: 40px; left: 30%;">
-                        <a href="#" class="badge badge-warning" style="position: relative; top: 15%;">WISHLIST</a>
+                        <a href="/wishlist.php" class="badge badge-warning" style="position: relative; top: 15%;">WISHLIST</a>
                     </div>
                        
                     <div class="col-2" style="height: 40px; left: 30%;">
@@ -98,7 +98,7 @@
                         <div class="card-body">
                             <h5 class="card-title">List name</h5>
                             <p class="card-text">Number of items in the list</p>
-                            <a href="#" class="card-link">View list</a>
+                            <a href="/watch-list-content.php" class="card-link">View list</a>
                         </div>
                     </div>
 
@@ -118,9 +118,9 @@
                         </div>
                     </div>
 
-                </div>    
+                </div>
 
-            </div>  
+            </div>
 
         </div>
 
@@ -147,17 +147,16 @@
                         
                     </div>
 
-                </div>    
+                </div>
 
-            </div>  
+            </div>
 
         </div>
-        
-    <div class="container">
-        <div class="row" style="margin-top: 5%">
-            <!-- a row to place our footer -->
-            <?php require_once(__DIR__ . '/../private_html/html-templates/global/footer.php'); ?>
-        </div>
+     
+    </div>
+
+    <div class="row">
+        <?php require_once(__DIR__ . '/../private_html/html-templates/global/footer-v1.php'); ?>
     </div>
 
 
