@@ -1,15 +1,15 @@
 <style>
-
   .footer{
     background-color: #182628;
-    position: absolute;
+    position:relative;
+    width: 100%;
     left: 0;
     bottom: 0;
-    width: 100%;
   }
 
   .footer-list {
-    border: none; background-color: #182628;
+    border: none; 
+    background-color: #182628;
   }
 
   .footer-list a{
@@ -23,7 +23,7 @@
 
 </style>
 
-<div class="footer">
+<footer class="page-footer font-small cyan darken-3">
  
   <div class="row" style="margin: 0;">
       <div class="col-9" style="width: 60%;">
@@ -59,11 +59,8 @@
           </li>
         </ul>
       </div>
-
-  </div>
-
+    </div>
 </div>
-
 
 <!--   Terms and Condition Modal -->
 <div class="modal fade" id="termsAndConditions" role="dialog">
@@ -138,7 +135,7 @@
         <div class="modal-body">
             <h6>Question 1</h6>
             <p>Answer for question 1.</p>
-            <h>Question 2</h6>
+            <h6>Question 2</h6>
             <p>Answer for question 12.</p>
         </div>
         <div class="modal-footer">
@@ -146,4 +143,4 @@
         </div>
     </div>
     </div>
-</div>
+</footer>

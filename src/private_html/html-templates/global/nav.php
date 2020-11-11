@@ -26,7 +26,7 @@ session_start();
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     
     <!-- Search session -->
-    <form action="search.php" method="GET" class="form-inline my-2 my-lg-0" style="width: 60%; padding-left: 10px;">
+    <form action="/search.php" method="GET" class="form-inline my-2 my-lg-0" style="width: 60%; padding-left: 10px;">
 
       <!-- search bar -->
       <div class="input-group mb-3" style="border-color: black; width: 90%; margin-bottom: 0 !important;">

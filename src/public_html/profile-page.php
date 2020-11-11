@@ -14,8 +14,9 @@
     <script src="/assets/js/homepage.js"></script>
     -->
     
-    <title>FilmFinity</title>
+    <title>Profile page</title>
   </head>
+
   <body>
     
     <div class="row">
@@ -36,8 +37,17 @@
         </div>
 
         <div class="col-md-10">
+            
+            <!-- FILL THE USERNAME IN -->
             <div class="row" style="position: relative; top: 30%; left: 2%; font-size: 30px; color: white;"> USERNAME
             </div>
+            
+            <!-- If current user hasnt ban this user, ban button will not display otherwise remove ban button will display -->
+            <div class="row" style="position: relative; top: 35%; left: 2%; font-size: 30px; color: white;">
+                <a href="#" class="btn btn-warning" role="button" aria-pressed="true">Ban this user</a>
+                <a href="#" class="btn btn-warning" role="button" aria-pressed="true">Remove ban</a>
+            </div>
+
         </div>
 
     </div>
@@ -48,15 +58,16 @@
                 <div class="row">
 
                     <div class="col-2" style="height: 40px; left: 30%;">
-                        <a href="/watch-list.php" class="badge badge-warning" style="position: relative; top: 15%;">WATCH LISTS</a>
+                        <a href="/lists//watch-list.php" class="badge badge-warning" style="position: relative; top: 15%;">WATCH LISTS</a>
                     </div>
 
                     <div class="col-2" style="height: 40px; left: 30%;">
-                        <a href="/wishlist.php" class="badge badge-warning" style="position: relative; top: 15%;">WISHLIST</a>
+                        <a href="/lists//wishlist.php" class="badge badge-warning" style="position: relative; top: 15%;">WISHLIST</a>
                     </div>
-                       
+                    
+                    <!-- ban list is only be viewable by the owner of the ban list -->
                     <div class="col-2" style="height: 40px; left: 30%;">
-                        <a href="#" class="badge badge-warning" style="position: relative; top: 15%;">BAN LIST</a>
+                        <a href="/lists//ban-list.php" class="badge badge-warning" style="position: relative; top: 15%;">BAN LIST</a>
                     </div>
 
                 </div>

@@ -63,7 +63,7 @@
                 	<div class="carousel-inner">
                   		<div class="carousel-item active">
   
-                    		<!-- a deck of card here, each card is a movie  CAN FIT 7 MOVIES INTO 1 slide-->
+                    		<!-- a deck of card here, each card is a movie  CAN FIT 6 MOVIES INTO 1 slide-->
                     		<div class="card-deck" style="margin-top: 1%;">
 	                      		
                     			<?php 

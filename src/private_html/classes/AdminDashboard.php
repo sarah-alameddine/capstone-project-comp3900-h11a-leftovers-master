@@ -10,7 +10,24 @@ class AdminDashboard {
 
     }
 
-    public function add_movie($title, $release_date, $description, $image, $genres, $directors) {
+    /*
+     * Return associative array of genre and id
+     */
+    public function get_genres() {
+
+        $db = new Database();
+
+        $sql = "SELECT id, name FROM genres limit ?";
+        $vals = array(25);
+
+        $results = $db->query($sql, $vals)->fetchAll();
+
+        $db->close();
+        return $results;
+
+    }
+
+    public function add_movie($title, $release_date, $description, $image, $genres, $directors, $cast) {
 
         
         // Image
@@ -20,15 +37,31 @@ class AdminDashboard {
             move_uploaded_file($image['tmp_name'], $image_path);
         }
 
-        $sql = "INSERT INTO movies (title, release_date, description, image_path, genres, directors)
+        $sql = "INSERT INTO movies (title, release_date, description, image_path, directors, cast)
                 VALUES (?, ?, ?, ?, ?, ?)";
-        $vals = array($title, $release_date, $description, $image_filename, $genres, $directors);
+        $vals = array($title, $release_date, $description, $image_filename, $directors, $cast);
         $db = new Database();
         $db->show_errors();
         if ($db->has_error()) {
             return DATABASE_ERROR;
         }
-        return $db->query($sql, $vals)->lastInsertID();
+        $movie_id = $db->query($sql, $vals)->lastInsertID();
+
+        $sql = "INSERT INTO movies_genre (movie_id, genre_id) VALUES ";
+        $vals = array();
+        foreach ($genres as $genre) {
+            if (ctype_digit($genre) && $genre >= 1 && $genre <= 18) {
+                $sql .= "(?, ?),";
+                $vals[] = $movie_id;
+                $vals[] = $genre;
+            }
+        }
+
+        $sql = rtrim($sql, ",");
+        $db->query($sql, $vals);
+        $db->close();
+
+        return $movie_id;
 
     }
 

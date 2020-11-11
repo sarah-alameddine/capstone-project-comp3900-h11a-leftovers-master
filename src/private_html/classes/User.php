@@ -1,5 +1,7 @@
 <?php
 
+require_once(__DIR__ . '/MovieBuilder.php');
+
 class User {
 
     private $id;
@@ -8,6 +10,13 @@ class User {
     public function __construct($id, $username) {
         $this->id = $id;
         $this->username = $username;
+    }
+
+    /*
+     * Get array of movies part of the user's wishlist
+     */
+    public function get_wishlist() {
+
     }
 
     /*

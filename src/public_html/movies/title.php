@@ -42,6 +42,9 @@ if (isset($_GET['id'])) {
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../assets/css/moviePage.css">
 
+    <!-- JQuery -->
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+
     <!-- Fonts -->
     <!-- <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet"> -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Staatliches&display=swap" rel="stylesheet">
@@ -68,22 +71,19 @@ if (isset($_GET['id'])) {
         <!-- Movie poster / rating / wishlist -->
         <!-- class="my-3" - changes the spacing of the elements -->
         <div  class="col-md-3 " align="center">
-        <div style="width: 200px;height:300px;">
-          <!-- <img class="mt-3" src="<?php echo($movie->get_image_path()); ?>" alt="movieposter" style="width:300px;height:400px;"> -->
-          <img id="image1" class="mt-3" src="<?php echo($movie->get_image_path()); ?>" alt="movieposter" style="width:100%;height:100%;object-fit:contain;">
+          <div class="pb-4" style="width: 200px;height:300px;">
+            <!-- <img class="mt-3" src="<?php echo($movie->get_image_path()); ?>" alt="movieposter" style="width:300px;height:400px;"> -->
+            <img id="image1" class="mt-3" src="<?php echo($movie->get_image_path()); ?>" alt="movieposter" style="width:100%;height:100%;object-fit:contain;">
           </div>
-            <div class="my-3">
+          <!-- Wishlist button -->
+          <div class="my-3">
             <button type="submit" class="btn btn-secondary">ADD TO WISHLIST</button>
-            </div>
-            <!-- WOULD ANIKET BE ABLE TO CONVERT THE MOVIE RATING INTO STARS -->
-            <h4>Movie Rating: <?php echo($movie->get_average()); ?>/5</h4>
-            <!--<span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star"></span>-->
-            
+          </div>
+          <!-- Movie star rating -->
+          <h3><?php echo($movie->get_average()); ?> <span style="color: #FFC107;font-size:30px;">&#9733;</span></h3>
+          <h6 style="color: #F2F2F2;"> Average Rating</h6>            
         </div>
+
         <!------------------------ MIDDLE SECTION ---------------------------------------------------->
         <!-- Movie Description -->
         <!-- <div class="col-sm-6" style="background-color:lavenderblush;"> -->
@@ -100,9 +100,9 @@ if (isset($_GET['id'])) {
           <h4>Director(s):</h4>
           <p><?php echo($movie->get_director()); ?></p>
 
-          <h4>Cast:<h4>
-            <!-- TODO ADD THE CAST FOR BACKEND -->
-          <p></p>
+          <!-- <h4>Cast:<h4>
+
+          <p></p> -->
           </div>
 
           <!-- Trailer
@@ -118,38 +118,33 @@ if (isset($_GET['id'])) {
             <h4>Reviews:</h4>
           </div>
           <hr style="height:1px;border-width:0;background-color:#6C757D">
-          <!-- STAR RATING SECTION -->
           <h4 style="color:#F2F2F2;">Add your own review and rating:</h4>
           <div class="pt-1">
             <!-- TODO BACKEND NEEDED FOR COMMENT -->
-            <!-- https://stackoverflow.com/questions/40870635/star-rating-system-html -->
             <form method="POST" action="post-review.php">
-                <!--<div class="py-2">
-                  <div class="stars">
-                    <form action="">
-                      <input class="star star-5" id="star-5" type="radio" name="star"/>
-                      <label class="star star-5" for="star-5"></label>
-                      <input class="star star-4" id="star-4" type="radio" name="star"/>
-                      <label class="star star-4" for="star-4"></label>
-                      <input class="star star-3" id="star-3" type="radio" name="star"/>
-                      <label class="star star-3" for="star-3"></label>
-                      <input class="star star-2" id="star-2" type="radio" name="star"/>
-                      <label class="star star-2" for="star-2"></label>
-                      <input class="star star-1" id="star-1" type="radio" name="star"/>
-                      <label class="star star-1" for="star-1"></label>
-                    </form>
-                  </div>
-                </div>-->
-
-                <h4>Rating (1-5): </h4>
-                <input type="number" id="rating" name="rating" min="1" max="5" value="1">
-
-                <textarea style="margin-top:5px;" class="form-control" rows="3" name="comment" placeholder="Enter your review"></textarea>
-                 <input type="hidden" name="movie_id" value="<?php echo($movie->get_id()); ?>">
-                <!-- <button type="button" style="margin-top:10px;margin-left:5px;" class="btn btn-secondary">Submit Review</button> -->
-                <input type="submit">
-          </form>
-
+                <!-- <h4>Rating (1-5): </h4> -->
+                <!-- <input type="number" id="rating" name="rating" min="1" max="5" value="1"> -->
+                <!-- Star rating section -->
+                <div class="rating">
+                  <input type="radio" id="star5" name="startRating" id="rating" name="rating" class="star" value="5">
+                    <label for="star5" class="star" title="5 stars"></label>
+                  <input type="radio" id="star4" name="startRating" id="rating" name="rating" class="star" value="4">
+                   <label for="star4" class="star" title="4 stars"></label>
+                  <input type="radio" id="star3" name="startRating"  id="rating" name="rating" class="star" value="3">
+                    <label for="star3" class="star" title="3 stars"></label>
+                  <input type="radio" id="star2" name="startRating" id="rating" name="rating" class="star" value="2">
+                    <label for="star2" class="star" title="2 stars"></label>
+                  <input type="radio" id="star1" name="startRating" id="rating" name="rating" class="star" value="1">
+                    <label for="star1" class="star" title="1 stars"></label>
+                </div>
+                <!-- Comment section -->
+                <textarea class="form-control" style="margin-top:5px;" class="form-control" rows="3" name="comment" placeholder="Add your own review..."></textarea>
+                <!-- Submit section -->
+                <input type="hidden" name="movie_id" value="<?php echo($movie->get_id()); ?>">
+                <div class="mt-3" >
+                <input class="btn btn-secondary btn-lg btn-block" type="submit" value="Post Review">
+              </div>
+              </form>
 
           </div>
           <hr style="height:1px;border-width:0;background-color:#03D8A9">
@@ -163,17 +158,14 @@ if (isset($_GET['id'])) {
                       <p><small><strong><?php echo($review->get_username()); ?></strong> - <?php echo($review->get_post_date()); ?><p id="reviewRating">>ddddd</p></small></p>
                     </div>     -->
                   <div style="overflow: hidden;">
-                    <p style="float: left;"><small><strong><?php echo($review->get_username()); ?></strong> - <?php echo($review->get_post_date()); ?> &nbsp;&nbsp;</small></p>
-                    <p style="float: left;" class="reviewRating"> &#9733; 3.5 </p>
+                    <p style="float: left;"><small><strong><?php echo($review->get_username()); ?></strong> - <?php echo($review->get_post_date()); ?></small></p>
+                    <p style="float: left;" id="reviewRating"> - &#9733; <?php echo($review->get_rating()); ?> &nbsp;</p>
                   </div>
                     <p><?php echo($review->get_comment()); ?></p>
                   </div>
           <?php
               }
           ?>
-
-
-
 
           <!-- TODO PAGNATION START -->
           <!--
@@ -200,47 +192,46 @@ if (isset($_GET['id'])) {
         <!------------------------ RIGHT SECTION ---------------------------------------------------->
         <!-- Movie recommendation -->
         <!-- style="border-radius: 12px;border: 2px solid red;" -->
-        <div class="col-md-3 pt-5 pl-5  sticky-left row d-flex justify-content-center text-center" >
+        <div class="col-md-3 pt-5 pl-5 sticky-left row d-flex justify-content-center text-center" >
           <!-- <table id="recommendation"><tr><th> -->
           <div id="rec">
-          <h4 style="color: #F2F2F2";>Movie Recommendation </h4>
-          <hr style="height:1px;border-width:0;background-color:#6C757D">
-          <!-- TODO ADD THE IF STATEMENT HERE!!!!!!!!!!!!!!!! -->
-          <div class="card-img-top d-flex align-items-center" >
-                <div class="pl-5 " >
-                  <!-- TODO ADD THE LINK TO THE MOVIE PAGE IN THE 'HREF' AND IN THE 'PHP' SECTION BELOW  -->
-                  <a href="ADD HERE MOVIEPAGE LINK">
-                    <img #image1 class="mt-3"src="<?php echo($movie->get_image_path()); ?>" alt="movieposter"  style="width: 80px;height:100px;"> 
-                  </a>
-                </div>
-                  <p class="pl-2" ><a href="ADD HERE MOVIEPAGE LINK">Movie 1</a></p>
-              </div>
-
-              <div class="card-img-top d-flex align-items-center ">
-              <div class="pl-5" >
-                  <!-- TODO ADD THE LINK TO THE MOVIE PAGE IN THE 'HREF' AND IN THE 'PHP' SECTION BELOW  -->
-                  <a href="ADD HERE MOVIEPAGE LINK">
-                    <img #image1 class="mt-3"src="<?php echo($movie->get_image_path()); ?>" alt="movieposter"  style="width: 80px;height:100px;"> 
-                  </a>
-                  </div>
-                  <p class="pl-2"><a href="ADD HERE MOVIEPAGE LINK">Movie 2</a></p>
-              </div>
-
-              <div class="card-img-top d-flex align-items-center">
+            <h4 >Movie Recommendation </h4>
+            <hr style="height:1px;border-width:0;background-color:#6C757D">
+            <!-- TODO ADD THE IF STATEMENT HERE!!!!!!!!!!!!!!!! -->
+            <div class="card-img-top d-flex align-items-center">
                   <div class="pl-5">
                     <!-- TODO ADD THE LINK TO THE MOVIE PAGE IN THE 'HREF' AND IN THE 'PHP' SECTION BELOW  -->
                     <a href="ADD HERE MOVIEPAGE LINK">
                       <img #image1 class="mt-3"src="<?php echo($movie->get_image_path()); ?>" alt="movieposter"  style="width: 80px;height:100px;"> 
                     </a>
                   </div>
-                  <p class="pl-2"><a href="ADD HERE MOVIEPAGE LINK">Movie 3</a></p>
+                    <p class="pl-2" ><a href="ADD HERE MOVIEPAGE LINK">Movie 1</a></p>
+            </div>
+
+            <div class="card-img-top d-flex align-items-center ">
+              <div class="pl-5" >
+                  <!-- TODO ADD THE LINK TO THE MOVIE PAGE IN THE 'HREF' AND IN THE 'PHP' SECTION BELOW  -->
+                  <a href="ADD HERE MOVIEPAGE LINK">
+                    <img #image1 class="mt-3"src="<?php echo($movie->get_image_path()); ?>" alt="movieposter"  style="width: 80px;height:100px;"> 
+                  </a>
+              </div>
+                <p class="pl-2"><a href="ADD HERE MOVIEPAGE LINK">Movie 2</a></p>
+            </div>
+
+              <div class="card-img-top d-flex align-items-center">
+                <div class="pl-5">
+                    <!-- TODO ADD THE LINK TO THE MOVIE PAGE IN THE 'HREF' AND IN THE 'PHP' SECTION BELOW  -->
+                    <a href="ADD HERE MOVIEPAGE LINK">
+                      <img #image1 class="mt-3"src="<?php echo($movie->get_image_path()); ?>" alt="movieposter"  style="width: 80px;height:100px;"> 
+                    </a>
+                </div>
+                <p class="pl-2"><a href="ADD HERE MOVIEPAGE LINK">Movie 3</a></p>
               </div>
               <!-- TODO ADD THE END OF IF STATEMENT HERE!!!!!!!!!!!!!!!! -->
               <!-- TODO ADD THE ELSE STATEMENT HERE!!!!!!!!!!!!!!!! -->
                 <!-- ANIKET UNCOMMENT THE LINE BELOW FOR THE ELSE STATEMENT-->
                 <!-- <p style="font-family: 'Montserrat', sans-serif;">Login to view recommended movies</p> -->
               <!-- TODO ADD THE END OF ELSE STATEMENT HERE!!!!!!!!!!!!!!!! -->
-              <!-- </th></tr></table> -->
               </div>
         </div>
       </div>

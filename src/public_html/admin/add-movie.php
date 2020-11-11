@@ -15,7 +15,7 @@ if (
    ) {
 
     $ad = new AdminDashboard();
-    $movie_id = $ad->add_movie($_POST['title'], $_POST['release_date'], $_POST['description'], $_FILES['image'], $_POST['genres'], $_POST['directors']);
+    $movie_id = $ad->add_movie($_POST['title'], $_POST['release_date'], $_POST['description'], $_FILES['image'], $_POST['genres'], $_POST['directors'], $_POST['cast']);
     if ($movie_id === FALSE) {
         $error = "Images must be JPG, JPEG, PNG or GIF and no more than 5mb in size";
     } else if ($movie_id === DATABASE_ERROR) {
@@ -111,7 +111,21 @@ if (
                 <div class="form-row">
                   <div class="col">
                     <label for="inputGenre">Genres</label>
-                    <input type="text" class="form-control" id="inputGenre" placeholder="" name="genres">  
+
+                    <?php
+                        $ad = new AdminDashboard();
+                        $genres = $ad->get_genres();
+
+                        foreach ($genres as $row => $val) {
+                    ?>
+
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" name="genres[]" value="<?php echo($val['id']); ?>" id="genre<?php echo($val['name']); ?>">
+                          <label class="form-check-label" for="genre<?php echo($val['name']); ?>"><?php echo($val['name']); ?></label>
+                        </div>
+
+                    <?php } ?>
+
                   </div>
                 </div>
 
@@ -119,6 +133,13 @@ if (
                   <div class="col">
                     <label for="inputDirector">Directors</label>
                     <input type="text" class="form-control" id="inputDirector" placeholder="" name="directors">  
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="col">
+                    <label for="inputCast">Cast</label>
+                    <input type="text" class="form-control" id="inputCast" placeholder="" name="cast">  
                   </div>
                 </div>
 

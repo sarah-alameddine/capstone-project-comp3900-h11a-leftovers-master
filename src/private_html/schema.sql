@@ -1,13 +1,3 @@
-DROP TABLE IF EXISTS admin_movie_picks;
-DROP TABLE IF EXISTS reviews;
-DROP TABLE IF EXISTS playlist_items;
-DROP TABLE IF EXISTS playlists;
-DROP TABLE IF EXISTS wishlist_items;
-DROP TABLE IF EXISTS movies;
-DROP TABLE IF EXISTS forgotten_passwords;
-DROP TABLE IF EXISTS users;
-
-
 CREATE TABLE users(
     id                  int
                         AUTO_INCREMENT
@@ -35,26 +25,6 @@ CREATE TABLE users(
     CONSTRAINT users_email_uq UNIQUE (email)
 );
 
-CREATE TABLE forgotten_passwords (
-
-    id                  int
-                        AUTO_INCREMENT
-                        PRIMARY KEY,
-
-    user_id             int
-                        NOT NULL,
-
-    pin                 int
-                        NOT NULL,
-
-    attempts            int
-                        NOT NULL,
-
-    date_created        datetime
-                        NOT NULL
-
-);
-
 CREATE TABLE movies (
     id                  int
                         AUTO_INCREMENT
@@ -69,37 +39,48 @@ CREATE TABLE movies (
     description         varchar(1024)
                         NOT NULL,
 
-    genre               varchar(64)
+    image_path          varchar(512)
                         NOT NULL,
 
-    director            varchar(64)
+    directors           varchar(512)
                         NOT NULL,
 
-    image_path          varchar(512),
-
-    -- Views are used to find trending movies
-    views               int
+    cast                varchar(512)
                         NOT NULL
 );
 
-INSERT INTO movies (title, release_date, description, genre, director, views, image_path) VALUES
-('Joker', '2019-10-04', 'In Gotham City, mentally troubled comedian Arthur Fleck is disregarded and mistreated by society. He then embarks on a downward spiral of revolution and bloody crime. This path brings him face-to-face with his alter-ego: the Joker.',
-'Crime', 'Todd Phillips', 0, '/movies/assets/posters/joker.jpg'),
+CREATE TABLE genres(
+    id                  int
+                        AUTO_INCREMENT
+                        PRIMARY KEY,
 
-('John Wick: Chapter 3 - Parabellum', '2019-05-17', 'John Wick is on the run after killing a member of the international assassins\' guild, and with a $14 million price tag on his head, he is the target of hit men and women everywhere.',
-'Action', 'Chad Stahelski', 0, '/movies/assets/posters/john-wick-3.jpg'),
+    name                varchar(64)
+                        NOT NULL,
 
-('John Wick', '2014-10-24', 'An ex-hit-man comes out of retirement to track down the gangsters that killed his dog and took everything from him.',
-'Action', 'Chad Stahelski', 0, '/movies/assets/posters/john-wick.jpg'),
+    CONSTRAINT genres_name_uq UNIQUE (name)
+);
 
-('The Avengers', '2012-05-04', 'Earth\'s mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.',
-'Action', 'Joss Whedon', 0, '/movies/assets/posters/the-avengers.jpg'),
+INSERT INTO genres (name) VALUES
+('Action'), ('Adventure'), ('Animation'), ('Biography'), ('Comedy'), ('Crime'),
+('Documentary'), ('Drama'), ('Family'), ('Fantasy'), ('Film Noir'),
+('History'), ('Horror'), ('Musical'), ('Mystery'), ('Romance'), ('Sci-Fi'),
+('Thriller');
 
-('Avengers: Infinity War', '2018-04-27', 'The Avengers and their allies must be willing to sacrifice all in an attempt to defeat the powerful Thanos before his blitz of devastation and ruin puts an end to the universe.',
-'Action', 'Anthony Russo', 0, '/movies/assets/posters/avengers-infinity-war.jpg'),
+CREATE TABLE movies_genre(
 
-('Avengers: Endgame', '2019-10-26', 'After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos\' actions and restore balance to the universe.',
-'Action', 'Anthony Russo', 0, '/movies/assets/posters/avengers-endgame.jpg');
+    id                  int
+                        AUTO_INCREMENT
+                        PRIMARY KEY,
+
+    movie_id            int
+                        NOT NULL,
+
+    genre_id            int
+                        NOT NULL,
+
+    FOREIGN KEY (movie_id) REFERENCES movies(id),
+    FOREIGN KEY (genre_id) REFERENCES genres(id)
+);
 
 CREATE TABLE wishlist_items (
     id                  int
@@ -153,6 +134,15 @@ CREATE TABLE reviews (
     user_id             int
                         NOT NULL,
                         FOREIGN KEY (user_id) REFERENCES users(id),
+
+    rating              int
+                        NOT NULL,
+
+    comment             varchar(512)
+                        NOT NULL,
+
+    post_date           datetime
+                        NOT NULL,
 
     PRIMARY KEY (movie_id, user_id)
 );

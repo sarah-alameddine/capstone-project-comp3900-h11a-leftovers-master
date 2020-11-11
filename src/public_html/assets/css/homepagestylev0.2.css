@@ -86,7 +86,7 @@ label{
     background: none;
     display: flex;
     justify-content: center;
-    transition: 0.5s
+    transition: 0.5s;
 }
 
 .card img{
@@ -99,6 +99,7 @@ label{
     height: 17.5em
 }
 
+/* Note: this feature may not be available on all browsers */
 .card:hover{
     transform: scale(1.18)
 }

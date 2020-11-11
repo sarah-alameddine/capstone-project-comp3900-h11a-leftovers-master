@@ -1,5 +1,7 @@
 <?php
 
+
+
 require_once(__DIR__ . '/Database.php');
 require_once(__DIR__ . '/Movie.php');
 
@@ -33,17 +35,18 @@ class Search {
                 break;
             
             case CAT_GENRE:
-                $where = "genre LIKE '%$term%'";
+                $where = "genres LIKE '%$term%'";
                 break;
 
             case CAT_DIRECTOR:
-                $where = "director LIKE '%$term%'";
+                $where = "directors LIKE '%$term%'";
                 break;
 
             default:
                 $where = "title LIKE '%$term%' OR
-                          genre LIKE '%$term%' OR
-                          director LIKE '%$term%'";
+                          genres LIKE '%$term%' OR
+                          directors LIKE '%$term%' OR
+                          description LIKE '%$term%'";
                 break;
         }
 
@@ -61,7 +64,7 @@ class Search {
 
         $movies = array();
         foreach ($results as $row => $val) {
-            $movies[] = new Movie($val['id'], $val['title'], $val['release_date'], $val['description'], $val['genre'], $val['director'], $val['views'], $val['image_path']);
+            $movies[] = new Movie($val['id'], $val['title'], $val['release_date'], $val['description'], $val['genreS'], $val['directorS'], $val['image_path']);
         }
 
         return $movies;
