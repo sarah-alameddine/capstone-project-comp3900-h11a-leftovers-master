@@ -1,13 +1,16 @@
 <?php
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
 
-require_once(__DIR__ . '/../private_html/classes/Search.php');
+require_once(__DIR__ . '/../private_html/classes/MovieBuilder.php');
 
-$search = new Search();
+$mb = new MovieBuilder();
 
 if (isset($_GET['term']) && isset($_GET['category']) &&
     $_GET['category'] >= 1 && $_GET['category'] <= 4) {
 
-    $results = $search->search($_GET['term'], $_GET['category']);
+    $results = $mb->search($_GET['term'], $_GET['category'], 1, 1);
 
 } else {
     $results = array();
@@ -37,64 +40,81 @@ if (isset($_GET['term']) && isset($_GET['category']) &&
   </head>
   <body>
 
-    <!-- Nav bar-->
+    <!-- website header -->
     <?php require_once(__DIR__ . '/../private_html/html-templates/global/nav-2.php'); ?>
-
-
+    <!-- spacing between header and movie search result -->
+      <div class="pt-4">
+      </div>
     <!-- search results -->
-    <div class="container" >
-        <div class="pt-5 " >
-          <h1> Search result for : <?php echo(htmlentities($_GET['term'])); ?> </h1>
+    <div class="container">
+
+      <!---------- Sort by button ---------->
+      <div class="row" >
+        <div class="col-md-8">
+          <h1> Search result for : <i style="color:#03D8A9">"<?php echo(htmlentities($_GET['term'])); ?>"<i></h1>
         </div>
+        <div class="col-md-13" >
+        <form name="sort" action="" method="POST">
+          <input type="hidden" name="search_sort">
+          <div class="input-group">
+            <select class="custom-select" id="inputGroupSelect04">
+              <option selected>Sort Search...</option>
+              <option value="alpabetical">Alphabetical A to Z</option>
+              <option value="ratingHigh">Rating High to Low</option>
+              <option value="ratingLow">Rating Low to High</option>
+            </select>
+            <div class="input-group-append">
+              <button class="btn btn-secondary" type="submit" >Sort</button>
+            </div>
+          </div>
+        </form>
+        </div>
+      </div>
+      <hr style="color:gray;background-color:gray">
+      <div class="pt-5">
+        <!---------- No search results found ---------->
         <?php if (count($results) == 0) { ?>
-
+            <div class="py-5">
+              <h2>No results found</h2>
+            </div>
         <?php } else { ?>
-
+            <!---------- Search results found ---------->
             <?php foreach ($results as $movie) { ?>
+              <div id="searchBorder">
+                <div class="media">
+                <a href="<?php echo($movie->get_movie_page_path()); ?>">
+                  <img #image1 class="align-self-center mr-3" src="<?php echo($movie->get_image_path());?>" alt="movieposter"  style="width: 100px;height:150px;"> 
+                </a>
+                <div class="media-body" class="py-5" style="padding:5px;" class="d-flex align-items-center">
+                  <!---------- Movie title ---------->
+                  <div style="overflow: hidden;">
+                    <h3  style="float: left;"><a href="<?php echo($movie->get_movie_page_path()); ?>"><?php echo($movie->get_title()); ?> </a></h3>
+                    <!---------- Movie rating ---------->
+                    <h4 style="float: left;color: #03D8A9;"> &nbsp; &#9733; <?php echo($movie->get_average()); ?> &nbsp;&nbsp;</h4>
 
-                <div> <a href="/movies/title.php?id=<?php echo($movie->get_id()); ?>"><?php echo($movie->get_title()); ?> (<?php echo($movie->get_release_date()); ?>)</a></div>
-                <img src="<?php echo($movie->get_image_path()); ?>" alt="movieposter" style="width:150px;height:200px;">
+                    <!-- TODO IF STATEMENT - Add to watch list ---------->
+                    <a class="btn btn-secondary" style="float: right;" href="https://www.google.com/" role="button"> &#10010; WATCHLIST</a>
+                  </div>
+                  <!---------- Movie description ---------->
+                  <h6 class="mt-0" src="<?php echo($movie->get_movie_page_path()); ?>"> <?php echo($movie->get_release_date()); ?></h6>
+                  <p><?php echo($movie->get_description(100));?> part from counting words and characters, our online editor can help you to check word count, simply ...</p>
 
+                </div>
+              </div>
+            </div> 
+            <!---------- spacing between the movie posters ---------->
+            <div class="pb-5">
+            </div>
             <?php } ?>
-
         <?php } ?>
-
-        <div  class="d-flex align-items-center" >
-            <div class="pl-5">
-              <!-- TODO ADD THE LINK TO THE MOVIE PAGE IN THE 'HREF' AND IN THE 'PHP' SECTION BELOW  -->
-              <a href="ADD HERE MOVIEPAGE LINK">
-                <img #image1 class="mt-3"src="/assets/images/joker.jpg" alt="movieposter"  style="width: 100px;height:150px;"> 
-              </a>
-            </div>
-            <p class="pl-2"><a href="ADD HERE MOVIEPAGE LINK">Movie 3</a></p>
+        <!-- spacing between the movie posters and footer-->
+        <div class="pb-5"> 
         </div>
-
-        <div  class="d-flex align-items-center" >
-            <div class="pl-5">
-              <!-- TODO ADD THE LINK TO THE MOVIE PAGE IN THE 'HREF' AND IN THE 'PHP' SECTION BELOW  -->
-              <a href="ADD HERE MOVIEPAGE LINK">
-                <img #image1 class="mt-3"src="/assets/images/joker.jpg" alt="movieposter"  style="width: 100px;height:150px;"> 
-              </a>
-            </div>
-            <p class="pl-2"><a href="ADD HERE MOVIEPAGE LINK">Movie 3</a></p>
-        </div>
-
-        <div  class="d-flex align-items-center" >
-            <div class="pl-5">
-              <!-- TODO ADD THE LINK TO THE MOVIE PAGE IN THE 'HREF' AND IN THE 'PHP' SECTION BELOW  -->
-              <a href="ADD HERE MOVIEPAGE LINK">
-                <img #image1 class="mt-3"src="/assets/images/joker.jpg" alt="movieposter"  style="width: 100px;height:150px;"> 
-              </a>
-            </div>
-            <p class="pl-2"><a href="ADD HERE MOVIEPAGE LINK">Movie 3</a></p>
-        </div>
+      </div>
     </div>
     
-
     <!-- Footer -->
-    <div>
-        <?php require_once(__DIR__ . '/../private_html/html-templates/global/footer-v1.php'); ?>
-    </div>
+    <?php require_once(__DIR__ . '/../private_html/html-templates/global/footer-v1.php'); ?>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
