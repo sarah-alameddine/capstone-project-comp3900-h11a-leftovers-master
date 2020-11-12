@@ -17,21 +17,27 @@ I still need to add the novel ideas to both my section of the proposal (storyboa
 section of the proposal once that has been completed.
 In the tutorial we need to ask the tutor how many novel ideas is recommended, so far we have come up with a few ideas as a team.
 
-week 4
-sprint has begun - For this sprint I will be working mainly on the Movie Page and the search result page. We are also thinking about buying a domain and host instead of relying on XAMPP since it does not have real time change for all the team members. 
+Week 4
+sprint has begun - For this sprint I will be working mainly on the Movie Page and the search result page. We are also thinking about buying a domain and host 
+instead of relying on XAMPP since it does not have real time change for all the team members. 
 
-week 5 
+Week 5 
 We met on Monday and we decided to all pitch in and pay for a web host so we all have access to any changes made. We also got the domain 'filmfinity.me' for free
 using the education pack. I have finished the movie page and the search result.
 
-week 6
+Week 6
 Quiet week
 
-week 7 
+Week 7 
 Started to fix the Movie page- added a comment section, star rating, movie description and movie recommendation. I am testing different designs for the site,
 I think we might go for a dark looking website, the only thing we have to be careful with if we are going with a dark theme is that since browsers always defult
 to black text then we need to make sure our css always makes sure out text is visible. Also started working on the search page.
 
-week 8
-I still feel like there is more work to be done design wise for the Movie and search page. Aniket has connected both those pages to the backend so now we have the reviews section working.We are presenting this week again.
+Week 8
+I still feel like there is more work to be done design wise for the Movie and search page. Aniket has connected both those pages to the backend so now we have the
+reviews section working. We are presenting this week again.
+
+Week 9
+Finishing off the website. I have completed the frontend for the movie and search page and I am currently doing some work on the homepage (index.php). We had a meeting on Thursday after the tutorial - Aniket is currently connecting the backend to the frontend pages and everyone else is currently trying to add the finishing touches for
+the frontend of the site. We also need to make sure we finish the report which is also due on Monday.
 
