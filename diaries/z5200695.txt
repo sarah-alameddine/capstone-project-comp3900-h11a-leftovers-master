@@ -1,6 +1,6 @@
 WEEK 1
 
-Group formed during tutorial. Yush is the scrum master of the group. The group only has 4 members at the moment, hopeful my group will get extra 1 more member next week.
+Group formed during tutorial. Aayushma is the scrum master of the group. The group only has 4 members at the moment, hopeful my group will get extra 1 more member next week.
 
 FilmFinder is selected after a majority vote. Group name has not finalised yet.
 
@@ -25,9 +25,9 @@ We also start structuring our proposal and assign tasks. I will do User stories 
 
 WEEK 3
 
-During the meeting, we went through what we have done so far. Aayus has almost finished background research and writing, however, she concerned about executive summary and competitor analysis; not to sure what to put for these parts, particularly competitor analysis. I went through user stories and novel functionality. I told the group that I have made some changes to the previous user stories and add some more in Jira to satisfy objectives. We also discussion on user story 20, 21,23 and 36 because those are quite vague. We also discussed over novel functionality and confirmed with advanced movie recommendation, informative homepage and playlist feature. We also came up with the achievements system as a novel functionality but this may need to be more discussion during tutorial because we don't want to overload. Ani went through his part about the platform architecture which has 3 layers namely front end, business layer and database layer. The programming languages and frameworks we are going to use for this project. We also identified that our platform will mainly has 3 type of actors which are visitor, user and admin. Sarah talked though her work on storyboards and the flow chart.
+During the meeting, we went through what we have done so far. Aayushma has almost finished background research and writing, however, she concerned about executive summary and competitor analysis; not to sure what to put for these parts, particularly competitor analysis. I went through user stories and novel functionality. I told the group that I have made some changes to the previous user stories and add some more in Jira to satisfy objectives. We also discussion on user story 20, 21,23 and 36 because those are quite vague. We also discussed over novel functionality and confirmed with advanced movie recommendation, informative homepage and playlist feature. We also came up with the achievements system as a novel functionality but this may need to be more discussion during tutorial because we don't want to overload. Ani went through his part about the platform architecture which has 3 layers namely front end, business layer and database layer. The programming languages and frameworks we are going to use for this project. We also identified that our platform will mainly has 3 type of actors which are visitor, user and admin. Sarah talked though her work on storyboards and the flow chart.
 
-For further work of this week, I will finish up the new user stories (acceptance criteria) and new novel functionality. Aayus will re-create the sprints because we changed from 7 days sprints to 14 days sprint so that the sprint can end of our demo day. Sarah will update her storyboards because we have added some novel functionality feature to the platform. Ani will start working on the front end to buy us some time. 
+For further work of this week, I will finish up the new user stories (acceptance criteria) and new novel functionality. Aayushma will re-create the sprints because we changed from 7 days sprints to 14 days sprint so that the sprint can end of our demo day. Sarah will update her storyboards because we have added some novel functionality feature to the platform. Ani will start working on the front end to buy us some time. 
 
 We will also do a peer review after this week tutorial and finish up our proposal by Sunday.
 
@@ -39,7 +39,7 @@ Also we got our website hosted online and we use FileZilla to upload our work di
 
 Week 5
 After the demo, we decided to redesign our font-end because it's really not good enough and not meet our expectation. Also sprint 2 will start on Friday this week as well. Therefore, we concerned that we may not finish all user stories in sprint 2 if we redesign our font-end. Therefore, we will focus on doing the homepage epic story first because the majority of work in sprint 2 also related to homepage epic story. We try to take the advantage of the quite week 6 to catch up on what we missed out in sprint 1 and redesign our font-end. 
-This time, Aayush and I will be working together on the homepage, I will work on the header and footer; when I finish it I will help Aayush to work on the body of the homepage. Sarah will continue to work on the move's page and Anikeet will keep working on the back-end (forget password function).
+This time, Aayushmah and I will be working together on the homepage, I will work on the header and footer; when I finish it I will help Aayushma to work on the body of the homepage. Sarah will continue to work on the move's page and Anikeet will keep working on the back-end (forget password function).
 
 Week 7
 Continue to work on the homepage. I think the navigation and the footer are done for now. Now we (Aayushma and I) should focus on the content of the homepage. 
@@ -55,3 +55,7 @@ I looked at Jira and what left to do now is the quiz and the movie chart which I
 Week 9
 
 I've been working on the quiz page and also made some changes on the profile page. I added a ban this user button and unban user button to the user's profile page. Also fix the dimension of the login icon.
+
+Add movie to watchlist is finished. I created a page for add movie to watchlist and a page for search movie to add to watchlist. This novel functionality should be done once Anikeet has connected to backend. 
+
+I did a quick check to make sure we have covered all objective and novelty function. I think Objective 3 hasnt fully finished, but we have to wait for Anikeet to connect to backend and see how it goes. At the same time, Aayushma, Sarah and I also start to work on the report today.
