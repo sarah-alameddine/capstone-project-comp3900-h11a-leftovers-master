@@ -23,70 +23,69 @@
         <?php require_once(__DIR__ . '/../private_html/html-templates/global/nav-2.php'); ?>
     </div>
 
-        
-    <div class="row" style="background-color: #182628; opacity: 0.8;">
-        
-        <div class="col-md-2" style="height: 240px; position: relative;">
-            <div class="rounded-circle" style="background-color: #B9770E; width: 120px; height: 120px; position: relative; left: 20%; top: 25%;">
-                
-                <div class="row" style="position: relative; top: 12%; left: 47%; font-size: 60px; color: white;"> A
-                </div>
+    <div class="container">      
 
-            </div>
-        </div>
-
-        <div class="col-md-10">
-            <div class="row" style="position: relative; top: 30%; left: 2%; font-size: 30px; color: white;"> USERNAME
-            </div>
-        </div>
-
-    </div>
-        
-        <div class="row" style="border-bottom: 1px solid #182628;">
-            <div class="container">
-                
-                <div class="row">
-
-                    <div class="col-2" style="height: 40px; left: 30%;">
-                        <a href="#" class="badge badge-warning" style="position: relative; top: 15%;">WATCH LISTS</a>
-                    </div>
-
-                    <div class="col-2" style="height: 40px; left: 30%;">
-                        <a href="#" class="badge badge-warning" style="position: relative; top: 15%;">WISHLIST</a>
-                    </div>
-                       
-                    <div class="col-2" style="height: 40px; left: 30%;">
-                        <a href="#" class="badge badge-warning" style="position: relative; top: 15%;">BAN LIST</a>
+        <div class="row" style="background-color: #182628; opacity: 0.8;">
+            
+            <div class="col-md-2" style="height: 240px; position: relative;">
+                <div class="rounded-circle" style="background-color: #B9770E; width: 120px; height: 120px; position: relative; left: 20%; top: 25%;">
+                    
+                    <div class="row" style="position: relative; top: 12%; left: 47%; font-size: 60px; color: white;"> A
                     </div>
 
                 </div>
-
             </div>
+
+            <div class="col-md-10">
+
+                <div class="container" style="position: relative; top: 20%">
+
+                    <div class="row" style="color: white; font-weight: bold; font-size: 25px;">
+                        A list by
+                    </div> 
+
+                    <div class="row" style="color: white; font-size: 25px;">
+                        USERNAME
+                    </div>
+
+                    <div class="row" style="color: white; font-weight: bold; margin-top: 2%;">
+                        About this list
+                    </div>
+
+                    <div class="row" style="color: white;">
+                        No description; if there's description, put it here
+                    </div>
+
+                </div>
+            </div>
+
         </div>
 
-        <!-- wishlish content -->
-        <div class="container">
+        <!-- CONTENT OF A PLAYLIST -->
+        <div class="container" style="margin-top: 1%;">
+
             <div class="row equal in-line">
-             
-                <div class="card" style="width: 10rem; margin-right: 5px; margin-left: 5px; margin-bottom: 10px;">
-                    <img src="images/joker.jpg" class="card-img-top" alt="...">
+
+                <div class="card" style="width:10rem; margin-right: 5px; margin-left: 5px; margin-bottom: 10px; border: none;">
+                    <!-- REMOVE BUTTON (this button only be seen by the list owner)-->
+                    <a href="#" class="btn btn-outline-danger rounded-circle" style="position: absolute; right:5%; top: 3%; font-weight: bold; font-size: 20px;">X</a>
+                    
+                    <img src="/images/joker.jpg" class="card-img-top" alt="...">
                     <div class="card-body" style="padding: 0;">
                         <a href='#'><h6 class="card-title">MOVIE TITLE</h6></a>
                         <p class="card-text" style="padding: 0; margin: 0;">Released date</p>
-                              
+                          
                     </div>
-                </div>  
-
-            </div>
+                </div>
+                
         </div>
 
-        
-    <div class="container">
-        <div class="row" style="margin-top: 5%">
-            <!-- a row to place our footer -->
-            <?php require_once(__DIR__ . '/../private_html/html-templates/global/footer.php'); ?>
-        </div>
     </div>
+
+    <div class="row">
+        <?php require_once(__DIR__ . '/../private_html/html-templates/global/footer-v1.php'); ?>
+    </div>
+
 
 
      
