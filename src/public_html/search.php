@@ -8,7 +8,7 @@ require_once(__DIR__ . '/../private_html/classes/MovieBuilder.php');
 $mb = new MovieBuilder();
 
 if (isset($_GET['term']) && isset($_GET['category']) &&
-    $_GET['category'] >= 1 && $_GET['category'] <= 4) {
+    $_GET['category'] >= 1 && $_GET['category'] <= 5) {
 
     $results = $mb->search($_GET['term'], $_GET['category'], 1, 1);
 
