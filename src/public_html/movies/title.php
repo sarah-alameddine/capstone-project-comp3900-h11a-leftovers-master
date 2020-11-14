@@ -4,6 +4,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
 require_once(__DIR__ . '/../../private_html/classes/MovieBuilder.php');
+require_once(__DIR__ . '/../..//private_html/html-templates/global/session.php');
 
 if (isset($_GET['id'])) {
 
@@ -74,6 +75,7 @@ if (isset($_GET['id'])) {
     <!------------------------ TITLE OF MOVIE ---------------------->
     <div class="pt-5">
     <h1 class="display-4" style="font-family: 'Vollkorn', serif;text-align: center;"><?php echo($movie->get_title()); ?></h1>
+    
     </div>
     <div class="container" style="margin-bottom: 60px;">
       <h1><!-- ADD SOME SPACE HERE --></h1>
@@ -87,10 +89,18 @@ if (isset($_GET['id'])) {
             <!-- <img class="mt-3" src="<?php echo($movie->get_image_path()); ?>" alt="movieposter" style="width:300px;height:400px;"> -->
             <img id="image1" class="mt-3" src="<?php echo($movie->get_image_path()); ?>" alt="movieposter" style="width:100%;height:100%;object-fit:contain;">
           </div>
-          <!-- Wishlist button -->
-          <div class="my-3">
-            <a class="btn btn-secondary" class="glyphicon" href="https://www.google.com/" role="button"> &#10010; ADD TO WISHLIST</a>
-          </div>
+          
+          <?php if (is_logged_in()) { ?>
+            <!-- Wishlist button -->
+            <div class="my-3">
+                <?php if ($_SESSION['user']->is_movie_in_wishlist($movie->get_id())) { ?>
+                    <a class="btn btn-secondary" class="glyphicon" href="/movies/remove-from-wishlist.php?id=<?php echo($movie->get_id()); ?>" role="button"> REMOVE FROM WISHLIST</a>
+                <?php } else { ?>
+                    <a class="btn btn-secondary" class="glyphicon" href="/movies/add-to-wishlist.php?id=<?php echo($movie->get_id()); ?>" role="button"> &#10010; ADD TO WISHLIST</a>
+                <?php } ?>
+            </div>
+          <?php } ?>
+
           <!-- Movie star rating -->
           <h3><?php echo($movie->get_average()); ?> <span style="color: #FFC107;font-size:30px;">&#9733;</span></h3>
           <h6 style="color: #F2F2F2;"> Average Rating</h6>            
@@ -105,6 +115,31 @@ if (isset($_GET['id'])) {
           <!-- </div> -->
           <!-- <h2>Synopsis</h2> -->
           <div class="pt-5">
+
+            <?php if (is_logged_in() && isset($_GET['status'])) { ?>
+
+                <?php if($_GET['status'] == UNABLE_TO_ADD) { ?>
+
+                    <div class="alert alert-danger" role="alert">Unable to add movie to wishlist</div>
+
+                <?php } else if ($_GET['status'] == ADDED) { ?>
+
+                    <div class="alert alert-primary" role="alert">Added movie to wishlist</div>
+
+                <?php } else if ($_GET['status'] == UNABLE_TO_REMOVE) { ?>
+
+                    <div class="alert alert-danger" role="alert">Unable to remove movie from wishlist</div>
+
+                <?php } else if ($_GET['status'] == REMOVED) { ?>
+
+                    <div class="alert alert-primary" role="alert">Removed movie from wishlist</div>
+
+                <?php } ?>
+
+            <?php } ?>
+
+
+          
           <p style="font-family: 'Montserrat', sans-serif;"><?php echo($movie->get_description()); ?></p>
           <h4>Genre(s):</h4>
           <p><?php echo($movie->get_genre()); ?></p>
@@ -112,11 +147,11 @@ if (isset($_GET['id'])) {
           <h4>Director(s):</h4>
           <p><?php echo($movie->get_director()); ?></p>
 
-          <!-- <h4>Cast:<h4>
-
-          <p></p> -->
+          <h4>Cast:<h4>
+          <p><?php echo($movie->get_cast()); ?></p>
           </div>
 
+          
           <!-- Trailer
           <a href="#demo" class="btn btn-secondary" data-toggle="collapse">Trailer</a>
           <div id="demo" class="collapse">
@@ -129,9 +164,12 @@ if (isset($_GET['id'])) {
           <div class="pt-5">
             <h4>Reviews:</h4>
           </div>
+
           <hr style="height:1px;border-width:0;background-color:#6C757D">
-          <h4 style="color:#F2F2F2;">Add your own review and rating:</h4>
-          <div class="pt-1">
+        <?php if (is_logged_in()) { ?>
+
+            <h4 style="color:#F2F2F2;">Add your own review and rating:</h4>
+            <div class="pt-1">
             <!-- TODO BACKEND NEEDED FOR COMMENT -->
             <form method="POST" action="post-review.php">
                 <!-- <h4>Rating (1-5): </h4> -->
@@ -158,8 +196,13 @@ if (isset($_GET['id'])) {
               </div>
               </form>
 
-          </div>
-          <hr style="height:1px;border-width:0;background-color:#03D8A9">
+            </div>
+
+        <?php } else { ?>
+            <h4 style="color:#F2F2F2;"><a href="/login.php">Login</a> or <a href="/signup.php">Sign Up</a> and post your own reviews</h4>
+        <?php } ?>
+
+            <hr style="height:1px;border-width:0;background-color:#6C757D">
 
           <?php
               $reviews = $movie->get_reviews();
