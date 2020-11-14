@@ -1,3 +1,12 @@
+<?php
+require_once(__DIR__ . '/../private_html/html-templates/global/session.php');
+
+$errors[1] = "That profile does not exist";
+$errors[2] = "There was a problem connecting to the database";
+$errors[3] = "That watch list does not exist";
+
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -7,215 +16,507 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+
+    <!-- Home page CSS -->
+    <link rel="stylesheet" href="/assets/css/homepagestylev0.2.css">
+    <link rel="stylesheet" href="/assets/css/search-section.css">
+
+    <script src="/assets/js/homepage.js"></script>
+    <script src="/assets/js/search-section.js"></script>
 
     <script src="https://kit.fontawesome.com/a13c7bceb2.js" crossorigin="anonymous"></script>
-
-    <title>Hello, world!</title>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" crossorigin="anonymous"></script>
+  
+    <title>FilmFinity</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon-2.ico"/>
   </head>
+
   <body>
-    <!--  Nav bar -->
-  <nav class="navbar navbar-expand-md navbar-light" style="background-color: #d9b44a;">
-    <!-- logo and our group name session -->
-    <a class="navbar-brand" href="#">
-      <img src="LOGO IMAGE" width="30" height="30" alt="logo" loading="lazy"> FilmFinity
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      
-      <!-- Search session -->
-      <form action="YOUR PHP FILE TO HANDLE SEARCH HERE" class="form-inline my-2 my-lg-0" style="width: 60%;">
-        <!-- Search bar -->
-        <input type="text" class="form-control mr-sm-2" placeholder="Movies, Genre, Directors..." name="SEARCH-INPUT" style="border-color: black; width: 80%;">
-        <button class="btn btn-outline-dark my-2 my-sm-0" type="submit" style="border-color: black; background-color: #acd0c0;">Search</button>
-        <!-- radio button for search by category -->
-        <div class="container">
-          <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="customRadio1" name="SEARCH-OPTION" class="custom-control-input" value="1" checked>
-            <label class="custom-control-label" for="customRadio1">All</label>
-            <i class="fas fa-align-justify" style="padding: 5px;"></i>
-          </div>
-          <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="customRadio2" name="SEARCH-OPTION" class="custom-control-input" value="2">
-            <label class="custom-control-label" for="customRadio2">Movie</label>
-            <i class="fas fa-film" style="padding: 5px;"></i>
-          </div>
-          <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="customRadio3" name="SEARCH-OPTION" class="custom-control-input" value="3">
-            <label class="custom-control-label" for="customRadio3">Genre</label>
-            <i class="fas fa-theater-masks" style="padding: 5px;"></i>
-          </div>
-          <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="customRadio4" name="SEARCH-OPTION" class="custom-control-input" value="4">
-            <label class="custom-control-label" for="customRadio4">Director</label>
-            <i class="fas fa-user-friends" style="padding: 5px;"></i>
-          </div>
-        </div>
-      </form>
-      
-      <!-- register and login session -->
-      <ul class="navbar-nav mr-auto">
-        <!-- Sign Up function-modal for signup code is at the end of the file-->
-        <li class="nav-item" style="padding: 3px 10px;">
-          <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#signupModal" style="border-color: black; background-color: #75b1a9;">SIGN UP
-          </button>
-        </li>
-        <!-- Log in function-modal for log in code is at the end of the file -->
-        <li class="nav-item" style="padding: 3px 10px;">
-          <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#loginModal" style="border-color: black; background-color: #75b1a9;">LOG IN
-          </button>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Other features
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Quizz</a>
-            <a class="dropdown-item" href="#">Top Movies</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Bla bla bla</a>
-          </div>
-        </li>
-        
-      </ul>
     
-    </div>
-  </nav>
-
-    <h1>HIGHLIGHT</h1>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6" style="background-color: green;">Maybe a carousel here</div>
-        <div class="col-md-3" style="background-color: #db4c4c;">Maybe an admin pick list on best romance here</div>
-        <div class="col-md-3" style="background-color: #db6f4c;">Maybe an other admin pick list on best Action here</div>
-      </div>
-    </div>
-
-    <h2>NEW & UPCOMING MOVIES</h2>
-    <div class="container">
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4" style="padding: 5px 0;">
-        <div class="col" style="background-color: green;">Movie1</div>
-        <div class="col" style="background-color: #db4c4c;">Movie2</div>
-        <div class="col" style="background-color: #db934c;">Movie3</div>
-        <div class="col" style="background-color: #4c4cdb;">Movie4</div>
-      </div>
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4" style="padding: 5px 0;">
-        <div class="col" style="background-color: green;">Movie5</div>
-        <div class="col" style="background-color: #db4c4c;">Movie6</div>
-        <div class="col" style="background-color: #db934c;">Movie7</div>
-        <div class="col" style="background-color: #4c4cdb;">Movie8</div>
-      </div>
-    </div>
-
-    <!-- Modal for sign up function -->
-    <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <!-- content of the sign up popup -->
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="signupModalLabel">SIGN UP FOR FILMFINITY</h5>
-            <!-- close button -->
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <!-- Body of the modal -->
-          <form action="YOUR PHP FILE TO HANDLE REGISTER HERE">
-            <div class="modal-body">
-              <!-- First name & last name -->
-              <div class="form-row">
-                <div class="col">
-                  <label for="inputFirstName">First Name</label>
-                  <input type="text" class="form-control" id="inputFirstName" placeholder="" name="USER FIRST NAME">
+  <?php require_once(__DIR__ . '/../private_html/html-templates/global/nav-2.php'); ?>
+    
+    <div class="container" >
+        
+        <?php if (isset($_GET['error']) && isset($errors[$_GET['error']])) { ?>
+            <div class="row">
+                <div class="container">
+                    <div class="alert alert-danger" role="alert"><?php echo( $errors[$_GET['error']] ); ?></div>
                 </div>
-                <div class="col">
-                  <label for="inputLastName">Last Name</label>
-                  <input type="text" class="form-control" id="inputLastName" placeholder="" name="USER LAST NAME">
-                </div>
-              </div>
-              <!-- Email -->
-              <div class="form-row">
-                <div class="col">
-                  <label for="inputEmail">Email</label>
-                  <input type="email" class="form-control" id="inputEmail" placeholder="" name="EMAIL">  
-                </div>
-              </div> 
-              <!-- Password --> 
-              <div class="form-row">
-                <div class="col">
-                  <label for="inputPassword">Password</label>
-                  <input type="password" class="form-control" id="inputPassword" placeholder="" name="PASSWORD">  
-                </div>
-              </div>  
             </div>
-            <!-- footer of the modal -->
-            <div class="modal-footer">
-              <button type="submit" class="btn btn-primary">CREATE YOU ACCOUNT</button>
+        <?php } ?>
+
+        <!-- now is the big carousel -->
+        <div class="row">
+            <!-- Search Bar section-->
+            <div id="searchbar" class="container">
+              <h1 class="welcome1">Welcome</h1>
+              <h2 class="welcome2">Millions of movie recommendations, all in one place.</h2>
+              <form action="search.php" method="GET" class="d-flex justify-content-center h-100" id="main-search">
+                  <div class="search"> <input class="search_input" type="text" name="term" placeholder="Search movies, people, directors here..."> <button type="submit" form="main-search" class="search_icon"><i class="fa fa-search"></i></button> </div>
+                  <input type="hidden"name="category" value="1">
+              </form>
             </div>
-          </form>
         </div>
-      </div>
-    </div>
 
-    <!-- Modal for log in function -->
-    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <!-- content of the sign up popup -->
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="loginModalLabel">SIGN IN</h5>
-            <!-- close button -->
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <!-- Body of the modal -->
-          <form action="YOUR PHP FILE TO HANDLE LOG IN HERE">
-            <div class="modal-body">
-              <!-- Email -->
-              <div class="form-row">
-                <div class="col">
-                  <label for="inputEmail">Email</label>
-                  <input type="email" class="form-control" id="inputEmail" placeholder="" name="EMAIL">  
-                </div>
-              </div> 
-              <!-- Password --> 
-              <div class="form-row">
-                <div class="col">
-                  <label for="inputPassword">Password</label>
-                  <input type="password" class="form-control" id="inputPassword" placeholder="" name="PASSWORD">  
-                </div>
-              </div> 
-              <div class="col-auto">
-                <div class="form-check mb-2">
-                  <input class="form-check-input" type="checkbox" id="autoSizingCheck">
-                  <label class="form-check-label" for="autoSizingCheck">
-                    Remember me
-                  </label>
-
-                </div>
-              </div>  
-            </div>
-            <!-- footer of the modal -->
-            <div class="modal-footer">
-              <div class="col">
-                <button type="submit" class="btn btn-primary">LOG IN</button>
-              </div>
-              <div class="col">
-                <a href="#" class="badge badge-secondary">FORGOT YOUR PASSWORD?</a>
-              </div>
-            </div>
-          </form>
+        <!-- now is the filter pane -->
+        <div class="row">
+            <?php require_once(__DIR__ . '/body_page/filter-section-hardcode-2.php'); ?>
         </div>
-      </div>
-    </div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <?php if (is_logged_in()) { ?>
+
+        <!-- SECTION 3: YOUR RECOMMENDATIONS -->
+        <div class="row">
+        <div class="container" style="position: relative;">
+              <div class="row">
+                  <!-- NAV TABS -->
+                  <ul class="nav nav-tabs" id="myTab" role="tablist" style="width: 100%;">
+                    <li class="nav-item" role="presentation">
+                      <a class="nav-link disabled" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Your Recommendations</a>
+                    </li>
+                  </ul>
+              </div>
+
+              <div class="row justify-content-center">
+
+                <!-- Tab panes for each filter-->
+                <div class="tab-content" style="width: 100%;">
+
+                  <div class="tab-pane active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+                    <!-- a carousel for sliding here for Movie filter-->
+                    <div id="carousel-4" class="carousel slide" data-interval="false">
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+
+                        <!-- a deck of cards here, each card is a movie  CAN FIT 6 MOVIES INTO 1 slide-->
+                            
+                            <div class="card-deck" style="margin-top: 1%;">
+                              <!--1-->
+                              <div class="card">
+                                <img src="/assets/images/joker.jpg" class="card-img-top mx-auto" alt="...">
+                                <a href='https://www.google.com/'>
+                                  <div class="card-overlay card-overlay--blur">
+                                    <h6 class="card-title">MOVIE TITLE</h6>
+                                    <p class="card-text" >Release date</p>
+                                  </div>
+                                </a>
+                              </div>
+
+                              <!--2-->
+                              <div class="card">
+                                <img src="/assets/images/joker.jpg" class="card-img-top mx-auto" alt="...">
+                                <a href='https://www.google.com/'>
+                                  <div class="card-overlay card-overlay--blur">
+                                    <h6 class="card-title">MOVIE TITLE</h6>
+                                    <p class="card-text" >Release date</p>
+                                  </div>
+                                </a>
+                              </div>
+
+                              <!--3-->
+                              <div class="card">
+                                <img src="/assets/images/joker.jpg" class="card-img-top mx-auto" alt="...">
+                                <a href='https://www.google.com/'>
+                                  <div class="card-overlay card-overlay--blur">
+                                    <h6 class="card-title">MOVIE TITLE</h6>
+                                    <p class="card-text" >Release date</p>
+                                  </div>
+                                </a>
+                              </div>
+
+                              <!--4-->
+                              <div class="card">
+                                <img src="/assets/images/joker.jpg" class="card-img-top mx-auto" alt="...">
+                                <a href='https://www.google.com/'>
+                                  <div class="card-overlay card-overlay--blur">
+                                    <h6 class="card-title">MOVIE TITLE</h6>
+                                    <p class="card-text" >Release date</p>
+                                  </div>
+                                </a>
+                              </div>
+
+                              <!--5-->
+                              <div class="card">
+                                <img src="/assets/images/joker.jpg" class="card-img-top mx-auto" alt="...">
+                                <a href='https://www.google.com/'>
+                                  <div class="card-overlay card-overlay--blur">
+                                    <h6 class="card-title">MOVIE TITLE</h6>
+                                    <p class="card-text" >Release date</p>
+                                  </div>
+                                </a>
+                              </div>
+
+                              <!--6-->
+                              <div class="card">
+                                <img src="/assets/images/joker.jpg" class="card-img-top mx-auto" alt="...">
+                                <a href='https://www.google.com/'>
+                                  <div class="card-overlay card-overlay--blur">
+                                    <h6 class="card-title">MOVIE TITLE</h6>
+                                    <p class="card-text" >Release date</p>
+                                  </div>
+                                </a>
+                              </div>
+                            </div> <!-- card-deck -->
+
+                        </div> <!-- carousel-item-active -->
+
+                        <div class="carousel-item">
+                          <div class="card-deck" style="margin-top: 1%;">
+                            <!-- 1 -->
+                            <div class="card">
+                              <img src="/assets/images/joker.jpg" class="card-img-top mx-auto" alt="...">
+                              <a href='https://www.google.com/'>
+                                <div class="card-overlay card-overlay--blur">
+                                  <h6 class="card-title">MOVIE TITLE</h6>
+                                  <p class="card-text" >Release date</p>
+                                </div>
+                              </a>
+                            </div>
+
+                            <!-- 2 -->
+                            <div class="card">
+                              <img src="/assets/images/joker.jpg" class="card-img-top mx-auto" alt="...">
+                              <a href='https://www.google.com/'>
+                                <div class="card-overlay card-overlay--blur">
+                                  <h6 class="card-title">MOVIE TITLE</h6>
+                                  <p class="card-text" >Release date</p>
+                                </div>
+                              </a>
+                            </div>
+
+                            <!-- 3 -->
+                            <div class="card">
+                              <img src="/assets/images/joker.jpg" class="card-img-top mx-auto" alt="...">
+                              <a href='https://www.google.com/'>
+                                <div class="card-overlay card-overlay--blur">
+                                  <h6 class="card-title">MOVIE TITLE</h6>
+                                  <p class="card-text" >Release date</p>
+                                </div>
+                              </a>
+                            </div>
+
+                            <!-- 4 -->
+                            <div class="card">
+                              <img src="/assets/images/joker.jpg" class="card-img-top mx-auto" alt="...">
+                              <a href='https://www.google.com/'>
+                                <div class="card-overlay card-overlay--blur">
+                                  <h6 class="card-title">MOVIE TITLE</h6>
+                                  <p class="card-text" >Release date</p>
+                                </div>
+                              </a>
+                            </div>
+
+                            <!-- 5 -->
+                            <div class="card">
+                              <img src="/assets/images/joker.jpg" class="card-img-top mx-auto" alt="...">
+                              <a href='https://www.google.com/'>
+                                <div class="card-overlay card-overlay--blur">
+                                  <h6 class="card-title">MOVIE TITLE</h6>
+                                  <p class="card-text" >Release date</p>
+                                </div>
+                              </a>
+                            </div>
+
+                            <!-- 6 -->
+                            <div class="card">
+                              <img src="/assets/images/joker.jpg" class="card-img-top mx-auto" alt="...">
+                              <a href='https://www.google.com/'>
+                                <div class="card-overlay card-overlay--blur">
+                                  <h6 class="card-title">MOVIE TITLE</h6>
+                                  <p class="card-text" >Release date</p>
+                                </div>
+                              </a>
+                            </div>
+
+                          </div> <!-- card-deck -->
+                        </div> <!-- carousel-item -->
+
+                        <div class="carousel-item">
+                          <div class="card-deck" style="margin-top: 1%;">
+                            <!-- 1 -->
+                            <div class="card">
+                              <img src="/assets/images/dora.jpg" class="card-img-top mx-auto" alt="...">
+                              <a href='https://www.google.com/'>
+                                <div class="card-overlay card-overlay--blur">
+                                  <h6 class="card-title">MOVIE TITLE</h6>
+                                  <p class="card-text" >Release date</p>
+                                </div>
+                              </a>
+                            </div>
+
+                            <!-- 2 -->
+                            <div class="card">
+                              <img src="/assets/images/dora.jpg" class="card-img-top mx-auto" alt="...">
+                              <a href='https://www.google.com/'>
+                                <div class="card-overlay card-overlay--blur">
+                                  <h6 class="card-title">MOVIE TITLE</h6>
+                                  <p class="card-text" >Release date</p>
+                                </div>
+                              </a>
+                            </div>
+
+                            <!-- 3 -->
+                            <div class="card">
+                              <img src="/assets/images/dora.jpg" class="card-img-top mx-auto" alt="...">
+                              <a href='https://www.google.com/'>
+                                <div class="card-overlay card-overlay--blur">
+                                  <h6 class="card-title">MOVIE TITLE</h6>
+                                  <p class="card-text" >Release date</p>
+                                </div>
+                              </a>
+                            </div>
+
+                            <!-- 4 -->
+                            <div class="card">
+                              <img src="/assets/images/dora.jpg" class="card-img-top mx-auto" alt="...">
+                              <a href='https://www.google.com/'>
+                                <div class="card-overlay card-overlay--blur">
+                                  <h6 class="card-title">MOVIE TITLE</h6>
+                                  <p class="card-text" >Release date</p>
+                                </div>
+                              </a>
+                            </div>
+
+                            <!-- 5 -->
+                            <div class="card">
+                              <img src="/assets/images/dora.jpg" class="card-img-top mx-auto" alt="...">
+                              <a href='https://www.google.com/'>
+                                <div class="card-overlay card-overlay--blur">
+                                  <h6 class="card-title">MOVIE TITLE</h6>
+                                  <p class="card-text" >Release date</p>
+                                </div>
+                              </a>
+                            </div>
+
+                            <!-- 6 -->
+                            <div class="card">
+                              <img src="/assets/images/dora.jpg" class="card-img-top mx-auto" alt="...">
+                              <a href='https://www.google.com/'>
+                                <div class="card-overlay card-overlay--blur">
+                                  <h6 class="card-title">MOVIE TITLE</h6>
+                                  <p class="card-text" >Release date</p>
+                                </div>
+                              </a>
+                            </div>
+
+                          </div> <!-- card-deck -->
+                        </div> <!-- carousel-item -->
+                      </div> <!-- carousel-inner -->
+
+                      <!-- Carousel Arrows -->
+                      <a class="carousel-control-prev" href="#carousel-4" role="button" data-slide="prev">
+                        <span class="fa fa-chevron-circle-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                      <a class="carousel-control-next" href="#carousel-4" role="button" data-slide="next">
+                        <span class="fa fa-chevron-circle-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </div> <!-- carousel4 -->
+
+                  </div> <!-- tab-pane-active -->
+                </div> <!-- tab-content -->
+              </div> <!-- row -->
+        </div> <!-- section3 -->
+        </div> <!-- row -->
+
+    <?php } ?>
+
+        <!-- SECTION 4: Editor's Picks -->
+        <div class="row">
+        <div id="section4" class="container" style="position: relative;">
+                <div class="row">
+                    <!-- NAV TABS -->
+                    <ul class="nav nav-tabs" id="myTab" role="tablist" style="width: 100%;">
+                      <li class="nav-item" role="presentation">
+                        <a class="nav-link disabled" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Editor's Picks</a>
+                      </li>
+                    </ul>
+                </div>
+
+                <div class="row justify-content-center">
+
+                  <!-- Tab panes for each filter-->
+                  <div class="tab-content" style="width: 100%;">
+
+                    <div class="tab-pane active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+                      <!-- a carousel for sliding here for Movie filter-->
+                      <div id="carousel-5" class="carousel slide" data-interval="false">
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+          
+                            <!-- a deck of card here, each card is a movie  CAN FIT 7 MOVIES INTO 1 slide-->
+                              
+                              <div class="card-deck" style="margin-top: 1%;">
+                                <!--1-->
+                                <div class="card">
+                                  <img src="/assets/images/joker.jpg" class="card-img-top mx-auto" alt="...">
+                                  <a href='https://www.google.com/'>
+                                    <div class="card-overlay card-overlay--blur">
+                                      <h6 class="card-title">MOVIE TITLE</h6>
+                                      <p class="card-text" >Release date</p>
+                                    </div>
+                                  </a>
+                                </div>
+
+                                <!--2-->
+                                <div class="card">
+                                  <img src="/assets/images/joker.jpg" class="card-img-top mx-auto" alt="...">
+                                  <a href='https://www.google.com/'>
+                                    <div class="card-overlay card-overlay--blur">
+                                      <h6 class="card-title">MOVIE TITLE</h6>
+                                      <p class="card-text" >Release date</p>
+                                    </div>
+                                  </a>
+                                </div>
+
+                                <!--3-->
+                                <div class="card">
+                                  <img src="/assets/images/joker.jpg" class="card-img-top mx-auto" alt="...">
+                                  <a href='https://www.google.com/'>
+                                    <div class="card-overlay card-overlay--blur">
+                                      <h6 class="card-title">MOVIE TITLE</h6>
+                                      <p class="card-text" >Release date</p>
+                                    </div>
+                                  </a>
+                                </div>
+
+                                <!--4-->
+                                <div class="card">
+                                  <img src="/assets/images/joker.jpg" class="card-img-top mx-auto" alt="...">
+                                  <a href='https://www.google.com/'>
+                                    <div class="card-overlay card-overlay--blur">
+                                      <h6 class="card-title">MOVIE TITLE</h6>
+                                      <p class="card-text" >Release date</p>
+                                    </div>
+                                  </a>
+                                </div>
+
+                                <!--5-->
+                                <div class="card">
+                                  <img src="/assets/images/joker.jpg" class="card-img-top mx-auto" alt="...">
+                                  <a href='https://www.google.com/'>
+                                    <div class="card-overlay card-overlay--blur">
+                                      <h6 class="card-title">MOVIE TITLE</h6>
+                                      <p class="card-text" >Release date</p>
+                                    </div>
+                                  </a>
+                                </div>
+
+                                <!--6-->
+                                <div class="card">
+                                  <img src="/assets/images/joker.jpg" class="card-img-top mx-auto" alt="...">
+                                  <a href='https://www.google.com/'>
+                                    <div class="card-overlay card-overlay--blur">
+                                      <h6 class="card-title">MOVIE TITLE</h6>
+                                      <p class="card-text" >Release date</p>
+                                    </div>
+                                  </a>
+                                </div>
+
+                              </div> <!-- card-deck -->
+                          </div> <!-- carousel-item-active -->
+
+                          <div class="carousel-item">
+                                <div class="card-deck" style="margin-top: 1%;">
+                                    <div class="card" >
+                                      <img src="/assets/images/secret-garden.jpg" class="card-img-top mx-auto" alt="...">
+                                      <a href='https://www.google.com/'>
+                                        <div class="card-overlay card-overlay--blur">
+                                          <h6 class="card-title">Joe Russo</h6>
+                                          <p class="card-text" >Release date</p>
+                                        </div>
+                                      </a>
+                                  </div>
+
+                                    <div class="card" >
+                                      <img src="/assets/images/secret-garden.jpg" class="card-img-top mx-auto" alt="...">
+                                      <a href='https://www.google.com/'>
+                                        <div class="card-overlay card-overlay--blur">
+                                          <h6 class="card-title">MOVIE TITLE</h6>
+                                          <p class="card-text" >Release date</p>
+                                        </div>
+                                      </a>
+                                    </div>
+
+                                    <div class="card" >
+                                      <img src="/assets/images/secret-garden.jpg" class="card-img-top mx-auto" alt="...">
+                                      <a href='https://www.google.com/'>
+                                        <div class="card-overlay card-overlay--blur">
+                                          <h6 class="card-title">MOVIE TITLE</h6>
+                                          <p class="card-text" >Release date</p>
+                                        </div>
+                                      </a>
+                                    </div>
+
+                                    <div class="card" >
+                                      <img src="/assets/images/secret-garden.jpg" class="card-img-top mx-auto" alt="...">
+                                      <a href='https://www.google.com/'>
+                                        <div class="card-overlay card-overlay--blur">
+                                          <h6 class="card-title">MOVIE TITLE</h6>
+                                          <p class="card-text" >Release date</p>
+                                        </div>
+                                      </a>
+                                    </div>
+
+                                    <div class="card" >
+                                      <img src="/assets/images/secret-garden.jpg" class="card-img-top mx-auto" alt="...">
+                                      <a href='https://www.google.com/'>
+                                        <div class="card-overlay card-overlay--blur">
+                                          <h6 class="card-title">MOVIE TITLE</h6>
+                                          <p class="card-text" >Release date</p>
+                                        </div>
+                                      </a>
+                                    </div>
+
+                                    <div class="card" >
+                                      <img src="/assets/images/secret-garden.jpg" class="card-img-top mx-auto" alt="...">
+                                      <a href='https://www.google.com/'>
+                                        <div class="card-overlay card-overlay--blur">
+                                          <h6 class="card-title">MOVIE TITLE</h6>
+                                          <p class="card-text" >Release date</p>
+                                        </div>
+                                      </a>
+                                    </div>
+
+                                </div> 
+
+                          </div>
+                        </div> <!-- carousel-inner -->
+
+                            <!-- Carousel Arrows -->
+                            <a class="carousel-control-prev" href="#carousel-5" role="button" data-slide="prev">
+                              <span class="fa fa-chevron-circle-left" aria-hidden="true"></span>
+                              <!-- <span class="sr-only">Previous</span> --> 
+                            </a>
+                            <a class="carousel-control-next" href="#carousel-5" role="button" data-slide="next">
+                              <span class="fa fa-chevron-circle-right" aria-hidden="true"></span>
+                              <span class="sr-only">Next</span>
+                            </a>
+
+                      </div> <!-- carousel5 -->
+                    </div> <!-- tab-pane active -->
+                  </div> <!-- tab-content -->
+
+                </div> <!-- row -->
+        </div> <!-- section4 -->
+        </div> <!-- row -->
+    
+    </div> <!-- end of the container -->
+
+    <!-- a row to place our footer -->
+    <?php require_once(__DIR__ . '/../private_html/html-templates/global/footer-v1.php'); ?>
+ 
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
   </body>
 </html>
