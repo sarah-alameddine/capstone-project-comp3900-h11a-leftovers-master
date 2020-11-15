@@ -10,7 +10,7 @@ label{
     font-weight:bold; 
     color: black; 
     font-family:georgia,garamond,serif;
-    font-size:1em;
+    font-size:1.5vh;
     font-style:italic;
 }
 
@@ -36,17 +36,23 @@ label{
   
 .welcome2 {
     display: inline-block;
-    font-size: 1.5em;
+    font-size: 2vh;
     width: 40%;
     color: white;
-    line-height: 1em;
+    line-height: 1.5vh;
     font-family: 'Quicksand', sans-serif;
 }
 
 /* Carousel CSS */
 .carousel-item img{
-    height: 16em;
+    height: 22vh;
     border-radius: 0.6em;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+    background: transparent;
 }
 
 .carousel-caption{
@@ -60,7 +66,7 @@ label{
 
 .nav-link{
     color: #65ccb8;
-    font-size: 1em;
+    font-size: 1.5vh;
 }
 
 #home-tab{
@@ -69,13 +75,19 @@ label{
 
 
 .carousel-control-prev{
-    font-size: 2em;
-    margin-left: -2em;
+    font-size: 3vh;
+    margin-left: -3vh;
+    /* CODE BELOW CHANGES SIZE OF CLICK SPACE */
+    height:0;
+    top:50%;
 }
 
 .carousel-control-next{
-    font-size: 2em;
-    margin-right: -2em;
+    font-size: 3vh;
+    margin-right: -3vh;
+    /* CODE BELOW CHANGES SIZE OF CLICK SPACE */
+    height:0;
+    top:50%;
 }
 
 /* Attribute: https://www.youtube.com/watch?v=exb2ab72Xhs&ab_channel=dcode 
@@ -90,13 +102,13 @@ label{
 }
 
 .card img{
-    width: 10.4em;
-    height: 16em;
+    width: 15vh;
+    height: 22vh;
     object-fit: cover;
 }
 
 .card-deck{
-    height: 17.5em
+    height: 22vh
 }
 
 /* Note: this feature may not be available on all browsers */
@@ -107,7 +119,7 @@ label{
 
 .card-title{
     font-family: 'Quicksand', sans-serif;
-    font-size: 1.5em;
+    font-size: 2vh;
     font-weight: 800;
     display: inline-block;
     color: #65ccb8;
@@ -116,7 +128,7 @@ label{
 
 .card-text{
     font-family: 'Quicksand', sans-serif;
-    font-size: 1em;
+    font-size: 1.5vh;
     color: #f2f2f2;
 }
 
@@ -152,7 +164,36 @@ label{
     transform: translateY(0);
 }
 
+/* CSS for "View All" Button */
 
-/* .carousel-inner > .carousel-item > img { 
-    margin: 0 auto; 
-} */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600);
+
+#view-all{
+    display:inline-block;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 14px;
+    text-decoration:none;	
+    text-align: center;
+    justify-content: center;
+    right: -40em;
+	
+	color:#65ccb8;
+	background-color:transparent;
+	border:1px solid #65ccb8;
+	border-radius:100px;
+	
+	padding: .5em 1.5em;
+	margin:8px;
+			
+	background-size: 200% 100%;	
+	background-image: linear-gradient(to right, transparent 50%, rgba(101, 204, 183) 50%);
+	transition: background-position .3s cubic-bezier(0.19, 1, 0.22, 1) .1s, color .5s ease 0s, background-color .5s ease;
+}
+
+#view-all:hover{
+	color:rgba(255, 255, 255, 1);
+	background-color:rgba(101, 204, 183);
+	background-position: -100% 100%;
+}
+
+

@@ -4,13 +4,26 @@ ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
 require_once(__DIR__ . '/../private_html/classes/MovieBuilder.php');
+require_once(__DIR__ . '/../private_html/html-templates/global/session.php');
 
 $mb = new MovieBuilder();
 
-if (isset($_GET['term']) && isset($_GET['category']) &&
-    $_GET['category'] >= 1 && $_GET['category'] <= 4) {
+if (isset($_GET['term'])) {
 
-    $results = $mb->search($_GET['term'], $_GET['category'], 1, 1);
+    if (isset($_GET['category'])) {
+
+        $category = $_GET['category'];
+    } else {
+        $category = 1;
+    }
+
+    if (is_logged_in()) {
+        $user_id = $_SESSION['user']->get_id();
+    } else {
+        $user_id = NULL;
+    }
+
+    $results = $mb->search($_GET['term'], $category, 1, 1, $user_id);
 
 } else {
     $results = array();
@@ -85,16 +98,25 @@ if (isset($_GET['term']) && isset($_GET['category']) &&
                 <a href="<?php echo($movie->get_movie_page_path()); ?>">
                   <img #image1 class="align-self-center mr-3" src="<?php echo($movie->get_image_path());?>" alt="movieposter"  style="width: 100px;height:150px;"> 
                 </a>
-                <div class="media-body" class="py-5" class="d-flex align-items-center">
+                <div class="media-body" class="py-5" style="padding:5px;" class="d-flex align-items-center">
                   <!---------- Movie title ---------->
                   <div style="overflow: hidden;">
                     <h3  style="float: left;"><a href="<?php echo($movie->get_movie_page_path()); ?>"><?php echo($movie->get_title()); ?> </a></h3>
                     <!---------- Movie rating ---------->
-                    <h4 style="float: left;color: #03D8A9;"> &nbsp; &#9733; <?php echo($movie->get_average()); ?></h4>
+                    <h4 style="float: left;color: #03D8A9;"> &nbsp; &#9733; <?php echo($movie->get_rating()); ?> &nbsp;&nbsp;</h4>
+
+                    <?php if (isset($_GET['watchlist']) && ctype_digit($_GET['watchlist'])) { ?>
+
+                        <!-- Add to watch list ---------->
+                        <a class="btn btn-secondary" style="float: right;" href="/profile/watch-list-add-movie.php?watchlist=<?php echo($_GET['watchlist']); ?>&movie=<?php echo($movie->get_id()); ?>" role="button"> &#10010; WATCHLIST</a>
+
+                    <?php } ?>
+
                   </div>
                   <!---------- Movie description ---------->
                   <h6 class="mt-0" src="<?php echo($movie->get_movie_page_path()); ?>"> <?php echo($movie->get_release_date()); ?></h6>
-                  <p><?php echo($movie->get_description(100)); ?>...</p>
+                  <p><?php echo($movie->get_description(100));?> part from counting words and characters, our online editor can help you to check word count, simply ...</p>
+
                 </div>
               </div>
             </div> 
