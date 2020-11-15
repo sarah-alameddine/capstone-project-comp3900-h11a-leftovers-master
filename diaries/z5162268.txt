@@ -40,6 +40,14 @@ Week 7:
     - Updated homepage, need to fix positioning of containers
 Week 8:
     - Preparing to close sprint 2
+    - 5th November
+        - Conducted demo B: had some feedback from Rachid noting that we need to make user interface more intuitive, and also were behind schedule
+        - Conducted Retrospective B and Sprint Planning for Sprint 3
+        - Main improvements identified in Retro B were that we need to focus less time and effort on low-value items (e.g. fine details in frontend). Instead
+          we need to focus on making sure all the features stated in the requirements have been developed.
+Week 9:
+    - Started project report 
+    - Finalising subdomain pages
 
 
 
