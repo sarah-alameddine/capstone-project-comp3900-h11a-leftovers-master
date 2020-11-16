@@ -16,4 +16,25 @@ We met on Thursday in the tutorial and discussed our first sprint more in-depth.
 On sunday I completely finished my part of Sprint 1, which was to create the backend for authenication which included logging in and registering new accounts.
 
 Week 5
+
 We had a meeting on Monday to throughly check up on everything in sprint 1 and purchased a web hosting so we could all work on the website at the same time. On Tuesday we had to switch web hosting as we didn't have the right requirements. On Wednesday I coded the backend for the movie page, the search function, the login and registering.
+
+Week 6
+
+Added functionality to review posting. Users were now able to post reviews with comments and a rating.
+
+Week 7
+
+Added editors picks. I added a way an admin could put a movie in their editors list. I also took this time to add functionality for watch lists. Users could now create a watch list, add movies to a watch list, delete movies from a watch list and delete the watch list itself.
+
+Week 8
+
+Realised there was a missing attribute to the movie page, casts. Therefore I added casts to the movie page. I also took this time to completely change the way we add movies and restructure the database. We now had seperate tables for each little component of the movie.
+
+Week 9
+
+Added functionality to the quiz. I also figured out how to calculate the average score of movies in pure SQL when someone has been banned. I also added sort functionality to the search.
+
+Week 10
+
+Fixed up some backend bugs such as review comments being shown to the user even though they banned them. Showing the incorrect wishlist to the user. I also added comments to the missing backend function/
