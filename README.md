@@ -5,7 +5,6 @@ Setting up on Vlab:
 2. Unzip the leftovers-filmfinity.zip file. You will now see 2 folders, private_html and public_html.
 3. Using a terminal, such as UXTerm, change directory into the public_html folder using something like:
   cd <path to public_html>
-  
   You will know you are in the correct directory if you type ls into the terminal and see files such as login.php, signup.php, quiz.php.
 4. In the same terminal, type the command php -S localhost:4029
   Sometimes a port may be in use, therefore, you can change the last 4 numbers to a random 4 digit number between 4000 and 5000.
