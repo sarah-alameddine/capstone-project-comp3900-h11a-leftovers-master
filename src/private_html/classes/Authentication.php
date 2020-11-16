@@ -2,7 +2,10 @@
 
 date_default_timezone_set("Australia/Sydney");
 require_once(__DIR__ . '/Database.php');
-require_once(__DIR__ . '/Emailer.php');
+require_once(__DIR__ . '/User.php');
+
+define('MAX_PIN_LIFE', 600); // seconds for pin to live
+define('MAX_FORGOT_PASS_REQ', 120); // seconds until you can request another password request
 
 // Both username & email are registered
 define('USERNAME_EMAIL_ALREADY_REGISTERED', -23353);
@@ -16,6 +19,8 @@ define('USERNAME_ILLEGAL', -45944);
 define('EMAIL_ILLEGAL', -34625);
 define('PASSWORD_ILLEGAL', -33636);
 define('ACCOUNT_NOT_REGISTERED', -346732);
+define('TOO_MANY_REQ', -37432);
+define('INCORRECT_PASS', -23436);
 
 class Authentication {
 
@@ -49,8 +54,9 @@ class Authentication {
         // Check if username is available
         $availability = $this->account_availability($username, $email);
         if ($availability === TRUE) {
-            return $this->insert_user($username, $email, $password,
+            $user_id = $this->insert_user($username, $email, $password,
                                $registration_date, $is_admin);
+            return new User($user_id, $username);
         }
 
         return $availability;
@@ -72,63 +78,85 @@ class Authentication {
             return FALSE;
         }
 
+        $is_admin = FALSE;
+        if ($info['is_admin'] == 'Y') {
+            $is_admin = TRUE;
+        }
+
         if (password_verify($password, $info['password'])) {
-            return $info['id'];
+            return new User($info['id'], $info['username'], $is_admin);
         }
 
         return FALSE;
 
-
     }
 
     /*
-     * Requests a forgot password
-     * @return TRUE on success, DATABASE_ERROR, EMAIL_ILLEGAL, ACCOUNT_NOT_REGISTERED
+     @param $curr_pass current password
+     @param $new_email (optional). Must provide new pass if missing
+     @param $new_pass (optional). Must provide new email if missing
+     @return int affected rows, EMAIL_ILLEGAL, PASSWORD_ILLEGAL, INCORRECT_PASS
      */
-    public function request_forgot_password($email) {
+    public function update_details($user_id, $curr_pass, $new_email=NULL, $new_pass=NULL) {
 
-        // Check if email is registered
-        if (!$this->is_email_legal($email)) {
-            return EMAIL_ILLEGAL;
+        $info = $this->retrieve_user_info_via_id($user_id);
+        if ($info === FALSE) {
+            
+            return 0;
         }
 
-        $info = $this->retrieve_user_info($email);
-        if (!isset($info['id'])) {
-            return ACCOUNT_NOT_REGISTERED;
+        if (!password_verify($curr_pass, $info['password'])) {
+            return INCORRECT_PASS;
         }
 
-        // Check if a forgot password request already exists, if it does exist resend it
-
-
-        // Create pin & insert into database
-        $user_id = $info['id'];
-        $pin = mt_rand(10000, 99999);
-        $attempts = 0;
-        $date_created = date("Y-m-d H:i:s", time());
-
-        $id = $this->insert_forgot_password_request($user_id, $pin, $attempts, $date_created);
-        if ($id === DATABASE_ERROR) {
-            return DATABASE_ERROR;
+        if (!is_null($new_email)) {
+            if (!$this->is_email_legal($new_email)) {
+                return EMAIL_ILLEGAL;
+            }
         }
 
-        // Send Pin
-        $to = $info['email'];
-        $subject = 'Forgot Password Request';
-        $message = "We all forget sometimes. " . '<a href="https://filmfinity.me/change-password.php?email=' . $to . '&pin=' . $pin . '">Click here</a>' . " to change your password.";
-        $from = NO_REPLY_EMAIL;
-        $emailer = new Emailer($to, $subject, $message, $from);
-        $emailer->send();
+        if (!is_null($new_pass)) {
+            if (!$this->is_password_legal($new_pass)) {
+                return PASSWORD_ILLEGAL;
+            }
+        }
 
+        if (!is_null($new_email) && !is_null($new_pass)) {
 
-    }
+            $sql = "UPDATE users SET
+                    email = ?,
+                    password = ?
+                    WHERE id = ?
+                    LIMIT 1";
 
-    /*
-     * Verifies a forgot password pin
-     */
-    public function verify_forgot_password($email, $pin) {
+            $vals = array($new_email, $this->hash_password($new_pass),
+                          $user_id);
 
+        } else if (!is_null($new_email)) {
 
+            $sql = "UPDATE users SET
+                    email = ?
+                    WHERE id = ?
+                    LIMIT 1";
 
+            $vals = array($new_email, $user_id);
+            
+        } else {
+
+            $sql = "UPDATE users SET
+                    password = ?
+                    WHERE id = ?
+                    LIMIT 1";
+
+            $vals = array($this->hash_password($new_pass), $user_id);
+        }
+
+        $db = new Database();
+        if ($db->has_error()) return DATABASE_ERROR;
+        $result = $db->query($sql, $vals)->affectedRows();
+
+        $db->close();
+        return DETAILS_UPDATED;
     }
 
     /* ------------------- [ HELPER FUNCTIONS ] ------------------- */
@@ -292,36 +320,25 @@ class Authentication {
     }
 
     /*
-     * Insert a forgot password request into database
-     * @return database row id, DATABASE_ERROR
+     * @return associative array of id and password
      */
-    private function insert_forgot_password_request($user_id, $pin, $attempts, $date_created) {
-        $sql = "INSERT INTO forgot_passwords (user_id, pin, attempts, date_created)
-                VALUES (?, ?, ?, ?)";
+    private function retrieve_user_info_via_id($id) {
+        $sql = "SELECT *
+                FROM users
+                where id = ?
+                LIMIT 1";
 
-        $vals = array($user_id, $pin, $attempts, $date_created);
+        $vals = array($id);
 
         $db = new Database();
         if ($db->has_error()) return DATABASE_ERROR;
-        $id = $db->query($sql, $vals)->lastInsertID();
-        $db->close();
-        return $id;
-    }
+        $result = $db->query($sql, $vals)->fetchArray();
 
-    private function get_forgot_password_request($email) {
-        
-    }
+        if (isset($result['id'])) {
+            return $result;
+        }
 
-    /*
-     *
-     */
-    private function validate_forgot_password_request($email, $pin) {
-        $sql = "SELECT user_id
-                FROM forgot_passwords
-                WHERE LOWER(email) = LOWER(?) AND
-                pin = ? AND
-                date_created >= ?";
-
+        return FALSE;
     }
 
 }
