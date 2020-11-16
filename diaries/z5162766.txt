@@ -38,6 +38,10 @@ I still feel like there is more work to be done design wise for the Movie and se
 reviews section working. We are presenting this week again.
 
 Week 9
-Finishing off the website. I have completed the frontend for the movie and search page and I am currently doing some work on the homepage (index.php). We had a meeting on Thursday after the tutorial - Aniket is currently connecting the backend to the frontend pages and everyone else is currently trying to add the finishing touches for
+Finishing off the website. I have completed the frontend for the movie and search page and I am currently doing some work on the homepage (index.php). We had a meeting on
+Thursday after the tutorial - Aniket is currently connecting the backend to the frontend pages and everyone else is currently trying to add the finishing touches for
 the frontend of the site. We also need to make sure we finish the report which is also due on Monday.
 
+Week 10
+We have finished the frontend and the backend of the site, and the report is getting finalised for submission. 
+This has been fun.
