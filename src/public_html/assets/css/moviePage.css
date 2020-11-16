@@ -11,93 +11,79 @@ body {
   
 }
 
-h1{
-  color: #F2F2F2;
-  /* font-family: 'Staatliches', cursive; */
-  font-family: 'Prata', serif;
+@media (min-width: 1200px) {
+  .container{
+  max-width: 1400px;
+  }
 }
 
-h2{
+.display-4{
+  color: #F2F2F2;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 600;
+  text-align: center;
+}
+
+#movie-star-rating{
   color: #F2F2F2;
   font-family: 'Montserrat', sans-serif;
 }
 
-h3{
-  color: #F2F2F2;
-  font-family: 'Montserrat', sans-serif;
-}
-
-h4 {
+.category{
   color: #03D8A9;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
 }
 
-
-p {
+.category-body {
   color: #F2F2F2;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.8vh;
 }
 
 a {
   color:#F2F2F2;
 }
 
-/* RECOMMENDATION TABLE */
-
-#recommendation {
-  /* border-collapse: collapse; */
-  width: 100%;
+/* Movie Poster Size */
+#movie-poster-image{
+  height: 22vh;
+  width: auto;
 }
 
-#recommendation td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  
+/* Container size for movie recommendations */
+.recommendation-section {
+  background-color: green;
+  border-radius: 2%;
+  padding: 15px; 
+  left: 20px;;
+  height: auto;
+  width: fit-content;
 }
 
-#recommendation th {
-  /* position: fixed;  */
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: centre;
-  background-color: #222222;
-  /* border-top-right-radius: 10px 10px;
-  border-top-left-radius: 10px 10px; */
-  color: white;
-
+.recommendation-card{
+  width: 30vh;
+  /*background-color: #27292b;*/
+  background-color: red;
 }
 
-
-/* Verticle border */
-/* .border {
-  display: inline-block;
-
-  height: 70px;
-  margin: 6px;
-} */
-
-/* PICTURE OF MOVIE */
-/* img {
-  border-radius: 5%;
-  border-color: #F2F2F2;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  } */
-
-/* Image styling - keeping ratio aspect */
-#image1 {
-  border-radius: 5%;
-  border-color: #F2F2F2;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+.card-body{
+  display: inline;
 }
 
-/* recomendation */
+/*Image of Movie Recommendation*/
+#recommendation-img {
+  top:0;
+  left: 0;
+  float: left;
+  width: 15vh;
+  height: auto;
+  vertical-align: center;
+}
+
+/* Recomendation on Movie Page */
 #rec {
-  width: 390px;
-  height:450px;
   padding: 10px;
   border-radius: 2%;
   border-color: #F2F2F2;
@@ -105,7 +91,7 @@ a {
   margin: 0;
 }
 
-/* PAGNATIONN */
+/* PAGNATION */
 /* https://codepen.io/RRoberts/pen/jVOWEQ */
 
 .pagination{
@@ -138,68 +124,6 @@ a {
   color: #F2F2F2;
 }
 
-
-/* Star RATING */
-/* https://stackoverflow.com/questions/53240610/how-to-make-simple-star-rating */
-/* <!-- <p class="stars">
-<span>
-  <a class="star-1" >1</a>
-  <a class="star-2" >2</a>
-  <a class="star-3" >3</a>
-  <a class="star-4" >4</a>
-  <a class="star-5">5</a>
-</span>
-</p> --> */
-/* .stars input {
-  position: absolute;
-  left: -999999px;
-}
-
-.stars a {
-  display: inline-block;
-  padding-right:4px;
-  text-decoration: none;
-  margin:0;
-}
-
-.stars a:after {
-  position: relative;
-  font-size: 18px;
-  font-family: 'FontAwesome', serif;
-  display: block;
-  content: "\f005";
-  color: #F2F2F2;
-}
-
-
-span {
-font-size: 0; 
-}
-
-.stars a:hover ~ a:after{
-color: #F2F2F2 !important;
-}
-span.active a.active ~ a:after{
-color: #F2F2F2;
-}
-
-span:hover a:after{
-color:orange !important;
-}
-
-span.active a:after,
-.stars a.active:after{
-color:orange;
-}
- */
-
-
-/*  */
-/* <!-- <span class="fa fa-star "></span>
-<span class="fa fa-star "></span>
-<span class="fa fa-star "></span>
-<span class="fa fa-star "></span>
-<span class="fa fa-star"></span> --> */
 .fa {
   color: #F2F2F2;
 }
@@ -207,52 +131,116 @@ color:orange;
     color: orange;
 }
 
+/* _______ User review rating styling _______*/
+div#reviewRating {
+  border-style:solid;
+  border-color:#03D8A9;
+  background: #03D8A9;
+  border-radius: 5%;
+  color:black;
+} 
+h4#reviewRating {
+  border-style:solid;
+  border-color:#03D8A9;
+  background: #03D8A9;
+  border-radius: 5%;
+  color:black;
+} 
 
-/* ======= */
-/* https://stackoverflow.com/questions/40870635/star-rating-system-html */
-div.stars {
-  width: 270px;
-  display: inline-block;
+/*_______ Search page movie border styling _______ */
+div#searchBorder {
+   /* border-style: solid; */
+   border: 1px solid rgba(var(--lightGrey), 1);
+  /* border-color:#F2F2F2;  */
+  box-shadow: 1px 2px 8px #444444;
+  /* background: #03D8A9; */
+  border-radius: 1%;
+  width: 80%;
+  display: flex;
+  border-spacing: 15px;
+  
+  align-content: center;
+  align-items: center;
+  /*  padding: 10px 15px; */
+  display: flex;
+} 
+
+/* _______ href Link colours _______*/
+
+/* visited link */
+a:visited {
+  color: white;
 }
 
-input.star { 
-  display: none; 
+/* mouse over link */
+a:hover {
+  color: #03D8A9;
+}
+
+/* selected link */
+a:active {
+  color: #03D8A9;
+}
+
+/* _______ Search page dropdown sort _______*/
+
+#dropdown {
+  background-color: #6C757D;
+  color: white;
+  padding: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+/* _______ star rating styling _______ */
+
+div.rating {
+  float: left;
+}
+
+input.star {
+  border: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  opacity: 0;
+  float: right;
+  color: #C8C8C8;
 }
 
 label.star {
+  position: relative;
   float: right;
-  padding: 10px;
-  font-size: 30px;
-  color: #F2F2F2;
-  transition: all .2s;
+  color: #C8C8C8;
+}
+
+label.star:before {
+  margin: 1px;
+  /* content: "\f005"; */
+  content: '\2605';
+  font-family: FontAwesome;
+  font-size: 2em;
+  color: var(--accent-color);
+  -webkit-user-select: none; /* Safari 3.1+ */
+  -moz-user-select: none; /* Firefox 2+ */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none;
 }
 
 input.star:checked ~ label.star:before {
   content: '\2605';
-  color: #FD4;
-  transition: all .25s;
+  color: #FFC107;
 }
 
-input.star-5:checked ~ label.star:before {
-  color: #FE7;
-  text-shadow: 0 0 20px #952;
+label.star:hover ~ label.star:before {
+  color: #ffdb70;
+  
 }
 
-input.star-1:checked ~ label.star:before {
-   color: #FE7;
-  }
-
- label.star:hover {
-   /* transform: rotate(-15deg) scale(1.3);  */
-   color: #FE7;
-  } 
-
-label.star:before {
-  content: '\2605';
+label.star:hover:before {
+  color: #FFC107;
 }
 
-/* User review rating styling */
-#reviewRating {
-  width: 300px;
-  border: solid red 2px;
-}
