@@ -48,6 +48,8 @@ Week 8:
 Week 9:
     - Started project report 
     - Finalising subdomain pages
+    - Spent the week cleaning up css/interface and helped team connect backend to frontend. Ran into issues with css not linking properly. 
+    - 15th-16th November was spent conducting the UAT as well as preparing final report. Css issues are now fixed. 
 
 
 
