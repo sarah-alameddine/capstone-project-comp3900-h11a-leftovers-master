@@ -9,7 +9,14 @@ require_once(__DIR__ . '/../..//private_html/html-templates/global/session.php')
 if (isset($_GET['id'])) {
 
     $mb = new MovieBuilder();
-    $movie = $mb->get_movie_by_id($_GET['id']);
+
+    if (is_logged_in()) {
+        $user_id = $_SESSION['user']->get_id();
+    } else {
+        $user_id = NULL;
+    }
+
+    $movie = $mb->get_movie_by_id($_GET['id'], $user_id);
     if ($movie === FALSE) {
         echo("Movie not found");
         exit();
@@ -56,14 +63,6 @@ if (isset($_GET['id'])) {
     <link href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@500&display=swap" rel="stylesheet">
     <title>FilmFinity</title>
 
-    <!-- Change the width of the page -->
-    <style>
-      @media (min-width: 1200px) {
-        .container{
-        max-width: 1400px;
-        }
-      }
-    </style>
   </head>
   <body>
 
@@ -74,8 +73,7 @@ if (isset($_GET['id'])) {
 
     <!------------------------ TITLE OF MOVIE ---------------------->
     <div class="pt-5">
-    <h1 class="display-4" style="font-family: 'Vollkorn', serif;text-align: center;"><?php echo($movie->get_title()); ?></h1>
-    
+      <h1 class="display-4" ><?php echo($movie->get_title()); ?></h1>
     </div>
     <div class="container" style="margin-bottom: 60px;">
       <h1><!-- ADD SOME SPACE HERE --></h1>
@@ -84,8 +82,8 @@ if (isset($_GET['id'])) {
       <!------------------------ LEFT SECTION ---------------------------------------------------->
         <!-- Movie poster / rating / wishlist -->
         <!-- class="my-3" - changes the spacing of the elements -->
-        <div  class="col-md-3 " align="center">
-          <div class="pb-4" style="width: 200px;height:300px;">
+        <div  class="col-md-3 " justify-content="center">
+          <div class="pb-4" id="movie-poster-img">
             <!-- <img class="mt-3" src="<?php echo($movie->get_image_path()); ?>" alt="movieposter" style="width:300px;height:400px;"> -->
             <img id="image1" class="mt-3" src="<?php echo($movie->get_image_path()); ?>" alt="movieposter" style="width:100%;height:100%;object-fit:contain;">
           </div>
@@ -98,12 +96,32 @@ if (isset($_GET['id'])) {
                 <?php } else { ?>
                     <a class="btn btn-secondary" class="glyphicon" href="/movies/add-to-wishlist.php?id=<?php echo($movie->get_id()); ?>" role="button"> &#10010; ADD TO WISHLIST</a>
                 <?php } ?>
+
+                <?php
+                if ($_SESSION['user']->is_admin()) {
+                ?>
+
+                <br>
+
+                <?php
+                    if ( !$_SESSION['user']->is_movie_in_editor_picks($movie->get_id()) ) {
+                ?>
+                    <a class="btn btn-secondary" class="glyphicon" href="/movies/add-to-editor-picks.php?id=<?php echo($movie->get_id()); ?>" role="button"> &#10010; ADD TO EDITOR PICKS</a>
+                
+                <?php } else { ?>
+
+                    <a class="btn btn-secondary" class="glyphicon" href="/movies/remove-movies-from-editor-picks.php?id=<?php echo($movie->get_id()); ?>" role="button"> REMOVE FROM EDITOR PICKS</a>
+
+                <?php
+                    }
+                }
+                ?>
             </div>
           <?php } ?>
 
           <!-- Movie star rating -->
-          <h3><?php echo($movie->get_average()); ?> <span style="color: #FFC107;font-size:30px;">&#9733;</span></h3>
-          <h6 style="color: #F2F2F2;"> Average Rating</h6>            
+          <h3 id="movie-star-rating"><?php echo($movie->get_rating()); ?> <span style="color: #FFC107;font-size:30px;">&#9733;</span></h3>
+          <h6 style="color: #F2F2F2;"> Average Rating</h6>
         </div>
 
         <!------------------------ MIDDLE SECTION ---------------------------------------------------->
@@ -113,26 +131,25 @@ if (isset($_GET['id'])) {
           <!-- <div class="mt-3"> -->
             <!-- <h1 align="center" class="display-4" style="font-family: 'Staatliches', cursive;"><?php echo($movie->get_title()); ?></h1> -->
           <!-- </div> -->
-          <!-- <h2>Synopsis</h2> -->
           <div class="pt-5">
 
             <?php if (is_logged_in() && isset($_GET['status'])) { ?>
 
                 <?php if($_GET['status'] == UNABLE_TO_ADD) { ?>
 
-                    <div class="alert alert-danger" role="alert">Unable to add movie to wishlist</div>
+                    <div class="alert alert-danger" role="alert">Unable to add movie to list</div>
 
                 <?php } else if ($_GET['status'] == ADDED) { ?>
 
-                    <div class="alert alert-primary" role="alert">Added movie to wishlist</div>
+                    <div class="alert alert-primary" role="alert">Added movie to list</div>
 
                 <?php } else if ($_GET['status'] == UNABLE_TO_REMOVE) { ?>
 
-                    <div class="alert alert-danger" role="alert">Unable to remove movie from wishlist</div>
+                    <div class="alert alert-danger" role="alert">Unable to remove movie from list</div>
 
                 <?php } else if ($_GET['status'] == REMOVED) { ?>
 
-                    <div class="alert alert-primary" role="alert">Removed movie from wishlist</div>
+                    <div class="alert alert-primary" role="alert">Removed movie from list</div>
 
                 <?php } ?>
 
@@ -140,29 +157,20 @@ if (isset($_GET['id'])) {
 
 
           
-          <p style="font-family: 'Montserrat', sans-serif;"><?php echo($movie->get_description()); ?></p>
-          <h4>Genre(s):</h4>
-          <p><?php echo($movie->get_genre()); ?></p>
+          <p class="category-body"><?php echo($movie->get_description()); ?></p>
+          <h4 class="category">Genre(s):</h4>
+          <p class="category-body"><?php echo($movie->get_genre()); ?></p>
 
-          <h4>Director(s):</h4>
-          <p><?php echo($movie->get_director()); ?></p>
+          <h4 class="category">Director(s):</h4>
+          <p class="category-body"><?php echo($movie->get_director()); ?></p>
 
-          <h4>Cast:<h4>
-          <p><?php echo($movie->get_cast()); ?></p>
+          <h4 class="category">Cast:<h4>
+          <p class="category-body"><?php echo($movie->get_cast()); ?></p>
           </div>
-
-          
-          <!-- Trailer
-          <a href="#demo" class="btn btn-secondary" data-toggle="collapse">Trailer</a>
-          <div id="demo" class="collapse">
-            <div class="embed-responsive embed-responsive-16by9">
-              <iframe class="mt-3" width="560" height="315" src="https://www.youtube.com/embed/2AUmvWm5ZDQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-          </div>-->
 
           <!-- Review section -->
           <div class="pt-5">
-            <h4>Reviews:</h4>
+            <h4 class="category">Reviews:</h4>
           </div>
 
           <hr style="height:1px;border-width:0;background-color:#6C757D">
@@ -170,25 +178,22 @@ if (isset($_GET['id'])) {
 
             <h4 style="color:#F2F2F2;">Add your own review and rating:</h4>
             <div class="pt-1">
-            <!-- TODO BACKEND NEEDED FOR COMMENT -->
+            
             <form method="POST" action="post-review.php">
-                <!-- <h4>Rating (1-5): </h4> -->
-                <!-- <input type="number" id="rating" name="rating" min="1" max="5" value="1"> -->
-                <!-- Star rating section -->
                 <div class="rating">
-                  <input type="radio" id="star5" name="startRating" id="rating" name="rating" class="star" value="5">
+                  <input type="radio" id="star5" name="rating" id="rating" name="rating" class="star" value="5" required>
                     <label for="star5" class="star" title="5 stars"></label>
-                  <input type="radio" id="star4" name="startRating" id="rating" name="rating" class="star" value="4">
+                  <input type="radio" id="star4" name="rating" id="rating" name="rating" class="star" value="4">
                    <label for="star4" class="star" title="4 stars"></label>
-                  <input type="radio" id="star3" name="startRating"  id="rating" name="rating" class="star" value="3">
+                  <input type="radio" id="star3" name="rating"  id="rating" name="rating" class="star" value="3">
                     <label for="star3" class="star" title="3 stars"></label>
-                  <input type="radio" id="star2" name="startRating" id="rating" name="rating" class="star" value="2">
+                  <input type="radio" id="star2" name="rating" id="rating" name="rating" class="star" value="2">
                     <label for="star2" class="star" title="2 stars"></label>
-                  <input type="radio" id="star1" name="startRating" id="rating" name="rating" class="star" value="1">
+                  <input type="radio" id="star1" name="rating" id="rating" name="rating" class="star" value="1">
                     <label for="star1" class="star" title="1 stars"></label>
                 </div>
                 <!-- Comment section -->
-                <textarea class="form-control" style="margin-top:5px;" class="form-control" rows="3" name="comment" placeholder="Add your own review..."></textarea>
+                <textarea class="form-control" style="margin-top:5px;" class="form-control" rows="3" name="comment" placeholder="Add your own review..." required></textarea>
                 <!-- Submit section -->
                 <input type="hidden" name="movie_id" value="<?php echo($movie->get_id()); ?>">
                 <div class="mt-3" >
@@ -205,7 +210,11 @@ if (isset($_GET['id'])) {
             <hr style="height:1px;border-width:0;background-color:#6C757D">
 
           <?php
-              $reviews = $movie->get_reviews();
+              $user_id = NULL;
+              if (is_logged_in()) {
+                $user_id = $_SESSION['user']->get_id();
+              }
+              $reviews = $movie->get_reviews($user_id);
               foreach ($reviews as $review) {
           ?>
                   <div>
@@ -213,7 +222,7 @@ if (isset($_GET['id'])) {
                       <p><small><strong><?php echo($review->get_username()); ?></strong> - <?php echo($review->get_post_date()); ?><p id="reviewRating">>ddddd</p></small></p>
                     </div>     -->
                   <div style="overflow: hidden;">
-                    <p style="float: left;"><small><strong><?php echo($review->get_username()); ?></strong> - <?php echo($review->get_post_date()); ?></small></p>
+                    <p class="category-body" style="float: left;"><small><strong><a href="<?php echo($review->get_user_profile_link()); ?>"><?php echo($review->get_username()); ?></a></strong> - <?php echo($review->get_post_date()); ?></small></p>
                     <p style="float: left;" id="reviewRating"> - &#9733; <?php echo($review->get_rating()); ?> &nbsp;</p>
                   </div>
                     <p><?php echo($review->get_comment()); ?></p>
@@ -247,41 +256,38 @@ if (isset($_GET['id'])) {
         <!------------------------ RIGHT SECTION ---------------------------------------------------->
         <!-- Movie recommendation -->
         <!-- style="border-radius: 12px;border: 2px solid red;" -->
-        <div class="col-md-3 pt-5 pl-5 sticky-left row d-flex justify-content-center text-center" >
+        <div  class="col-md-3 pt-5 pl-5 sticky-left row d-flex justify-content-center text-center" >
           <!-- <table id="recommendation"><tr><th> -->
-          <div id="rec">
-            <h4 >Movie Recommendation </h4>
+          <div class="recommendation-section">
+            <h4 class="category">Movie Recommendation </h4>
             <hr style="height:1px;border-width:0;background-color:#6C757D">
             <!-- TODO ADD THE IF STATEMENT HERE!!!!!!!!!!!!!!!! -->
-            <div class="card-img-top d-flex align-items-center">
-                  <div class="pl-5">
-                    <!-- TODO ADD THE LINK TO THE MOVIE PAGE IN THE 'HREF' AND IN THE 'PHP' SECTION BELOW  -->
-                    <a href="ADD HERE MOVIEPAGE LINK">
-                      <img #image1 class="mt-3"src="<?php echo($movie->get_image_path()); ?>" alt="movieposter"  style="width: 80px;height:100px;"> 
-                    </a>
-                  </div>
-                    <p class="pl-2" ><a href="ADD HERE MOVIEPAGE LINK">Movie 1</a></p>
-            </div>
 
-            <div class="card-img-top d-flex align-items-center ">
-              <div class="pl-5" >
-                  <!-- TODO ADD THE LINK TO THE MOVIE PAGE IN THE 'HREF' AND IN THE 'PHP' SECTION BELOW  -->
-                  <a href="ADD HERE MOVIEPAGE LINK">
-                    <img #image1 class="mt-3"src="<?php echo($movie->get_image_path()); ?>" alt="movieposter"  style="width: 80px;height:100px;"> 
-                  </a>
-              </div>
-                <p class="pl-2"><a href="ADD HERE MOVIEPAGE LINK">Movie 2</a></p>
-            </div>
+            <?php
+            $recommendations = $movie->get_recommendations();
+            foreach ($recommendations as $type => $r_movies) {
+                foreach ($r_movies as $r_movie) {
+            ?>
 
-              <div class="card-img-top d-flex align-items-center">
-                <div class="pl-5">
-                    <!-- TODO ADD THE LINK TO THE MOVIE PAGE IN THE 'HREF' AND IN THE 'PHP' SECTION BELOW  -->
-                    <a href="ADD HERE MOVIEPAGE LINK">
-                      <img #image1 class="mt-3"src="<?php echo($movie->get_image_path()); ?>" alt="movieposter"  style="width: 80px;height:100px;"> 
-                    </a>
-                </div>
-                <p class="pl-2"><a href="ADD HERE MOVIEPAGE LINK">Movie 3</a></p>
-              </div>
+                    <div class="card mb-3">
+                    
+                        <div class="recommendation-card">
+                          <!-- TODO ADD THE LINK TO THE MOVIE PAGE IN THE 'HREF' AND IN THE 'PHP' SECTION BELOW  -->
+                          <a href="<?php echo($r_movie->get_movie_page_path()); ?>">
+                              <img id="recommendation-img" src="<?php echo($r_movie->get_image_path()); ?>">
+                          </a>
+                            <div class="card-body">
+                                <h5 class="card-title"><a href="<?php echo($r_movie->get_movie_page_path()); ?>"><?php echo($r_movie->get_title()); ?></a></h5>
+                                <p class="category-body" class="card-text">(Similar <?php echo($type); ?>)</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+            <?php
+                }
+            }
+            ?>
+
               <!-- TODO ADD THE END OF IF STATEMENT HERE!!!!!!!!!!!!!!!! -->
               <!-- TODO ADD THE ELSE STATEMENT HERE!!!!!!!!!!!!!!!! -->
                 <!-- ANIKET UNCOMMENT THE LINE BELOW FOR THE ELSE STATEMENT-->
