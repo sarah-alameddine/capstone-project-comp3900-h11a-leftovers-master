@@ -1,22 +1,15 @@
 
 body {
-  /* height: auto; */
-  /* background: linear-gradient(#191919 0%, #131212 40%, #161616 70%, black 90%); */
-  /* background: linear-gradient(#16171B 0%, #0e0f11 20%, #0e0f11 40%); */
-  /* background-color: #16171B; */
-  /* background-color: #191919; */
-  /* background-color: #27292b; */
   background-color: black;
-  
-  
 }
 
 @media (min-width: 1200px) {
   .container{
-  max-width: 1400px;
+  max-width: 2400px;
   }
 }
 
+/* _______ <h> tag styling _______ */
 .display-4{
   color: #F2F2F2;
   font-family: 'Quicksand', sans-serif;
@@ -42,19 +35,22 @@ body {
   font-size: 1.8vh;
 }
 
+/*
 a {
   color:#F2F2F2;
 }
-
+*/
 /* Movie Poster Size */
-#movie-poster-image{
-  height: 22vh;
+#movie-poster-img{
+  border-radius: 2%;
+  height: 50vh;
   width: auto;
 }
 
 /* Container size for movie recommendations */
 .recommendation-section {
-  background-color: green;
+  background: rgb(62,62,62);
+  background: radial-gradient(circle, rgba(62,62,62,0.927608543417367) 0%, rgba(17,17,17,1) 100%);
   border-radius: 2%;
   padding: 15px; 
   left: 20px;;
@@ -62,10 +58,15 @@ a {
   width: fit-content;
 }
 
+.card {
+  background-color: transparent;
+}
+
 .recommendation-card{
   width: 30vh;
   /*background-color: #27292b;*/
-  background-color: red;
+  background-color: rgba(161, 161, 161, 0.3);
+  border-radius: 2%;
 }
 
 .card-body{
@@ -77,9 +78,11 @@ a {
   top:0;
   left: 0;
   float: left;
-  width: 15vh;
+  width: 12vh;
   height: auto;
   vertical-align: center;
+  border-radius: 2%;
+  overflow: hidden;
 }
 
 /* Recomendation on Movie Page */
@@ -91,7 +94,7 @@ a {
   margin: 0;
 }
 
-/* PAGNATION */
+/* _______ PAGNATION _______ */
 /* https://codepen.io/RRoberts/pen/jVOWEQ */
 
 .pagination{
@@ -167,19 +170,14 @@ div#searchBorder {
 
 /* _______ href Link colours _______*/
 
-/* visited link */
-a:visited {
-  color: white;
+/*Colour of <a> tags */
+#link {
+  color: #29d9b3;
 }
 
 /* mouse over link */
-a:hover {
-  color: #03D8A9;
-}
-
-/* selected link */
-a:active {
-  color: #03D8A9;
+#link:hover {
+  color: #54f7d4;
 }
 
 /* _______ Search page dropdown sort _______*/
