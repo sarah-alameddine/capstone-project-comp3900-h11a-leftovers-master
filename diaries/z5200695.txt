@@ -58,4 +58,11 @@ I've been working on the quiz page and also made some changes on the profile pag
 
 Add movie to watchlist is finished. I created a page for add movie to watchlist and a page for search movie to add to watchlist. This novel functionality should be done once Anikeet has connected to backend. 
 
+I will work on the filter section in the homepage to make it become an overflow row so that we can put as many as movie to that section. Also when Anikeet finished his backend, I will double check watchlist, wishlist, bandits and profile page for any changes with the  positioning.
+
 I did a quick check to make sure we have covered all objective and novelty function. I think Objective 3 hasnt fully finished, but we have to wait for Anikeet to connect to backend and see how it goes. At the same time, Aayushma, Sarah and I also start to work on the report today.
+
+Week10
+Do testing the website. The movie title in the recommendation in movie page are not work properly yet (some appear, some don't). I think the cause of this bug is because of the color of the text match the colour of the background.
+
+Suggestion for a demo rehearsal 
