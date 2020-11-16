@@ -1,0 +1,216 @@
+
+body {
+    background-color: black;
+  }
+  
+  
+  /* _______ <h> tag styling _______ */
+  .display-4{
+    color: #F2F2F2;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    text-align: center;
+  }
+  
+  #movie-star-rating{
+    color: #F2F2F2;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .category{
+    color: #03D8A9;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+  }
+
+  .searchHead{
+    color: #F2F2F2;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+  }
+  
+  .category-body {
+    color: #F2F2F2;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.8vh;
+  }
+  
+  .movieTitle {
+    color: #F2F2F2;
+    /* font-family: 'Open Sans', sans-serif; */
+  }
+  
+  .movieDate {
+    color: #03D8A9;
+    /* font-family: 'Open Sans', sans-serif; */
+  }
+  /*
+  a {
+    color:#F2F2F2;
+  }
+  */
+  /* Movie Poster Size */
+  #movie-poster-img{
+    border-radius: 2%;
+    height: 50vh;
+    width: auto;
+  }
+  
+  /* Container size for movie recommendations */
+  .recommendation-section {
+    background: rgb(62,62,62);
+    background: radial-gradient(circle, rgba(62,62,62,0.927608543417367) 0%, rgba(17,17,17,1) 100%);
+    border-radius: 2%;
+    padding: 15px; 
+    left: 20px;;
+    height: auto;
+    width: fit-content;
+  }
+  
+  .card {
+    background-color: transparent;
+  }
+  
+  .recommendation-card{
+    width: 30vh;
+    /*background-color: #27292b;*/
+    background-color: rgba(161, 161, 161, 0.3);
+    border-radius: 2%;
+  }
+  
+  .card-body{
+    display: inline;
+  }
+  
+  /*Image of Movie Recommendation*/
+  #recommendation-img {
+    top:0;
+    left: 0;
+    float: left;
+    width: 12vh;
+    height: auto;
+    vertical-align: center;
+    border-radius: 2%;
+    overflow: hidden;
+  }
+  
+  /* Recomendation on Movie Page */
+  #rec {
+    padding: 10px;
+    border-radius: 2%;
+    border-color: #F2F2F2;
+    background-color: #27292b;
+    margin: 0;
+  }
+  
+  /* _______ User review rating styling _______*/
+  div#reviewRating {
+    border-style:solid;
+    border-color:#03D8A9;
+    background: #03D8A9;
+    border-radius: 5%;
+    color:black;
+  } 
+  h4#reviewRating {
+    border-style:solid;
+    border-color:#03D8A9;
+    background: #03D8A9;
+    border-radius: 5%;
+    color:black;
+  } 
+  
+  /*_______ Search page movie border styling _______ */
+  div#searchBorder {
+     /* border-style: solid; */
+     border: 1px solid rgba(var(--lightGrey), 1);
+    /* border-color:#F2F2F2;  */
+    box-shadow: 1px 2px 8px #444444;
+    /* background: #03D8A9; */
+    border-radius: 1%;
+    width: 80%;
+    display: flex;
+    border-spacing: 15px;
+    
+    align-content: center;
+    align-items: center;
+    /*  padding: 10px 15px; */
+    display: flex;
+  } 
+  
+  /* _______ href Link colours _______*/
+  
+  /*Colour of <a> tags */
+  #link {
+    color: #F2F2F2;
+  }
+  
+  /* mouse over link */
+  #link:hover {
+    color: #54f7d4;
+  }
+  
+  /* _______ Search page dropdown sort _______*/
+  
+  #dropdown {
+    background-color: #6C757D;
+    color: white;
+    padding: 6px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* _______ star rating styling _______ */
+  
+  div.rating {
+    float: left;
+  }
+  
+  input.star {
+    border: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    opacity: 0;
+    float: right;
+    color: #C8C8C8;
+  }
+  
+  label.star {
+    position: relative;
+    float: right;
+    color: #C8C8C8;
+  }
+  
+  label.star:before {
+    margin: 1px;
+    /* content: "\f005"; */
+    content: '\2605';
+    font-family: FontAwesome;
+    font-size: 2em;
+    color: var(--accent-color);
+    -webkit-user-select: none; /* Safari 3.1+ */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none;
+  }
+  
+  input.star:checked ~ label.star:before {
+    content: '\2605';
+    color: #FFC107;
+  }
+  
+  label.star:hover ~ label.star:before {
+    color: #ffdb70;
+    
+  }
+  
+  label.star:hover:before {
+    color: #FFC107;
+  }
+  
+  

@@ -1,0 +1,204 @@
+/* Css File for FilmFinity HomePage */
+
+body{
+    background-color: black;
+}
+
+label{
+    font-weight:bold; 
+    color: black; 
+    font-family:georgia,garamond,serif;
+    font-size:1.5vh;
+    font-style:italic;
+}
+
+.container{
+    max-width: 92%;
+}
+
+.row{
+    padding: 0.6em;
+}
+
+/* Some css for Login and signup pages */
+.input-title{
+    color: black;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.form-control{
+    width: 40vh;
+}
+
+/* css for search button */
+.button{
+    border: none;
+    background: none;
+    box-shadow: none
+}
+  
+/* Welcome message css */
+.welcome1{
+    font-size: 3.5em;
+    color: #9effec;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-family: 'Quicksand', sans-serif;
+}
+  
+.welcome2 {
+    display: inline-block;
+    font-size: 2vh;
+    width: 40%;
+    color: white;
+    line-height: 1.5vh;
+    font-family: 'Quicksand', sans-serif;
+}
+
+/* Filter Panel tabs */
+.nav-link{
+    color: #65ccb8;
+    font-size: 1.5vh;
+}
+
+#your-recommendations-tab, #editors-picks-tab{
+    color: white;
+    font-size: 1.4em;
+}
+
+/* Attribute: https://www.youtube.com/watch?v=exb2ab72Xhs&ab_channel=dcode 
+ * Code for carousel cards
+ */
+
+.card{
+    background: none;
+    display: flex;
+    justify-content: center;
+    transition: 0.5s;
+}
+
+.card-img-top{
+    height: 30vh;
+    width: auto;
+    object-fit: cover;
+}
+
+/* Note: this feature may not be available on all browsers */
+.card:hover{
+    transform: scale(1.12)
+}
+
+.card-title{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 2vh;
+    font-weight: 800;
+    display: inline-block;
+    color: #65ccb8;
+    text-align: center
+}
+
+.card-text{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.5vh;
+    color: #f2f2f2;
+}
+
+.card-overlay{
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.25s;
+}
+
+/* Note: this feature may not be supported in old browsers */
+.card-overlay--blur{
+    backdrop-filter: blur(0.3em);
+}
+.card-overlay > * {
+    transform: translateY(1.25em);
+    transition: transform 0.25s;
+}
+.card-overlay:hover {
+    opacity: 1;
+}
+
+.card-overlay:hover > * {
+    transform: translateY(0);
+}
+
+/* CSS for "View All" Button */
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600);
+
+#view-all, .input-button{
+    display:inline-block;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 14px;
+    text-decoration:none;   
+    text-align: center;
+    justify-content: center;
+    right: -40em;
+    
+    color:#65ccb8;
+    background-color:transparent;
+    border:1px solid #65ccb8;
+    border-radius:100px;
+    
+    padding: .5em 1.5em;
+    margin:8px;
+            
+    background-size: 200% 100%; 
+    background-image: linear-gradient(to right, transparent 50%, rgba(101, 204, 183) 50%);
+    transition: background-position .3s cubic-bezier(0.19, 1, 0.22, 1) .1s, color .5s ease 0s, background-color .5s ease;
+}
+
+.input-button{
+    color:#3a9c89;
+    border:1px solid #3a9c89;
+    background-image: linear-gradient(to right, transparent 50%, rgba(58, 156, 136) 50%);
+}
+
+#view-all:hover{
+    color:rgba(255, 255, 255, 1);
+    background-color:rgba(101, 204, 183);
+    background-position: -100% 100%;
+}
+
+.input-button:hover {
+    color:rgba(255, 255, 255, 1);
+    background-color:rgba(58, 156, 136);
+    background-position: -100% 100%;
+}
+
+/* css for scrollbars in scrolling carousels */
+.scrollbar-dusty-grass::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    background-color: black; }
+    
+    .scrollbar-dusty-grass::-webkit-scrollbar {
+    width: 8px;
+    background-color: #F5F5F5; }
+    
+    .scrollbar-dusty-grass::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    background-image: -webkit-linear-gradient(90deg, rgba(61,255,158,1) 0%, rgba(93,246,216,1) 48%, rgba(0,223,248,1) 100%);
+    background-image: linear-gradient(90deg, rgba(61,255,158,1) 0%, rgba(93,246,216,1) 48%, rgba(0,223,248,1) 100%); }
+    
+    .scrollbar-dusty-grass {
+    scrollbar-color: #65ccb8 #f5f5f570;
+}
