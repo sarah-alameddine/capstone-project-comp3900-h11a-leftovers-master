@@ -90,7 +90,7 @@ if (isset($_GET['id'])) {
           
           <?php if (is_logged_in()) { ?>
             <!-- Wishlist button -->
-            <div class="my-3">
+            <div class="my-3" align="center">
                 <?php if ($_SESSION['user']->is_movie_in_wishlist($movie->get_id())) { ?>
                     <a class="btn btn-secondary" class="glyphicon" href="/movies/remove-from-wishlist.php?id=<?php echo($movie->get_id()); ?>" role="button"> REMOVE FROM WISHLIST</a>
                 <?php } else { ?>
@@ -120,8 +120,10 @@ if (isset($_GET['id'])) {
           <?php } ?>
 
           <!-- Movie star rating -->
-          <h3 id="movie-star-rating"><?php echo($movie->get_rating()); ?> <span style="color: #FFC107;font-size:30px;">&#9733;</span></h3>
-          <h6 style="color: #F2F2F2;"> Average Rating</h6>
+          <div class="my-3" align="center">
+            <h3 id="movie-star-rating"><?php echo($movie->get_rating()); ?> <span style="color: #FFC107;font-size:30px;">&#9733;</span></h3>
+            <h6 style="color: #F2F2F2;"> Average Rating</h6>
+          </div>
         </div>
 
         <!------------------------ MIDDLE SECTION ---------------------------------------------------->
@@ -204,7 +206,7 @@ if (isset($_GET['id'])) {
             </div>
 
         <?php } else { ?>
-            <h4 style="color:#F2F2F2;"><a href="/login.php">Login</a> or <a href="/signup.php">Sign Up</a> and post your own reviews</h4>
+            <h4 style="color:#F2F2F2;"><a id="link" href="/login.php">Login</a> or <a id="link" href="/signup.php">Sign Up</a> and post your own reviews</h4>
         <?php } ?>
 
             <hr style="height:1px;border-width:0;background-color:#6C757D">
@@ -259,7 +261,7 @@ if (isset($_GET['id'])) {
         <div  class="col-md-3 pt-5 pl-5 sticky-left row d-flex justify-content-center text-center" >
           <!-- <table id="recommendation"><tr><th> -->
           <div class="recommendation-section">
-            <h4 class="category">Movie Recommendation </h4>
+            <h4 class="category">Recommended </h4>
             <hr style="height:1px;border-width:0;background-color:#6C757D">
             <!-- TODO ADD THE IF STATEMENT HERE!!!!!!!!!!!!!!!! -->
 
@@ -277,7 +279,7 @@ if (isset($_GET['id'])) {
                               <img id="recommendation-img" src="<?php echo($r_movie->get_image_path()); ?>">
                           </a>
                             <div class="card-body">
-                                <h5 class="card-title"><a href="<?php echo($r_movie->get_movie_page_path()); ?>"><?php echo($r_movie->get_title()); ?></a></h5>
+                                <h5 class="card-title"><a id="link" href="<?php echo($r_movie->get_movie_page_path()); ?>"><?php echo($r_movie->get_title()); ?></a></h5>
                                 <p class="category-body" class="card-text">(Similar <?php echo($type); ?>)</p>
                             </div>
                         </div>
