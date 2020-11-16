@@ -18,15 +18,15 @@ if (isset($_GET['id'])) {
 
     $movie = $mb->get_movie_by_id($_GET['id'], $user_id);
     if ($movie === FALSE) {
-        echo("Movie not found");
+        header("Location: /?error=6");
         exit();
     } else if ($movie === DATABASE_ERROR) {
-        echo("An internal error occured");
+        header("Location: /?error=2");
         exit();
     }
 
 } else {
-    echo("Movie not found");
+    header("Location: /?error=6");
     exit();
 }
 
@@ -45,7 +45,7 @@ if (isset($_GET['id'])) {
     <script src="https://kit.fontawesome.com/a13c7bceb2.js" crossorigin="anonymous"></script>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="../assets/images/favicon.ico"/>
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon-2.ico"/>
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../assets/css/moviePage.css">
@@ -82,7 +82,7 @@ if (isset($_GET['id'])) {
       <!------------------------ LEFT SECTION ---------------------------------------------------->
         <!-- Movie poster / rating / wishlist -->
         <!-- class="my-3" - changes the spacing of the elements -->
-        <div  class="col-md-3 " justify-content="center">
+        <div  class="col-md-3 " justify-content="center" >
           <div class="pb-4" id="movie-poster-img">
             <!-- <img class="mt-3" src="<?php echo($movie->get_image_path()); ?>" alt="movieposter" style="width:300px;height:400px;"> -->
             <img id="image1" class="mt-3" src="<?php echo($movie->get_image_path()); ?>" alt="movieposter" style="width:100%;height:100%;object-fit:contain;">
@@ -120,10 +120,8 @@ if (isset($_GET['id'])) {
           <?php } ?>
 
           <!-- Movie star rating -->
-          <div class="my-3" align="center">
-            <h3 id="movie-star-rating"><?php echo($movie->get_rating()); ?> <span style="color: #FFC107;font-size:30px;">&#9733;</span></h3>
-            <h6 style="color: #F2F2F2;"> Average Rating</h6>
-          </div>
+          <h3 id="movie-star-rating" align="center"><?php echo($movie->get_rating()); ?> <span style="color: #FFC107;font-size:30px;">&#9733;</span></h3>
+          <h6 style="color: #F2F2F2;" align="center"> Average Rating</h6>
         </div>
 
         <!------------------------ MIDDLE SECTION ---------------------------------------------------->
@@ -178,32 +176,37 @@ if (isset($_GET['id'])) {
           <hr style="height:1px;border-width:0;background-color:#6C757D">
         <?php if (is_logged_in()) { ?>
 
-            <h4 style="color:#F2F2F2;">Add your own review and rating:</h4>
-            <div class="pt-1">
-            
-            <form method="POST" action="post-review.php">
-                <div class="rating">
-                  <input type="radio" id="star5" name="rating" id="rating" name="rating" class="star" value="5" required>
-                    <label for="star5" class="star" title="5 stars"></label>
-                  <input type="radio" id="star4" name="rating" id="rating" name="rating" class="star" value="4">
-                   <label for="star4" class="star" title="4 stars"></label>
-                  <input type="radio" id="star3" name="rating"  id="rating" name="rating" class="star" value="3">
-                    <label for="star3" class="star" title="3 stars"></label>
-                  <input type="radio" id="star2" name="rating" id="rating" name="rating" class="star" value="2">
-                    <label for="star2" class="star" title="2 stars"></label>
-                  <input type="radio" id="star1" name="rating" id="rating" name="rating" class="star" value="1">
-                    <label for="star1" class="star" title="1 stars"></label>
-                </div>
-                <!-- Comment section -->
-                <textarea class="form-control" style="margin-top:5px;" class="form-control" rows="3" name="comment" placeholder="Add your own review..." required></textarea>
-                <!-- Submit section -->
-                <input type="hidden" name="movie_id" value="<?php echo($movie->get_id()); ?>">
-                <div class="mt-3" >
-                <input class="btn btn-secondary btn-lg btn-block" type="submit" value="Post Review">
-              </div>
-              </form>
+            <?php if ($movie->has_user_written_review($_SESSION['user']->get_id())) { ?>
+                <h4 style="color:#F2F2F2;">You've already written a review</h4>
+            <?php } else { ?>
 
-            </div>
+                <h4 style="color:#F2F2F2;">Add your own review and rating:</h4>
+                <div class="pt-1">
+                
+                <form method="POST" action="post-review.php">
+                    <div class="rating">
+                      <input type="radio" id="star5" name="rating" id="rating" name="rating" class="star" value="5" required>
+                        <label for="star5" class="star" title="5 stars"></label>
+                      <input type="radio" id="star4" name="rating" id="rating" name="rating" class="star" value="4">
+                       <label for="star4" class="star" title="4 stars"></label>
+                      <input type="radio" id="star3" name="rating"  id="rating" name="rating" class="star" value="3">
+                        <label for="star3" class="star" title="3 stars"></label>
+                      <input type="radio" id="star2" name="rating" id="rating" name="rating" class="star" value="2">
+                        <label for="star2" class="star" title="2 stars"></label>
+                      <input type="radio" id="star1" name="rating" id="rating" name="rating" class="star" value="1">
+                        <label for="star1" class="star" title="1 stars"></label>
+                    </div>
+                    <!-- Comment section -->
+                    <textarea class="form-control" style="margin-top:5px;" class="form-control" rows="3" name="comment" placeholder="Add your own review..." required></textarea>
+                    <!-- Submit section -->
+                    <input type="hidden" name="movie_id" value="<?php echo($movie->get_id()); ?>">
+                    <div class="mt-3" >
+                    <input class="btn btn-secondary btn-lg btn-block" type="submit" value="Post Review">
+                  </div>
+                  </form>
+
+                </div>
+            <?php } ?>
 
         <?php } else { ?>
             <h4 style="color:#F2F2F2;"><a id="link" href="/login.php">Login</a> or <a id="link" href="/signup.php">Sign Up</a> and post your own reviews</h4>
@@ -220,38 +223,15 @@ if (isset($_GET['id'])) {
               foreach ($reviews as $review) {
           ?>
                   <div>
-                    <!-- <div>
-                      <p><small><strong><?php echo($review->get_username()); ?></strong> - <?php echo($review->get_post_date()); ?><p id="reviewRating">>ddddd</p></small></p>
-                    </div>     -->
-                  <div style="overflow: hidden;">
-                    <p class="category-body" style="float: left;"><small><strong><a href="<?php echo($review->get_user_profile_link()); ?>"><?php echo($review->get_username()); ?></a></strong> - <?php echo($review->get_post_date()); ?></small></p>
-                    <p style="float: left;" id="reviewRating"> - &#9733; <?php echo($review->get_rating()); ?> &nbsp;</p>
-                  </div>
-                    <p><?php echo($review->get_comment()); ?></p>
+                    <div style="overflow: hidden;">
+                      <p id="reviewer" class="category-body" style="float: left;"><small><strong><a href="<?php echo($review->get_user_profile_link()); ?>"><?php echo($review->get_username()); ?></a></strong> - <?php echo($review->get_post_date()); ?></small></p>
+                      <p id="reviewer" style="float: left;" id="reviewRating"> - &#9733; <?php echo($review->get_rating()); ?> &nbsp;</p>
+                    </div>
+                    <p id="review"><?php echo($review->get_comment()); ?></p>
                   </div>
           <?php
               }
           ?>
-
-          <!-- TODO PAGNATION START -->
-          <!--
-          <form action="">
-          <div class="pagination p1 justify-content-center">
-            <ul>
-              <a href="#"><li><</li></a>
-              <a class="is-active" href="#"><li>1</li></a>
-              <a href="#"><li>2</li></a>
-              <a href="#"><li>3</li></a>
-              <a href="#"><li>4</li></a>
-              <a href="#"><li>5</li></a>
-              <a href="#"><li>6</li></a>
-              <a href="#"><li>></li></a>
-            </ul>
-          </div>
-          </form>
-          -->
-
-       <!-- TODO PAGNATION END -->
        
         </div>
         
@@ -263,7 +243,6 @@ if (isset($_GET['id'])) {
           <div class="recommendation-section">
             <h4 class="category">Recommended </h4>
             <hr style="height:1px;border-width:0;background-color:#6C757D">
-            <!-- TODO ADD THE IF STATEMENT HERE!!!!!!!!!!!!!!!! -->
 
             <?php
             $recommendations = $movie->get_recommendations();
@@ -290,11 +269,6 @@ if (isset($_GET['id'])) {
             }
             ?>
 
-              <!-- TODO ADD THE END OF IF STATEMENT HERE!!!!!!!!!!!!!!!! -->
-              <!-- TODO ADD THE ELSE STATEMENT HERE!!!!!!!!!!!!!!!! -->
-                <!-- ANIKET UNCOMMENT THE LINE BELOW FOR THE ELSE STATEMENT-->
-                <!-- <p style="font-family: 'Montserrat', sans-serif;">Login to view recommended movies</p> -->
-              <!-- TODO ADD THE END OF ELSE STATEMENT HERE!!!!!!!!!!!!!!!! -->
               </div>
         </div>
       </div>
